@@ -15,8 +15,8 @@ User.destroy_all
       avatar_url: "",
       phone: "06 84 14 81 19",
       is_god: true,
-      #email: "thp.sess7.gre@gmailmail.com",
-      #password: "azeaze"
+      email: "thp.sess7.gre@gmailmail.com",
+      password: "azeaze"
       )
   end
 
@@ -73,8 +73,8 @@ User.destroy_all
       nick_name: "god",
       avatar_url: "",
       phone: "06 38 14 81 19",
-      #email: "mail@yopmail.com",
-      #password: "azeaze"
+      email: "mail@yopmail.com",
+      password: "azeaze"
       )
         expect(@user_with_already_taken_nick_name).not_to be_valid
       end

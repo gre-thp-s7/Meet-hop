@@ -17,6 +17,8 @@ end
       avatar_url: "",
       phone: "06 84 14 81 19",
       is_god: true,
+      email: "thp.sess7.gre@gmailmail.com",
+      password: "azeaze"      
       )
 
 		@valid_event = Event.create!(
