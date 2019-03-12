@@ -1,5 +1,6 @@
 *.rbc
 capybara-*.html
+~.DS_Store
 
 /log
 /tmp
