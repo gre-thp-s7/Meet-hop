@@ -1,6 +1,10 @@
 *.rbc
 capybara-*.html
 
+################# for yaya macbook shity file #############
+*.DS_Store
+################################################@
+
 /log
 /tmp
 /db/*.sqlite3
