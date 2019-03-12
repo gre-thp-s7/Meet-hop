@@ -8,6 +8,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+
   validates :first_name, presence: true
   validates :last_name, presence: { message: "must be given connard " }
   validates :phone, presence: true, allow_blank: true
@@ -36,17 +37,7 @@ class User < ApplicationRecord
 
 
 
-#=================== MAILER =================
-# Send an email after a user is created
-# after_create :welcome_email_send
 
-# def welcome_email_send
-
-#   # Tell the UserMailer to send a welcome email after save
-#   UserMailer.welcome_email(self).deliver_now
-
-# end
-#=============================================
 
 
 private
@@ -60,4 +51,16 @@ private
 #################################################
 
 
+
+  #=================== MAILER =================
+  # Send an email after a user is created
+  after_create :send_welcome_email
+
+  def send_welcome_email
+
+    # Tell the UserMailer to send a welcome email after save
+    UserMailer.welcome_email(self).deliver_now
+
+  end
+  #=============================================
 end
