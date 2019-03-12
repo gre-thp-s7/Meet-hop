@@ -54,6 +54,15 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+################## add by the team ################
+  gem 'rspec-rails', '~> 3.8'
+  gem 'factory_bot'
+  gem 'faker'
+  gem 'rspec'
+  gem 'pry-rails'
+  gem 'faker'
+  gem 'sidekick'  
+####################################################  
 end
 
 group :development do
@@ -63,6 +72,10 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+################## add by the team ################
+  gem 'letter_opener'
+  gem "better_errors"
+####################################################  
 end
 
 group :test do
@@ -71,15 +84,13 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
+################## add by the team ################
+  gem 'shoulda-matchers'
+  gem 'nyan-cat-formatter'
+####################################################  
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem 'devise'
-gem 'stripe'
-group :development, :test do
-gem 'rspec'
-gem 'pry-rails'
-gem 'faker'
-gem 'sidekick'
-end
+
+
