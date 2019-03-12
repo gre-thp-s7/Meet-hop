@@ -7,6 +7,9 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  
+  has_many :registrations
+  has_many :events, through: :registrations
 
 
   validates :first_name, presence: true
@@ -34,10 +37,6 @@ class User < ApplicationRecord
 ###### this is profile picture with active storage ######
   has_one_attached :avatar
 #####################################
-
-
-
-
 
 
 private
