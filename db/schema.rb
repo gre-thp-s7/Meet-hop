@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2019_03_12_121842) do
+=======
+ActiveRecord::Schema.define(version: 2019_03_12_163928) do
+>>>>>>> 1252e1ccbdd72fb2f5bc487cf24a3c6f64dafd7c
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +40,24 @@ ActiveRecord::Schema.define(version: 2019_03_12_121842) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+<<<<<<< HEAD
+=======
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "category_events", force: :cascade do |t|
+    t.bigint "category_id"
+    t.bigint "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_category_events_on_category_id"
+    t.index ["event_id"], name: "index_category_events_on_event_id"
+  end
+
+>>>>>>> 1252e1ccbdd72fb2f5bc487cf24a3c6f64dafd7c
   create_table "events", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -51,6 +73,14 @@ ActiveRecord::Schema.define(version: 2019_03_12_121842) do
     t.datetime "updated_at", null: false
     t.index ["locality_id"], name: "index_events_on_locality_id"
     t.index ["promoter_id"], name: "index_events_on_promoter_id"
+  end
+
+  create_table "localities", force: :cascade do |t|
+    t.string "city_name"
+    t.string "zipcode"
+    t.string "address"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "registrations", force: :cascade do |t|
@@ -72,6 +102,13 @@ ActiveRecord::Schema.define(version: 2019_03_12_121842) do
     t.boolean "is_god", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
