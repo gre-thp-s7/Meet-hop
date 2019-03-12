@@ -58,11 +58,9 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.8'
   gem 'factory_bot'
   gem 'faker'
-  gem 'rspec'
   gem 'pry-rails'
-  gem 'faker'
-  gem 'sidekick'  
-####################################################  
+  gem 'sidekick'
+####################################################
 end
 
 group :development do
@@ -75,7 +73,7 @@ group :development do
 ################## add by the team ################
   gem 'letter_opener'
   gem "better_errors"
-####################################################  
+####################################################
 end
 
 group :test do
@@ -87,10 +85,8 @@ group :test do
 ################## add by the team ################
   gem 'shoulda-matchers'
   gem 'nyan-cat-formatter'
-####################################################  
+####################################################
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
-
