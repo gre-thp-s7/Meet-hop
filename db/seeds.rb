@@ -24,7 +24,9 @@ ActiveRecord::Base.connection.reset_pk_sequence!('registrations')
   nick_name: "bob",
   avatar_url: "",
   phone: "01 47 20 00 01",
-  is_god: false
+  is_god: false,
+  email: Faker::Internet.email,
+  password: "123456"
   )
 end
 
@@ -48,5 +50,26 @@ end
     user_id: User.all.sample.id,
     event_id: Event.all.sample.id,
     role: "danceur ou spectateur"
+  )
+end
+
+15.times do |c|
+  c = Category.create!(
+    name: Faker::Restaurant.name
+  )
+end
+
+20.times do |ca|
+  ca = CategoryEvent.create!(
+    category_id: Category.all.sample.id,
+    event_id: Event.all.sample.id
+  )
+end
+
+10.times do |l|
+  l = Locality.create!(
+  city_name: Faker::House.room,
+  zipcode: "38330 en force",
+  address: "adresse"
   )
 end
