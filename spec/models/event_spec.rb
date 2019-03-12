@@ -1,8 +1,4 @@
 require 'rails_helper'
-
-
-
-
 RSpec.describe Event, type: :model do
 
 # clean de la db svp !
@@ -14,20 +10,26 @@ end
 
 
   before(:each) do
-		@valid_user = User.create!(
-			first_name: "first_name", 
-			last_name: "last_name", 
-			email: "mail@yopmail.com"
-			)
+    @valid_user = User.create!(
+      first_name: "first_name", 
+      last_name: "last_name", 
+      nick_name: "god",
+      avatar_url: "",
+      phone: "06 84 14 81 19",
+      is_god: true,
+      )
 
 		@valid_event = Event.create!(
-			title: "diner",
-			description: "la bonne bouffe a VB",
+			name: "battle royale",
+			description: "toi meme tu sais ################",
 			start_date: Time.now + 1.day,
 			duration: 90 ,
-			price: 5 ,
-			location: "V-B" ,
-			admin_id: @valid_user.id)
+			spectator_price: "5" ,
+			#locality: 1 ,
+      prize_money: "une pipe de ginette",
+      rules: "un seul doit survivre",
+			promoter_id: @valid_user.id
+      )
 	end
 
 	context "validation" do
@@ -39,7 +41,7 @@ end
 
 		describe "#title" do
       it "should not be valid whitout a title" do
-		    @valid_event.title = nil
+		    @valid_event.name = nil
         expect(@valid_event).not_to be_valid
       end
     end
@@ -65,44 +67,23 @@ end
       end
     end
 
-    describe "#price" do
+    describe "#spectator_price" do
       it "should not be valid without a price" do
-		    @valid_event.price = nil       
+		    @valid_event.spectator_price = nil       
         expect(@valid_event).not_to be_valid
       end
     end
 
-    describe "#location" do
-      it "should not be valid without a location" do
-		    @valid_event.location = nil       
-        expect(@valid_event).not_to be_valid
-      end
-    end
 
-    describe "#admin_id" do
-      it "should not be valid without a creator" do
-		    @valid_event.admin_id = nil       
+    describe "#promoter" do
+      it "should not be valid without a promoter" do
+		    @valid_event.promoter_id = nil       
         expect(@valid_event).not_to be_valid
       end
     end
 
 ############################ missing attribute ##########@
 
-
-
-    describe "#price" do
-      it "should not be valid without price < 1" do
-        @valid_event.price = 0
-        expect(@valid_event).not_to be_valid
-      end
-    end
-
-    describe "#price" do
-      it "should not be valid without a price > 1000" do
-		    @valid_event.price = 1001       
-        expect(@valid_event).not_to be_valid
-      end
-    end
 
 
     describe "#start_date" do
@@ -113,16 +94,16 @@ end
     end
 
 
-    describe "#title" do
+    describe "#name" do
       it "should not be valid with title > 140 char" do
-		    @valid_event.title = "a"*141       
+		    @valid_event.name = "a"*141       
         expect(@valid_event).not_to be_valid
       end
     end
 
     describe "#title" do
       it "should not be valid with title < 5 char" do
-		    @valid_event.title = "a"*4       
+		    @valid_event.name = "a"*4       
         expect(@valid_event).not_to be_valid
       end
     end

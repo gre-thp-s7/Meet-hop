@@ -20,19 +20,17 @@ class Event < ApplicationRecord
     numericality: { only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 1000 }
 
 	validates :rules, 
-		presence: true,
+		presence: true
 
 	validates :prize_money, 
 		presence: true,
 		allow_blank: true
 
 
-	validates :location, 
-		presence: true
+	# validates :location, 
+	# 	presence: true
 
-  has_many :registration, dependent: :destroy
-  has_many :users, through: :attendances
-  belongs_to :is_admin, class_name: "User"
+  belongs_to :promoter, class_name: "User"
 
 
 # methode intéressantes pour plus tard?
