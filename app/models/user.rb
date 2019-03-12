@@ -1,12 +1,15 @@
 class User < ApplicationRecord
 
 # before_save :avatar_picture
-#  before_save { self.email = email.downcase }
+ before_save { self.email = email.downcase }
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  
+  has_many :registrations
+  has_many :events, through: :registrations
 
 
   validates :first_name, presence: true
@@ -21,23 +24,19 @@ class User < ApplicationRecord
 ##### https://guides.rubyonrails.org/active_record_validations.html#common-validation-options ####
 
 
-######  email validation #########
-  # VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  # validates :email,
-  #   presence: true,
-  #   length: { maximum: 255 },
-  #   format: { with: VALID_EMAIL_REGEX },
-  #   uniqueness: { case_sensitive: false }
-######## end email validation #############
+#####  email validation #########
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :email,
+    presence: true,
+    length: { maximum: 255 },
+    format: { with: VALID_EMAIL_REGEX },
+    uniqueness: { case_sensitive: false }
+####### end email validation #############
 
 
 ###### this is profile picture with active storage ######
   has_one_attached :avatar
 #####################################
-
-
-
-
 
 
 private
