@@ -7,6 +7,10 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  
+  has_many :registrations
+  has_many :events, through: :registrations
+
 
   validates :first_name, presence: true
   validates :last_name, presence: { message: "must be given connard " }
@@ -35,20 +39,6 @@ class User < ApplicationRecord
 #####################################
 
 
-
-#=================== MAILER =================
-# Send an email after a user is created
-# after_create :welcome_email_send
-
-# def welcome_email_send
-
-#   # Tell the UserMailer to send a welcome email after save
-#   UserMailer.welcome_email(self).deliver_now
-
-# end
-#=============================================
-
-
 private
 
 ######### put a profile picture if there isn't #########
@@ -60,4 +50,16 @@ private
 #################################################
 
 
+
+  #=================== MAILER =================
+  # Send an email after a user is created
+  after_create :send_welcome_email
+
+  def send_welcome_email
+
+    # Tell the UserMailer to send a welcome email after save
+    UserMailer.welcome_email(self).deliver_now
+
+  end
+  #=============================================
 end
