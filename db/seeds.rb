@@ -14,6 +14,12 @@ Event.destroy_all
 ActiveRecord::Base.connection.reset_pk_sequence!('events')
 Registration.destroy_all
 ActiveRecord::Base.connection.reset_pk_sequence!('registrations')
+Category.destroy_all
+ActiveRecord::Base.connection.reset_pk_sequence!('categories')
+CategoryEvent.destroy_all
+ActiveRecord::Base.connection.reset_pk_sequence!('category_events')
+Locality.destroy_all
+ActiveRecord::Base.connection.reset_pk_sequence!('localities')
 
 
 
@@ -21,7 +27,7 @@ ActiveRecord::Base.connection.reset_pk_sequence!('registrations')
   u = User.create!(
   first_name: Faker::Name.first_name,
   last_name: Faker::Name.last_name,
-  nick_name: "bob",
+  nick_name: Faker::ElectricalComponents.unique.active,
   avatar_url: "",
   phone: "01 47 20 00 01",
   is_god: false,
@@ -34,8 +40,8 @@ end
   e = Event.create!(
   name: Faker::Nation.nationality,
   description: Faker::Restaurant.description,
-  start_date: Faker::Date.between(DateTime.now, DateTime.now + 1),
-  duration: rand(10),
+  start_date: Faker::Date.between(DateTime.now + 1 , DateTime.now + 2),
+  duration: 10,
   spectator_price: "trop cher",
   rules: "En gros c'est 2 mecs qui se battent en duel de danse",
   prize_money: "30€ de bons d'achat a Auchan",

@@ -1,6 +1,16 @@
 *.rbc
 capybara-*.html
 
+
+################# for yaya macbook shity file #############
+*.DS_Store
+################################################
+########### this file cause pb ###########
+log/development.log
+############################################
+
+
+
 /log
 /tmp
 /db/*.sqlite3
