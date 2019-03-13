@@ -52,7 +52,7 @@ end
   description: Faker::Restaurant.description,
   start_date: Faker::Date.between(DateTime.now + 1 , DateTime.now + 2),
   duration: 10,
-  spectator_price: "trop cher",
+  spectator_price: rand(10..30),
   rules: "En gros c'est 2 mecs qui se battent en duel de danse",
   prize_money: "30€ de bons d'achat a Auchan",
   picture_url: "",
