@@ -21,13 +21,19 @@ end
       password: "azeaze"      
       )
 
+    @valid_locality = Locality.create!(
+      city_name: "grenoble",
+      zipcode: "38000 en force",
+      address: "cherche encore"
+      )
+
 		@valid_event = Event.create!(
 			name: "battle royale",
 			description: "toi meme tu sais ################",
-			start_date: Time.now + 1.day,
+			start_date: (Time.now + 1.day),
 			duration: 90 ,
 			spectator_price: "5" ,
-			#locality: 1 ,
+			locality_id: @valid_locality.id ,
       prize_money: "une pipe de ginette",
       rules: "un seul doit survivre",
 			promoter_id: @valid_user.id
@@ -86,8 +92,6 @@ end
 
 ############################ missing attribute ##########@
 
-
-
     describe "#start_date" do
       it "should not be valid without a past date (=< Time.now)" do
 		    @valid_event.start_date = Time.now - 1.day      
@@ -124,12 +128,5 @@ end
       end
     end
 
-
-    describe "#duration" do
-      it "should not be valid with a duration whoose not by 5 divideable" do
-		    @valid_event.duration = 7       
-        expect(@valid_event).not_to be_valid
-      end
-    end
   end
 end

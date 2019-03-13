@@ -25,7 +25,7 @@ ActiveRecord::Base.connection.reset_pk_sequence!('localities')
 
 10.times do |u|
   u = User.create!(
-  first_name: Faker::Name.first_name,
+  first_name: Faker::Name.first_name[5..40],
   last_name: Faker::Name.last_name,
   nick_name: Faker::ElectricalComponents.unique.active,
   avatar_url: "",
@@ -47,7 +47,7 @@ end
 10.times do |e|
   e = Event.create!(
   name: Faker::Nation.nationality,
-  description: Faker::Restaurant.description,
+  description: Faker::Restaurant.description[20..1000],
   start_date: Faker::Date.between(DateTime.now + 1 , DateTime.now + 2),
   duration: 10,
   spectator_price: "trop cher",
