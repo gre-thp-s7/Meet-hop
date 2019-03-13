@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 2019_03_12_163928) do
     t.text "rules"
     t.string "prize_money"
     t.string "picture_url"
+    t.bigint "locality_id"
     t.bigint "promoter_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
