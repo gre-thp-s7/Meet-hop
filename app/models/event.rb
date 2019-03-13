@@ -36,13 +36,9 @@ class Event < ApplicationRecord
 		presence: true,
 		allow_blank: true
 
-<<<<<<< HEAD
+
 	####### will have to work on this part with the table locality
 	# validates :location, 
-=======
-
-	# validates :location,
->>>>>>> 86ea7334c46d6598e577030a6290c9ba88f3fae6
 	# 	presence: true
 
 
