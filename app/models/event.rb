@@ -10,49 +10,48 @@ class Event < ApplicationRecord
 
   belongs_to :promoter, class_name:'User'
 
-	validates :name, 
-		presence: true, 
+	validates :name,
+		presence: true,
     length: { in: 5..140 }
 
-	validates :description, 
-		presence: true, 
+	validates :description,
+		presence: true,
     length: { in: 20..1000 }
 
 	validates :start_date,
 		presence: true
 
-	validates :duration, 
+	validates :duration,
 		presence: true,
 		numericality: { only_integer: true}
 
-	validates :spectator_price, 
-		presence: true,
-    numericality: { only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 1000 }
+	validates :spectator_price,
+		presence: true
+    # numericality: { only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 1000 }
 
-	validates :rules, 
+	validates :rules,
 		presence: true
 
-	validates :prize_money, 
+	validates :prize_money,
 		presence: true,
 		allow_blank: true
 
+<<<<<<< HEAD
 	####### will have to work on this part with the table locality
 	# validates :location, 
+=======
+
+	# validates :location,
+>>>>>>> 86ea7334c46d6598e577030a6290c9ba88f3fae6
 	# 	presence: true
 
 
 # methode intéressantes pour plus tard?
 #  scope :in_the_past, { where('start_date < ?', Time.now }
-#  scope :in_the_future, { where('start_date > ?', Time.now 
+#  scope :in_the_future, { where('start_date > ?', Time.now
 
 
-  validate :duration_format_ok
-	def duration_format_ok
-	  if duration.present? &&	duration%5 != 0
-			errors.add(:duration_format, "puts correct duration format")
-		end
 
-	end
 
 	validate :is_future
 	def is_future
