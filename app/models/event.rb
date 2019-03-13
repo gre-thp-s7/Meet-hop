@@ -16,11 +16,11 @@ class Event < ApplicationRecord
 
 	validates :name,
 		presence: true,
-    length: { in: 2..140 }
+    length: { in: 5..140 }
 
 	validates :description,
 		presence: true,
-    length: { in: 20..10000 }
+    length: { in: 20..1000 }
 
 	validates :start_date,
 		presence: true
@@ -47,12 +47,12 @@ class Event < ApplicationRecord
 
 
 ############  method verifiction for the start date to include
-	# validate :is_future
-	# def is_future
-	# 	if start_date.present? && start_date < Time.now
-	# 		errors.add(:expiration_date, "dans le futur c'est mieux !")
-	# 	end
-	# end
+	validate :is_future
+	def is_future
+		if start_date.present? && start_date < Time.now
+			errors.add(:expiration_date, "dans le futur c'est mieux !")
+		end
+	end
 #######################################################@
 
 
