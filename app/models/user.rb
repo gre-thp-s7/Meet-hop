@@ -8,23 +8,22 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   
+
   has_many :registrations, dependent: :destroy
   has_many :events, through: :registrations
 
   has_many :created_events, class_name: "Event", foreign_key: 'promoter_id', dependent: :destroy 
 
 
-
   validates :first_name, presence: true
   validates :last_name, presence: { message: "must be given connard " }
   validates :phone, presence: true, allow_blank: true
-
-
-############## try by yaya for validation ##############@
   validates :nick_name, uniqueness: true
 
-#########@ this is documentation wher i find this ################    
-##### https://guides.rubyonrails.org/active_record_validations.html#common-validation-options ####
+
+########## something to try for validation ##############@
+########## this is documentation wher i find this ################    
+# https://guides.rubyonrails.org/active_record_validations.html#common-validation-options ####
 
 
 #####  email validation #########
