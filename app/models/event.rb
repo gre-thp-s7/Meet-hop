@@ -1,5 +1,6 @@
 class Event < ApplicationRecord
-  belongs_to :locality
+  ######## cause locality table hasn't been done yet
+  #belongs_to :locality
 
   has_many :category_events
   has_many :categories, through: :category_events
@@ -35,7 +36,7 @@ class Event < ApplicationRecord
 		presence: true,
 		allow_blank: true
 
-
+	####### will have to work on this part with the table locality
 	# validates :location, 
 	# 	presence: true
 
