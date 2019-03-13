@@ -53,9 +53,9 @@ end
 
 10.times do |l|
   l = Locality.create!(
-  city_name: Faker::House.room,
-  zipcode: "38330 en force",
-  address: "adresse"
+    city_name: Faker::House.room,
+    zipcode: "38330 en force",
+    address: "adresse"
   )
 end
 
@@ -69,8 +69,8 @@ end
   rules: "En gros c'est 2 mecs qui se battent en duel de danse",
   prize_money: "30€ de bons d'achat a Auchan",
   picture_url: "",
-  locality_id: Locality.all.sample.id,
-  promoter_id: User.all.sample.id
+  promoter_id: User.all.sample.id,
+  locality_id: Locality.all.sample.id
   )
 end
 
@@ -95,4 +95,3 @@ end
     event_id: Event.all.sample.id
   )
 end
-
