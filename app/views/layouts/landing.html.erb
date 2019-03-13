@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>The Hacking Project - Landing</title>
+    <title>Meet-Hop</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <!-- Google Fonts -->
@@ -13,7 +13,11 @@
   </head>
 
   <body>
+    <%= render "layouts/navbar_landing"  %>
+    <div class="container">
+
     <%= yield %>
-    <%= javascript_include_tag 'landing' %>
+  </div>
+    <%= render "layouts/footer_landing"  %>
   </body>
 </html>
