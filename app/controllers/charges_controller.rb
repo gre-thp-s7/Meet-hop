@@ -5,6 +5,7 @@ The controller does two things:
   Shows a credit card form (using Checkout).
   Creates the actual charges by calling our API.
 =end
+
 def new
 end
 
