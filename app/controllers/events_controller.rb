@@ -1,29 +1,56 @@
 class EventsController < ApplicationController
   
+  # for later with piture and active storage
+  require 'open-uri'
+  
+  before_action :authenticate_user, only: [:new, :create]
+  before_action :authenticate_admin, only: [:edit, :update, :destroy]
+
   # GET /events with (index.html.erb)
  def index
   @events = Event.all
+      @nb_events = Event.all.length
+      @last_event1 = Event.find_by(id: @nb_events)
+      @last_event2 = Event.find_by(id: @nb_events-1)
+      @last_event3 = Event.find_by(id: @nb_events-2)
 end
 
 # GET /events/:id with (show.html.erb)
 def show
+  binding.pry 
+  #post_params = params.permit.....
+
+  @event = Event.find(params[:id])
 end
 
 # GET /events/new with (new.html.erb)
 def new
+  @new_event = Event.new
 end
 
-# GET /events/:id/edit with (edit.html.erb)
-def edit
-end
 
 
 def create
+  binding.pry
+  #post_params = params.require(:new_event).permit(all)
+  @new_event = Event.new
+
+  if @new_event.save!
+    flash[:success] = "évènement créé !"
+    redirect_to(root_path)
+  end
+
   # Méthode qui créé un potin à partir du contenu du formulaire de new.html.erb, soumis par l'utilisateur
   # pour info, le contenu de ce formulaire sera accessible dans le hash params (ton meilleur pote)
   # Une fois la création faite, on redirige généralement vers la méthode show (pour afficher le potin créé)
 end
 
+# GET /events/:id/edit with (edit.html.erb)
+def edit
+  binding.pry 
+  #post_params = params.permit.....
+  @event_to_edit = Event.find_by(id: params)
+end
 
 # PUT/PATCH /events/:id with (edit.html.erb)
 def update

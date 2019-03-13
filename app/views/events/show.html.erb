@@ -1,0 +1,24 @@
+<span class="text-center">
+
+<h1> Titre: <%= @event.title %> </h1>
+
+<h5> Description :</h5>
+<p> <%= @event.description %></p>
+<h5> date:</h5>
+<p> <%= @event.start_date %></p>
+
+<h5> endroit :</h5>
+<p> <%= @event.locality_id %></p>
+<h5> prix public:</h5>
+<p> <%= @event.spectator_price %></p>
+<h5> rules:</h5>
+<p> <%= @event.rules %></p>
+<h5> prize money:</h5>
+<p> <%= @event.prize_money %></p>
+
+<h2> cet évenement a été crée par :</h2>
+<p> <%= @promoter.first_name %></p>
+
+</span>
+
+<%= render 'events/showoneevent'%>
