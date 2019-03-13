@@ -360,7 +360,8 @@ select.form-control:not([size]):not([multiple]) {
   position: relative;
   vertical-align: bottom;
   border: 1px solid rgba(0, 40, 100, 0.12);
-  transition: .3s border-color, .3s background-color; }
+  /* transition: .3s border-color, .3s background-color;  */
+}
   .custom-switch-indicator:before {
     content: '';
     position: absolute;
@@ -370,7 +371,8 @@ select.form-control:not([size]):not([multiple]) {
     left: 1px;
     background: #fff;
     border-radius: 50%;
-    transition: .3s left; }
+    /* transition: .3s left;  */
+  }
 
 .custom-switch-input:checked ~ .custom-switch-indicator {
   background: #6777ef; }
@@ -383,7 +385,8 @@ select.form-control:not([size]):not([multiple]) {
 .custom-switch-description {
   margin-left: .5rem;
   color: #6e7687;
-  transition: .3s color; }
+  /* transition: .3s color;  */
+}
 
 .custom-switch-input:checked ~ .custom-switch-description {
   color: #495057; }
@@ -431,7 +434,8 @@ select.form-control:not([size]):not([multiple]) {
   z-index: 1;
   border-radius: 3px;
   opacity: 0;
-  transition: .3s opacity; }
+  /* transition: .3s opacity;  */
+}
 
 .imagecheck-input:checked ~ .imagecheck-figure:before {
   opacity: 1; }
@@ -439,7 +443,8 @@ select.form-control:not([size]):not([multiple]) {
 .imagecheck-image {
   max-width: 100%;
   opacity: .64;
-  transition: .3s opacity; }
+  /* transition: .3s opacity;  */
+}
   .imagecheck-image:first-child {
     border-top-left-radius: 2px;
     border-top-right-radius: 2px; }
@@ -458,7 +463,8 @@ select.form-control:not([size]):not([multiple]) {
   padding: .25rem .25rem;
   color: #9aa0ac;
   font-size: 0.875rem;
-  transition: .3s color; }
+  /* transition: .3s color;  */
+}
 
 .imagecheck:hover .imagecheck-caption {
   color: #495057; }
@@ -495,7 +501,7 @@ select.form-control:not([size]):not([multiple]) {
     left: .25rem;
     height: 1.25rem;
     width: 1.25rem;
-    transition: .3s opacity;
+    /* transition: .3s opacity; */
     background: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E") no-repeat center center/50% 50%; }
 
 .colorinput-input:checked ~ .colorinput-color:before {
@@ -943,7 +949,8 @@ select.form-control:not([size]):not([multiple]) {
   font-size: 12px;
   margin-top: 5px;
   opacity: 0;
-  transition: all .3s; }
+  /* transition: all .3s;  */
+}
   .table-links a {
     color: #666; }
 
@@ -1560,7 +1567,8 @@ h6 .badge {
     min-height: 46px;
     font-weight: 500;
     border-radius: 3px 0 0 3px;
-    transition: all 1s; }
+    /* transition: all 1s;  */
+  }
     .navbar .form-inline .form-control:focus,
     .navbar .form-inline .form-control:focus + .btn {
       position: relative;
@@ -1587,7 +1595,8 @@ h6 .badge {
     background-color: #000;
     opacity: 0;
     visibility: hidden;
-    transition: all .5s; }
+    /* transition: all .5s;  */
+  }
   .navbar .form-inline .search-result {
     position: absolute;
     z-index: 9002;
@@ -1597,7 +1606,8 @@ h6 .badge {
     width: 450px;
     opacity: 0;
     visibility: hidden;
-    transition: all .5s; }
+    /* transition: all .5s;  */
+  }
     .navbar .form-inline .search-result:before {
       position: absolute;
       top: -26px;
@@ -1977,7 +1987,9 @@ body {
   font-size: 14px;
   font-weight: 400;
   font-family: 'Nunito', 'Segoe UI', arial;
-  color: #6c757d; }
+  color: #6c757d;
+  padding-top: 75px;
+}
 
 a.bb {
   text-decoration: none;
@@ -2354,7 +2366,8 @@ pre {
 .navbar,
 .main-content,
 .main-footer {
-  transition: all .5s; }
+  /* transition: all .5s;  */
+}
 
 body.sidebar-gone .main-sidebar {
   left: -250px; }
@@ -2571,7 +2584,8 @@ body.layout-3 .navbar.navbar-secondary {
       bottom: 0;
       height: 2px;
       background-color: #6777ef;
-      transition: all .5s; }
+      /* transition: all .5s;  */
+    }
     body.layout-3 .navbar.navbar-secondary .navbar-nav > .nav-item > .nav-link span {
       line-height: 74px; }
     body.layout-3 .navbar.navbar-secondary .navbar-nav > .nav-item > .nav-link i {
