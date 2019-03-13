@@ -10,7 +10,7 @@ class Registration < ApplicationRecord
   def send_registration_email
 
     # Tell the UserMailer to send a comfirmation email after a resgistration is create
-    UserMailer.registration_email(self).deliver_now
+    UserMailer.registration_email(user, event).deliver_now
 
   end
   #=============================================
