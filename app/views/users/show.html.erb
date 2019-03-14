@@ -49,7 +49,7 @@
           <span><i class="fas fa-key"></i> Editer email et/ou mot de passe </span>
           <% end %>
 
-          <%= link_to destroy_user_session_path(@user.id), class: "btn btn-style-4 btn-secondary btn-sm" do%>
+          <%= link_to edit_user_path(@user), class: "btn btn-style-4 btn-secondary btn-sm" do%>
 
           <span><i class="fas fa-user-edit"></i> Editer les informations du profil </span>
           <% end %>
