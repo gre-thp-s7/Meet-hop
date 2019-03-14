@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(version: 2019_03_12_163928) do
     t.bigint "promoter_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["locality_id"], name: "index_events_on_locality_id"
     t.index ["promoter_id"], name: "index_events_on_promoter_id"
   end
 
@@ -99,6 +100,7 @@ ActiveRecord::Schema.define(version: 2019_03_12_163928) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string "facebook_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

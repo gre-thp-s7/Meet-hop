@@ -15,6 +15,7 @@
           <% else %>
         <li class="active"><%= link_to "créer un nouvel évènement", root_path %></li>
         <li><%= link_to "Log in", new_user_session_path %></li>
+        <li><%= link_to "Log in with facebook", user_facebook_omniauth_authorize_path %></li>
         <li><%= link_to "Sign up", new_user_registration_path %></li>
         <% end %>
         <% if current_user != nil && current_user.is_god == true %>
