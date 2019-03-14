@@ -5,18 +5,13 @@ Rails.application.routes.draw do
   get 'registrations/create'
   get 'registrations/edit'
   get 'registrations/destroy'
-  
+
   root 'home#index'
   get 'dashboard', to: "dashboard#index"
 
-  # devise_for :users, controllers: {
-  #   sessions: 'users/sessions'
-  # }
-
   devise_for :users, controllers: {
-  omniauth_callbacks: 'users/omniauth_callbacks'
+    omniauth_callbacks: 'users/omniauth_callbacks'
   }
-  # devise_for :users
 
   resources :users
   resources :events
