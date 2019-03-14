@@ -16,10 +16,10 @@ class User < ApplicationRecord
   has_many :created_events, class_name: "Event", foreign_key: 'promoter_id', dependent: :destroy
 
 
-  # validates :first_name, presence: true
-  # validates :last_name, presence: { message: "must be given connard " }
-  # validates :phone, presence: true, allow_blank: true
-  # validates :nick_name, uniqueness: true, allow_blank: true
+  validates :first_name, presence: true
+  validates :last_name, presence: { message: "must be given connard " }
+  validates :phone, presence: true, allow_blank: true
+  validates :nick_name, uniqueness: true, allow_blank: true
 
 
 ########## something to try for validation ##############@
