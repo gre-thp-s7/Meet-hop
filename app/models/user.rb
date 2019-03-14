@@ -6,8 +6,9 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
-  
+         :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:facebook]
+  #crée des routes pour facebook
+
 
   has_many :registrations, dependent: :destroy
   has_many :events, through: :registrations
@@ -52,7 +53,20 @@ private
 #################################################
 
 
+  #=============Connect with facebook==========
+  def self.from_facebook(auth)
 
+    where(facebook_id: auth.uid).first_or_create do |user|
+
+      user.email = auth.info.email #find fb email
+      user.username = auth.info.name # a check si ça affiche publiquement
+      user.password = Devise.friendly_token[0, 20] #genere un mdp aleatoire
+      # user.skip_comfirmation!
+
+    end
+  end
+
+  #============================================
   #=================== MAILER =================
   # Send an email after a user is created
   after_create :send_welcome_email
