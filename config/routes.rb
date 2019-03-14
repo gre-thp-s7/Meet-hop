@@ -14,13 +14,11 @@ Rails.application.routes.draw do
   root 'home#index'
   get 'dashboard', to: "dashboard#index"
 
-  devise_for :users, controllers: {
-    sessions: 'users/sessions'
-  }
+  devise_for :users
 
   resources :users
   resources :events
-  
+
 
   #Stripe
   resources :charges
