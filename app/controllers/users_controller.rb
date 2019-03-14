@@ -13,12 +13,12 @@ class UsersController < ApplicationController
 
   def edit
     @user = current_user
-    @profile = User.find_by(user_id: @user.id)    
+    @profile = User.find_by(id: @user.id)
   end
 
   def update
     @user = current_user
-    @profile = User.find_by(user_id: @user.id)
+    @profile = User.find_by(id: @user.id)
     puts "**"*100
     puts @current_page
     puts @params
@@ -42,7 +42,7 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
-    @profile = User.find_by(user_id: @user.id)      
+    @profile = User.find_by(id: @user.id)      
   end
 
 end
