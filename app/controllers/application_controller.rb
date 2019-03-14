@@ -6,8 +6,6 @@ class ApplicationController < ActionController::Base
 # ajout des quatres alertes principale en bootstrap (3autres manquantes)
   add_flash_types :danger, :info, :warning, :success
 
-<<<<<<< HEAD
-
 ############## add by yaya : have to TTTEEESSSSTTT them to use them 
 private
 
@@ -52,8 +50,6 @@ private
   end
 ###################################################
 
-
-=======
   protect_from_forgery with: :exception
 
   protected
@@ -64,5 +60,4 @@ private
     devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:first_name, :last_name, :email, :password, :current_password)}
   end
 
->>>>>>> delivery_yaya
 end
