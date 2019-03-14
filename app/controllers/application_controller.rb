@@ -16,7 +16,7 @@ private
     end
   end
 
-  def is_promotor_of_the_event
+  def is_promoter_of_the_event
     puts "@"*60
     puts "admin?"
     puts "this method looks if your the creator of the event"
@@ -42,7 +42,7 @@ private
     puts "@"*60
     puts "pas admin et pas inscrit ?" 
     puts "this method looks if you can subscribe to the event"    
-    if is_promotor_of_the_event || already_subscribed_to_the_event
+    if is_promoter_of_the_event || already_subscribed_to_the_event
       return false
     else
       return true

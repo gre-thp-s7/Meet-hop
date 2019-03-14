@@ -5,13 +5,13 @@ class EventsController < ApplicationController
 
 ###### protection against path in search browser bar ###### 
   before_action :authenticate_user!, only: [:new, :create]
-  before_action :is_promotor, only: [:edit, :update, :destroy]
+  before_action :is_promoter_of_the_event, only: [:edit, :update, :destroy]
 ############################################################
 
 ############ method to create variable for "if" in front ####
 ### it give boolean for each ###########
   def whosit
-    @promotor = is_promotor_of_the_event
+    @promotor = is_promoter_of_the_event
     @already_participant = already_subscribed_to_the_event
     @subscribtion_possible = can_subscribe_for_event    
   end
@@ -36,47 +36,55 @@ class EventsController < ApplicationController
   end
 
   def create
-    #binding.pry
     post_params = params.require(:event).permit!
-    @event = Event.new(name: post_params[:name],
-                       description: post_params[:description],
-                       start_date: post_params[:start_date],
-                       duration: post_params[:duration],
-                       spectator_price: post_params[:spectator_price],
-                       rules: post_params[:rules],
-                       prize_money: post_params[:prize_money],
-                       )
+    @event = Event.new(
+      name: post_params[:name],
+      description: post_params[:description],
+      start_date: post_params[:start_date],
+      duration: post_params[:duration],
+      spectator_price: post_params[:spectator_price],
+      rules: post_params[:rules],
+      prize_money: post_params[:prize_money],
+      )
     @event.picture.attach(post_params[:picture])                      
     @event.locality_id = 1
     @event.promoter_id = current_user.id
+    
     if @event.save!
       flash[:success] = "évènement créé !"
       redirect_to(root_path)
     end
+
   end
 
-  # GET /events/:id/edit with (edit.html.erb)
   def edit
-    binding.pry 
-    #post_params = params.permit(:id)
     @event = Event.find_by(id: params[:id])
   end
 
 
   def update
-    posted_params = params.permit(:event)
-    params.permit(:id)
+    posted_paramse = params.permit(:event)
+    post_params = params.require(:event).permit!
 
     @event = Event.find_by(id: params[:id])
-    ############################
-    if @event.update(title: params[:event][:title],description: params[:event][:description],start_date: params[:event][:start_date],duration: params[:event][:duration],price: params[:event][:price],location: params[:event][:location])
-      flash[:success] = "Ton évenement a bien été modifié !"
+
+    if @event.update(
+      name: post_params[:name],
+      description: post_params[:description],
+      start_date: post_params[:start_date],
+      duration: post_params[:duration],
+      spectator_price: post_params[:spectator_price],
+      rules: post_params[:rules],
+      prize_money: post_params[:prize_money],
+      )
+
+      flash[:success] = "Ton évenement a bien été modifié connard !"
+      flash[:danger] = "faudra envoyer un mail au gens inscrit !"
       redirect_to event_path(@id)
     else
       render :edit
     end
   end
-  #################################
 
 
   # DELETE events/:id

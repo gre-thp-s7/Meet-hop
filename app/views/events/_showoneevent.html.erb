@@ -2,13 +2,13 @@
     <div class="container">
         <div class="row">
             <% unless @event.picture.attached? == false %>
-            <div class="col-sm-6" style="padding-left: 75px">
+            <div class="col-sm-6" style="padding-left: 75px; border-width: 2px; border-style: solid; border-color: #1C6EA4">
                 <%= image_tag @event.picture, class:"img-responsive", alt: "" %>
             </div>
             <% end %>
 
 
-            <div class="col-sm-6">
+            <div class="col-sm-6" style="border-width: 2px; border-style: solid; border-color: #1C6EA4">
                 <div class="project-name overflow">
                     <h2 class="bold"><%= @event.name %></h2>
                     <ul class="nav navbar-nav navbar-default">
@@ -37,14 +37,34 @@
                 </div>
 
                 <div class="client overflow">
-                    <h3>Price :  <span style="color: #C03035"> <%= @event.spectator_price %> <i class="fa fa-euro"></i></span></h3>
+                    <h3>prix public :  <span style="color: #C03035"> <%= @event.spectator_price %> <i class="fa fa-euro"></i></span></h3>
                     <ul class="nav navbar-nav navbar-default">
                         <li><a href="#" style="font-size: 16px;"> </a></li>
                     </ul>
                 </div>
-                <div class="live-preview">
-                    <a href="#" class="btn btn-common" style="margin-top: 37px">  <i class="fa fa-shopping-cart"></i> Je participe ! </a>
-                </div>
+                
+                <% if @subscribtion_possible %>
+
+                    <div class="live-preview">
+                        <a href="#" class="btn btn-common" style="margin-top: 37px; border-width: 2px; border-style: solid; border-color: #1C6EA4">  <i class="fa fa-shopping-cart"></i> Je participe ! (doit rediriger vers new#registration avec une vue qui va bien ou de l'ajax sur cette page...) </a>
+                    </div>
+
+                <% elsif @promotor %>
+
+                    <div class="live-preview">
+                        <a href="<%= edit_event_path %>" class="btn btn-common" style="margin-top: 37px; border-width: 2px; border-style: solid; border-color: #1C6EA4">  <i class="fa fa-shopping-cart"></i> Je modifie ! (doit rediriger vers edit#event) </a>
+                    </div>
+
+                <% elsif @already_participant %>
+
+                    <div class="live-preview">
+                        <a href="#" class="btn btn-common" style="margin-top: 37px; border-width: 2px; border-style: solid; border-color: #1C6EA4">  <i class="fa fa-shopping-cart"></i> Je participe déja ! (doit rediriger vers .... ce qu'on voudrat) </a>
+                    </div>
+
+                <% end %>
+
+
+
             </div>
         </div>
     </div>
