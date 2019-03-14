@@ -1,0 +1,67 @@
+<div class="container">
+<div class="row">
+<div class="col-md-3" style="border-width: 2px;
+border-style: solid;
+border-color: #1C6EA4;"></div>
+<div class="col-md-6 " style="border-width: 2px;
+border-style: solid;
+border-color: #1C6EA4;">
+<br><br><br>
+<h2 class="h1 mb-3 font-weight-normal text-center">ICI LA modif D'UN NOUVEAU event connard !</h2>
+
+<%= form_for @event do |f| %>
+<label>name</label>
+<%= f.text_field :name %>
+</p>
+
+<label>description</label>
+<%= f.text_area :description %>
+
+<p>
+<label>start date</label>
+<%= f.text_field :start_date %>
+</p>
+
+<label>duration</label>
+<%= f.text_field :duration %>
+</p>
+
+<label>spectator price</label>
+<%= f.text_field :spectator_price %>
+</p>
+
+<p>
+<label>rules</label>
+<%= f.text_area :rules %>
+</p>
+
+<p>
+<label>prize money</label>
+<%= f.text_field :prize_money %>
+</p>
+
+<p>
+<label>image associée</label><br>
+
+<%if @event.picture.attached?%>
+<%= image_tag @event.picture, alt: 'picture', class:"img-responsive" %>
+<%else%>
+<p>=== Il n'y a pas encore d'image' lié à ce event ===</p>
+<%end%>	<br>
+
+<!-- we have to work on this -->
+<p>=== si tu veux changer ton image c'est ici ===</p>
+<p>=== (t'as cru que c'était la fete, c'est pas encore fonctionnel ! ) ===</p>
+<p hidden><%= f.file_field :picture %></p>
+<!-- above asshole !  -->
+
+</p>
+
+<div class="actions">
+<%= f.submit "modifie", class: "btn btn-submit btn-lg btn-block" %>
+</div>
+
+<% end %>
+</div>
+</div>
+</div>

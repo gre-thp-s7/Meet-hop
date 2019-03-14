@@ -40,7 +40,7 @@ ActiveRecord::Base.connection.reset_pk_sequence!('localities')
 
 10.times do |u|
   u = User.create!(
-  first_name: Faker::Name.first_name[5..40],
+  first_name: Faker::Name.first_name,
   last_name: Faker::Name.last_name,
   nick_name: Faker::ElectricalComponents.unique.active,
   avatar_url: "",
@@ -56,7 +56,7 @@ end
   l = Locality.create!(
     city_name: Faker::House.room,
     zipcode: "38330 en force",
-    address: "adresse"
+    address: "rue de la poupée qui tousse"
   )
   puts "Locality #{l}"
 end
