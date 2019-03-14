@@ -2,17 +2,16 @@
     <div class="col-md-6 offset-md-3">
       <br><br><br>
 
-        <%= form_for @profile do |f| %>
+        <%= form_for @user do |f| %>
           <h1 class="h3 mb-3 font-weight-normal text-center">Mes Informations</h1>
           <div class="form-group">
-            <%= f.text_field :first_name, class: 'form-control', placeholder: 'Prénom'%></br>
-            <%= f.text_field :last_name, class: 'form-control', placeholder: 'Nom'%></br>
-            <%= f.text_field :phone, class: 'form-control', placeholder: 'Numéro de téléphone'%></br>
+            <%= f.text_field :first_name, class: 'form-control', placeholder: 'Prénom'%><br/>
+            <%= f.text_field :last_name, class: 'form-control', placeholder: 'Nom'%><br/>
+            <%= f.text_field :phone, class: 'form-control', placeholder: 'Numéro de téléphone'%><br/>
           </div>
           <div class="form-actions mt-3">
             <button type="submit" class="btn btn-secondary"> Mettre à jour </button>
           </div>
         <% end %>
-        
     </div>
   </div>

@@ -10,14 +10,14 @@
       <ul>
         <% if user_signed_in? %>
         <li class="active"><%= link_to "créer un nouvel évènement", new_event_path %></li>
-        <li><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-common" %></li>
-        <li><%= link_to "avatar", user_edit_path %></li>
+        <li><%= link_to('Logout', destroy_user_session_path, method: :delete, class: "btn btn-common") %></li>
+        <li><%= link_to "avatar", edit_user_path(current_user) %></li>
           <% else %>
         <li class="active"><%= link_to "créer un nouvel évènement", root_path %></li>
         <li><%= link_to "Log in", new_user_session_path %></li>
         <li><%= link_to "Sign up", new_user_registration_path %></li>
         <% end %>
-        <% if current_user != nil && current_user.is_godx == true %>
+        <% if current_user != nil && current_user.is_god == true %>
           <li><%= link_to "lien admin non déterminé", root_path %></li>
         <%end%>
       </ul>
