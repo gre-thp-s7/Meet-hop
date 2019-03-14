@@ -11,6 +11,8 @@ gem 'dotenv-rails'
 gem 'devise'
 gem 'rspec'
 gem 'stripe'
+gem 'omniauth'
+gem 'omniauth-facebook'
 ################ pour amazon ########################
 gem "aws-sdk-s3", require: false
 ################# gem front #########################
