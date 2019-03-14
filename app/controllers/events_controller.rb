@@ -33,9 +33,11 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
+    @categories = Category.all
   end
 
   def create
+    binding.pry
     post_params = params.require(:event).permit!
     @event = Event.new(
       name: post_params[:name],
