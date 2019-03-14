@@ -27,22 +27,29 @@ class EventsController < ApplicationController
 
   def show
     whosit
-    binding.pry 
-    #post_params = params.permit.....
+    post_params = params.permit(:id)
     @event = Event.find(params[:id])
-
   end
 
   def new
-    @new_event = Event.new
+    @event = Event.new
   end
 
   def create
-    binding.pry
-    #post_params = params.require(:new_event).permit(all)
-    @new_event = Event.new
-
-    if @new_event.save!
+    #binding.pry
+    post_params = params.require(:event).permit!
+    @event = Event.new(name: post_params[:name],
+                       description: post_params[:description],
+                       start_date: post_params[:start_date],
+                       duration: post_params[:duration],
+                       spectator_price: post_params[:spectator_price],
+                       rules: post_params[:rules],
+                       prize_money: post_params[:prize_money],
+                       )
+    @event.picture.attach(post_params[:picture])                      
+    @event.locality_id = 1
+    @event.promoter_id = current_user.id
+    if @event.save!
       flash[:success] = "évènement créé !"
       redirect_to(root_path)
     end
@@ -52,7 +59,7 @@ class EventsController < ApplicationController
   def edit
     binding.pry 
     #post_params = params.permit(:id)
-    @event_to_edit = Event.find_by(id: params[:id])
+    @event = Event.find_by(id: params[:id])
   end
 
 
@@ -60,9 +67,9 @@ class EventsController < ApplicationController
     posted_params = params.permit(:event)
     params.permit(:id)
 
-    @event_to_update = Event.find_by(id: params[:id])
+    @event = Event.find_by(id: params[:id])
     ############################
-    if @event_to_update.update(title: params[:event][:title],description: params[:event][:description],start_date: params[:event][:start_date],duration: params[:event][:duration],price: params[:event][:price],location: params[:event][:location])
+    if @event.update(title: params[:event][:title],description: params[:event][:description],start_date: params[:event][:start_date],duration: params[:event][:duration],price: params[:event][:price],location: params[:event][:location])
       flash[:success] = "Ton évenement a bien été modifié !"
       redirect_to event_path(@id)
     else

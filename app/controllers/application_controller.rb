@@ -31,7 +31,7 @@ private
     puts "@"*60
     puts "déja inscrit?"
     puts "this method looks if your already participant of the event"    
-    if @event.registration.find_by(user_id: current_user.id) != nil
+    if @event.registrations.find_by(user_id: current_user.id) != nil
       return true
     else
       return false
@@ -42,7 +42,7 @@ private
     puts "@"*60
     puts "pas admin et pas inscrit ?" 
     puts "this method looks if you can subscribe to the event"    
-    if is_admin || already_subscribed
+    if is_promotor_of_the_event || already_subscribed_to_the_event
       return false
     else
       return true

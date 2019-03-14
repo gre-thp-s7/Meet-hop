@@ -1,9 +1,13 @@
 <section id="portfolio-information" class="padding-top" style="padding-top: 80px">
     <div class="container">
         <div class="row">
+            <% unless @event.picture.attached? == false %>
             <div class="col-sm-6" style="padding-left: 75px">
                 <%= image_tag @event.picture, class:"img-responsive", alt: "" %>
             </div>
+            <% end %>
+
+
             <div class="col-sm-6">
                 <div class="project-name overflow">
                     <h2 class="bold"><%= @event.name %></h2>
@@ -18,7 +22,9 @@
                     <p> <%= @event.start_date %></p>
 
                     <h5> endroit :</h5>
-                    <p> <%= @event.locality_id %></p>
+                    <p> <%= @event.locality.address %></p>
+                    <p> <%= @event.locality.zipcode %> <%= @event.locality.city_name %></p>
+
                     <h5> prix public:</h5>
                     <p> <%= @event.spectator_price %></p>
                     <h5> rules:</h5>
@@ -27,7 +33,7 @@
                     <p> <%= @event.prize_money %></p>
 
                     <h2> cet évenement a été crée par :</h2>
-                    <p> <%= @promoter.first_name %></p>
+                    <p> <%= @event.promoter.first_name %></p>
                 </div>
 
                 <div class="client overflow">
