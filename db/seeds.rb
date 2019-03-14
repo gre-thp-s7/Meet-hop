@@ -46,9 +46,10 @@ ActiveRecord::Base.connection.reset_pk_sequence!('localities')
   avatar_url: "",
   phone: "01 47 20 00 01",
   is_god: false,
-  email: Faker::Internet.email,
+  email: "teamgre38#{u}@yopmail.com",
   password: "123456"
   )
+  puts "User #{u}"
 end
 
 10.times do |l|
@@ -57,6 +58,7 @@ end
     zipcode: "38330 en force",
     address: "rue de la poupée qui tousse"
   )
+  puts "Locality #{l}"
 end
 
 3.times do |e|
@@ -72,6 +74,7 @@ end
   promoter_id: User.all.sample.id,
   locality_id: Locality.all.sample.id
   )
+  puts " Event #{e}"
 end
 
 
@@ -81,12 +84,14 @@ end
     event_id: Event.all.sample.id,
     role: "danceur ou spectateur"
   )
+  puts "Registration #{r}"
 end
 
 10.times do |c|
   c = Category.create!(
     name: Faker::Restaurant.name
   )
+  puts "Category #{c}"
 end
 
 20.times do |ca|
