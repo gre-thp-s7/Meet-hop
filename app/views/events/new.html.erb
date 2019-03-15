@@ -34,12 +34,10 @@
 				<%= f.text_field :prize_money %>
 				</p>
 
-<% @all_categories.each do |cate| %>
 
-<%= check_box_tag "#{cate.id}" %><label>  <%= cate.name %></label></p>
-<% end %>
-
-
+				<% @all_categories.each do |cate| %>
+<input type="checkbox" name="category[]" value=<%= cate.id %> ><%= cate.name %> <br />
+				<% end %>
 
 
 				<label>image associée</label>

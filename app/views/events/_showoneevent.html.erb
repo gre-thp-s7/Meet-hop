@@ -35,7 +35,13 @@
                     <h2> cet évenement a été crée par :</h2>
                     <p> <%= @event.promoter.first_name %></p>
                 </div>
+                <div class="project-info overflow">
+                    <h3>liste des dance présentes</h3>
+                        <% @event.categories.each do |cate| %>
+                    <p> <%= cate.name %></p>
+                    <% end %>
 
+                </div>
                 <div class="client overflow">
                     <h3>prix public :  <span style="color: #C03035"> <%= @event.spectator_price %> <i class="fa fa-euro"></i></span></h3>
                     <ul class="nav navbar-nav navbar-default">
