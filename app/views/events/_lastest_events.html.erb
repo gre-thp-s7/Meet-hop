@@ -1,0 +1,70 @@
+<section id="services">
+  <div class="container">
+    <h1 class="wow scaleIn" data-wow-duration="500ms" data-wow-delay="300ms" style="padding-top: 30px; border-width: 2px; border-style: solid; border-color: #1C6EA4">Dernieres Events ajoutées</h1>
+    <div class="row">
+
+    
+      <div class="col-sm-4 text-center padding wow fadeIn" data-wow-duration="1000ms" data-wow-delay="300ms" style="padding-top: 30px; border-width: 2px; border-style: solid; border-color: #1C6EA4">
+        <div class="single-service">
+          <% if @last_event1 != nil %>
+          <h2><%= @last_event1.name%></h2>
+          <p> <%= l(@last_event1.start_date, format: :long ) %> </p>
+          <p><%= @last_event1.duration %></p>
+          <p><%= @last_event1.spectator_price %></p>
+          <p><%= @last_event1.rules %></p>
+          <p><%= @last_event1.prize_money %></p>
+
+          <p>this is just to show that there's here !</p>
+          <p><%= @last_event1.locality.city_name %></p>
+          <p><%= @last_event1.promoter.first_name %> <%= @last_event1.promoter.last_name %></p>
+
+          <% else %>
+          <P>== not enough events in db ==</P>
+          <% end%>
+        </div>
+      </div>
+
+      <div class="col-sm-4 text-center padding wow fadeIn" data-wow-duration="1000ms" data-wow-delay="300ms" style="padding-top: 30px; border-width: 2px; border-style: solid; border-color: #1C6EA4">
+        <div class="single-service">
+          <% if @last_event2 != nil %>
+          <h2><%= @last_event2.name%></h2>
+          <p><%= @last_event2.start_date %></p>
+          <p><%= @last_event2.duration %></p>
+          <p><%= @last_event2.spectator_price %></p>
+          <p><%= @last_event2.rules %></p>
+          <p><%= @last_event2.prize_money %></p>
+
+          <p>this is just to show that there's here !</p>
+          <p><%= @last_event2.locality_id %></p>
+          <p><%= @last_event2.promoter_id %></p>
+
+          <% else %>
+          <P>== not enough events in db ==</P>
+          <% end%>
+        </div>
+      </div>
+
+      <div class="col-sm-4 text-center padding wow fadeIn" data-wow-duration="1000ms" data-wow-delay="300ms" style="padding-top: 30px; border-width: 2px; border-style: solid; border-color: #1C6EA4">
+        <div class="single-service">
+          <% if @last_event3 != nil %>
+          <h2><%= @last_event3.name%></h2>
+          <p><%= @last_event3.start_date %></p>
+          <p><%= @last_event3.duration %></p>
+          <p><%= @last_event3.spectator_price %></p>
+          <p><%= @last_event3.rules %></p>
+          <p><%= @last_event3.prize_money %></p>
+
+          <p>this is just to show that there's here !</p>
+          <p><%= @last_event3.locality_id %></p>
+          <p><%= @last_event3.promoter_id %></p>
+
+          <% else %>
+          <P>== not enough events in db ==</P>
+          <% end%>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</section>
