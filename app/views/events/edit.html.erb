@@ -1,66 +1,74 @@
 <div class="container">
-<div class="row">
-<div class="col-md-3" style="border-width: 2px;
-border-style: solid;
-border-color: #1C6EA4;"></div>
-<div class="col-md-6 " style="border-width: 2px;
-border-style: solid;
-border-color: #1C6EA4;">
-<br><br><br>
-<h2 class="h1 mb-3 font-weight-normal text-center">ICI LA modif D'UN NOUVEAU event connard !</h2>
+  <div class="row">
+    <div class="col-md-3" style="border-width: 2px;
+    border-style: solid;
+    border-color: #1C6EA4;"></div>
+    <div class="col-md-6 " style="border-width: 2px;
+    border-style: solid;
+    border-color: #1C6EA4;">
+    <br/><br/><br/>
+    <h2 class="h1 mb-3 font-weight-normal text-center">Modifier un événement</h2>
 
-<%= form_for @event do |f| %>
-<label>name</label>
-<%= f.text_field :name %>
-</p>
+    <%= form_for @event do |f| %>
+    <div class="field mt-3">
+      <label>Nom</label>
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
+    <div class="field mt-3">
 
-<label>description</label>
-<%= f.text_area :description %>
+      <label>Description</label>
+      <%= f.text_area :description, class: 'form-control' %>
+    </div>
+    <div class="field mt-3">
+      <label>start date</label>
+      <%= f.date_field :start_date, as: :date, value: f.object.try(:strftime,"%m/%d/%Y"), class: 'form-control'%>
+    </div>
+    <div class="field mt-3">
+      <label>Durée (minutes)</label>
+      <%= f.number_field :duration, class: 'form-control' %>
+    </div>
+    <div class="field mt-3">
+      <label>Prix spectateurs</label>
+      <%= f.number_field :spectator_price, class: 'form-control' %>
+    </div>
+    <div class="field mt-3">
 
-<p>
-<label>start date</label>
-<%= f.text_field :start_date %>
-</p>
+      <label>rules</label>
+      <%= f.text_area :rules, class: 'form-control'  %>
+    </div>
 
-<label>duration</label>
-<%= f.text_field :duration %>
-</p>
+    <div class="field mt-3">
+      <label>prize money</label>
+      <%= f.text_field :prize_money, class: 'form-control' %>
+    </div>
 
-<label>spectator price</label>
-<%= f.text_field :spectator_price %>
-</p>
+    <label>image associée</label><br/>
 
-<p>
-<label>rules</label>
-<%= f.text_area :rules %>
-</p>
+    <% if @event.picture.attached? %>
+    <%= image_tag @event.picture, alt: 'picture', class:"img-responsive" %>
+    <p>=== Il n'y a pas encore d'image liée à ce événement ===</p>
+    <% end %>	<br/>
 
-<p>
-<label>prize money</label>
-<%= f.text_field :prize_money %>
-</p>
+    <!-- we have to work on this -->
+    <p>=== si tu veux changer ton image c'est ici ===</p>
+    <p>=== (t'as cru que c'était la fete, c'est pas encore fonctionnel ! ) ===</p>
+    <p><%= f.file_field :picture %></p>
 
-<p>
-<label>image associée</label><br>
 
-<%if @event.picture.attached?%>
-<%= image_tag @event.picture, alt: 'picture', class:"img-responsive" %>
-<%else%>
-<p>=== Il n'y a pas encore d'image' lié à ce event ===</p>
-<%end%>	<br>
+    <div class="actions">
+      <%= f.submit "Modifier", class: "btn btn-submit btn-lg btn-block" %>
+    </div>
+    <% end %>
 
 
 <p>=== si tu veux changer ton image c'est ici ===</p>
 <p ><%= f.file_field :picture %></p>
 
 
-</p>
-
 <div class="actions">
 <%= f.submit "modifie", class: "btn btn-submit btn-lg btn-block" %>
 </div>
 
 <% end %>
-</div>
 </div>
 </div>

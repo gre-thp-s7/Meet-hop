@@ -19,7 +19,6 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.all
-    @nb_events = @events.length
   end
 
   def show
@@ -62,6 +61,8 @@ class EventsController < ApplicationController
 
   def edit
     @event = Event.find_by(id: params[:id])
+    @all_categories = Category.all
+    @categories = Category.new
   end
 
 
@@ -88,8 +89,8 @@ class EventsController < ApplicationController
 
 
       flash[:success] = "Ton évenement a bien été modifié connard !"
-      flash[:danger] = "faudra envoyer un mail au gens inscrit !"
-      redirect_to event_path(@event.id)
+      flash[:danger] = "faudra envoyer un mail aux gens inscrits !"
+      redirect_to event_path(@event)
     else
       render :edit
     end
