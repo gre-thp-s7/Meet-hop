@@ -7,7 +7,7 @@
         <li class="breadcrumb-item"><%= link_to "Profil", root_path %></li>
       </ol>
     </nav>
-    <h1 class="page-title-heading"> Mon espace Profil </h1>
+    <h1 class="page-title-heading font-weight-light"> Mon espace Profil </h1>
   </div>
 </div>
 
@@ -15,26 +15,28 @@
 <!-- Contacts Card Default -->
 <div class="container">
   <div class="row">
-    <div class="card col-6">
+    <div class="card col-6 lead">
       <div class="card-body">
         <div class="author-card pb-3">
           <div class="author-card-cover"></div>
           <div class="author-card-profile mt-30" >
             <div class="author-card-details">
               <h5 class="author-card-name text-lg">
-                <h6><%= @user.first_name %> <%= @user.last_name %></h6></h5>
-                <span class="author-card-position"><%= current_user.created_at %></span>
+                <div class="h2"><%= @user.first_name %>  <%= @user.last_name%></div>
+              </h5>
+                <span class="author-card-position">
+                  Inscrit(e) depuis le <%= current_user.created_at.day %> - <%= current_user.created_at.month %> - <%= current_user.created_at.year %></span>
               </div>
               <div class="widget widget-contacts">
                 <ul>
                   <li>
                     <i class="fas fa-at"></i>
-                    <span> Email </span>
+                    <span> Email : </span>
                     <a><%= @user.email %></a>
                   </li>
                   <li>
                     <i class="fas fa-phone"></i>
-                    <span> Téléphone </span>
+                    <span> Téléphone : </span>
                     <a><%= @user.phone %></a>
                   </li>
                 </ul>
@@ -45,11 +47,11 @@
 
         <!-- Buttons -->
         <p>
-          <%= link_to edit_user_registration_path, class: "btn btn-style-4 btn-secondary btn-sm" do%>
+          <%= link_to edit_user_registration_path, class: "btn btn-style-4 btn-primary btn-sm" do%>
           <span><i class="fas fa-key"></i> Editer email et/ou mot de passe </span>
           <% end %>
 
-          <%= link_to destroy_user_session_path(@user.id), class: "btn btn-style-4 btn-secondary btn-sm" do%>
+          <%= link_to edit_user_path(@user), class: "btn btn-style-4 btn-primary btn-sm" do%>
 
           <span><i class="fas fa-user-edit"></i> Editer les informations du profil </span>
           <% end %>
