@@ -12,6 +12,7 @@
               <span>Amount: <%= 100 %> €</span>
             </label>
           </article>
+          <%= hidden_field_tag :event , @event.id %>
           <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                   data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
                   data-description="<%= @event.name %>"

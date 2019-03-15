@@ -16,12 +16,13 @@ class RegistrationsController < ApplicationController
   end
 
   def create
-    
-    params.permit(:format)
-    event_id = params[:format]
+
+    params.permit!
+
+    event_id = params[:event]
     @user = current_user
     @event = Event.find(event_id)
-    
+
   @amount = 100
   
   #The code first creates a Customer object using two POST parameters. You can create a charge directly, but creating a customer first allows for repeat billing.
@@ -44,7 +45,9 @@ class RegistrationsController < ApplicationController
     flash[:error] = e.message
     redirect_to @event
 
-    @registration = Registration.new(event_id: @event.id, user_id: current_user.id)
+    @registration = Registration.new!(event_id: @event.id, user_id: current_user.id)
+
+    
 
     if @registration.save
       flash[:success] = "Vous participez à l'évènement."
