@@ -21,11 +21,7 @@ class RegistrationsController < ApplicationController
     event_id = params[:format]
     @user = current_user
     @event = Event.find(event_id)
-    @registration = Registration.new(:user_id, :event_id)
-
-
-
-
+    
   @amount = 100
   
   #The code first creates a Customer object using two POST parameters. You can create a charge directly, but creating a customer first allows for repeat billing.

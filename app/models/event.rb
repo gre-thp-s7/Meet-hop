@@ -41,7 +41,7 @@ class Event < ApplicationRecord
 
 
 	####### will have to work on this part with the table locality
-	validates :locality, 
+	validates :locality,
 		presence: true
 
 ############ picture with active storage #################

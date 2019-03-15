@@ -11,6 +11,10 @@
           <%= f.text_field :last_name, class: 'form-control', placeholder: 'Nom'%><br/>
           <%= f.text_field :phone, class: 'form-control', placeholder: 'Numéro de téléphone'%><br/>
         </div>
+              <label>image associée</label>
+
+      <p>=== attention, choisi bien, ce sera la seule et c'et inchangeable ! (pour le moment ) ===</p>
+      <%= f.file_field :avatar %>
         <div class="form-actions mt-3">
           <button type="submit" class="btn-primary btn-lg"> Mettre à jour </button>
         </div>

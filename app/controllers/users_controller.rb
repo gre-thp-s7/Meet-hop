@@ -22,12 +22,26 @@ class UsersController < ApplicationController
     puts @current_page
     puts @params
     puts "**"*100
+<<<<<<< HEAD
     post_params = params[:profile]
+=======
+    post_params = params.require(:user).permit!
 
-    if @user.update(first_name: post_params[:first_name], last_name: post_params[:last_name], phone: post_params[:phone])
+    if params[:user][:avatar] != nil
+      @user.avatar.attach(params[:user][:avatar])
+      @user.save
+    end
+
+    if @user.update(
+      first_name: post_params[:first_name], 
+      last_name: post_params[:last_name], 
+      phone: post_params[:phone]
+      )
+>>>>>>> b75c438444dbc77c79a94c2aeff00d64ae9164f8
+
       flash[:notice] = "Vous avez bien mis à jour votre profil"
 
-      redirect_to request.referrer
+      redirect_to user_path(current_user.id)
     else
       if @user.errors.any?
         @user.errors.full_messages.each do |message|

@@ -4,7 +4,7 @@
     <div class="card-body">
   <h1>S'inscrire à l'événement "<%= @event.name %>"</h1>
   </div>
-    <%= form_tag(:controller => "registrations", :action => "create") do %>
+    <%= form_tag registrations_path(@event), method: "post" do %>
         <div class="form-group">
           <p> Description : <%= @event.description %></p>
           <article>
