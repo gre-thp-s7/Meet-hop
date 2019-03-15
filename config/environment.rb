@@ -4,6 +4,9 @@ require_relative 'application'
 # Initialize the Rails application.
 Rails.application.initialize!
 
+Date::MONTHNAMES=[nil,"janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre"]
+
+
 ########### ADD BY THE TEAM ########
 ActionMailer::Base.smtp_settings = {
   :user_name => ENV['SENDGRID_LOGIN'],
