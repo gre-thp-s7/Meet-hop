@@ -1,10 +1,4 @@
 Rails.application.routes.draw do
-  get 'registrations/index'
-  get 'registrations/new'
-  get 'registrations/show'
-  get 'registrations/create'
-  get 'registrations/edit'
-  get 'registrations/destroy'
 
   root 'home#index'
   get 'dashboard', to: "dashboard#index"
@@ -15,8 +9,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :events
-
-
+  resources :registrations
   #Stripe
   resources :charges
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
