@@ -82,9 +82,20 @@ class EventsController < ApplicationController
       prize_money: post_params[:prize_money],
       )
 
+    if params[:event][:picture] != nil
+      @event.picture.attach(params[:event][:picture])
+      @event.save
+    end
+
+
       flash[:success] = "Ton évenement a bien été modifié connard !"
+<<<<<<< HEAD
       flash[:danger] = "faudra envoyer un mail aux gens inscrits !"
       redirect_to event_path(@event)
+=======
+      flash[:danger] = "faudra envoyer un mail au gens inscrit !"
+      redirect_to event_path(@event.id)
+>>>>>>> 0df8c073a9e00eca75d8623260ecbc8a6421aa20
     else
       render :edit
     end
