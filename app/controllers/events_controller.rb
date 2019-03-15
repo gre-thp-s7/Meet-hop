@@ -101,13 +101,18 @@ class EventsController < ApplicationController
     end
   end
 
-=begin
 def registration
   if @event.registration.include? current_user
     flash[:error] = "Vous participez déjà à l'évènement."
     redirect_to @event
     return
+  else 
+    @event.registration << current_user
+flash[:success] = "Vous participez à l'évènement."
+redirect_to @event
   end
+end
+=begin
 
 @amount = @event.spectator_price
 
@@ -126,9 +131,7 @@ charge = Stripe::Charge.create({
   currency: 'eur',
 })
 
-@event.registration << current_user
-flash[:success] = "Vous participez à l'évènement."
-redirect_to @event
+
 
 #Some payment attempts fail for a variety of reasons, such as an invalid CVC, bad card number, or general decline. Any Stripe::CardError exception will be caught and stored in the flash hash.
 rescue Stripe::CardError => e
