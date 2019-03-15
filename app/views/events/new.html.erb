@@ -1,45 +1,57 @@
 <div class="container">
-<div class="row">
-<div class="col-md-4"  style="border-width: 2px; border-style: solid;border-color: #1C6EA4;">
+	<div class="row">
 
-</div>
-<div class="col-md-6" style="border-width: 2px; border-style: solid; border-color: #1C6EA4;">
-<br><br><br>
-<h2 class="h1 mb-3 font-weight-normal text-center">ICI LA CREATION D'UN NOUVEAU event !</h2>
+		<div class="col-md-4"  style="border-width: 2px; border-style: solid;border-color: #1C6EA4;">
 
-<%= form_for @event do |f| %>
-<label>name</label>
-<%= f.text_field :name %>
-</p>
-<label>description</label>
-<%= f.text_area :description %>
-<p>
-<label>start date</label>
-<%= f.text_field :start_date %>
-</p>
-<label>duration</label>
-<%= f.text_field :duration %>
-</p>
-<label>spectator price</label>
-<%= f.text_field :spectator_price %>
-</p>
-<label>rules</label>
-<%= f.text_area :rules %>
-</p>
-<label>prize money</label>
-<%= f.text_field :prize_money %>
-</p>
-<label>image associée</label>
+		</div>
 
-<p>=== attention, choisi bien, ce sera la seule et c'et inchangeable ! (pour le moment ) ===</p>	
-<%= f.file_field :picture %>
-</p>
+		<div class="col-md-6" style="border-width: 2px; border-style: solid; border-color: #1C6EA4;">
+			<br>
+			<br>
+			<br>
+			<h2 class="h1 mb-3 font-weight-normal text-center">ICI LA CREATION D'UN NOUVEAU event !</h2>
 
-<div class="actions">
-<%= f.submit "Créer", class: "btn btn-submit btn-lg btn-block" %>
-</div>
+			<%= form_for @event do |f| %>
+				<label>name</label>
+				<%= f.text_field :name %>
+				</p>
+				<label>description</label>
+				<%= f.text_area :description %>
+				<p>
+				<label>start date</label>
+				<%= f.text_field :start_date %>
+				</p>
+				<label>duration</label>
+				<%= f.text_field :duration %>
+				</p>
+				<label>spectator price</label>
+				<%= f.text_field :spectator_price %>
+				</p>
+				<label>rules</label>
+				<%= f.text_area :rules %>
+				</p>
+				<label>prize money</label>
+				<%= f.text_field :prize_money %>
+				</p>
 
-<% end %>
-</div>
-</div>
+
+				<% @all_categories.each do |cate| %>
+<input type="checkbox" name="category[]" value=<%= cate.id %> ><%= cate.name %> <br />
+				<% end %>
+
+
+				<label>image associée</label>
+
+				<p>=== attention, choisi bien, ce sera la seule et c'et inchangeable ! (pour le moment ) ===</p>	
+				<%= f.file_field :picture %>
+				</p>
+
+				<div class="actions">
+				<%= f.submit "Créer", class: "btn btn-submit btn-lg btn-block" %>
+				</div>
+
+			<% end %>
+
+		</div>
+	</div>
 </div>
