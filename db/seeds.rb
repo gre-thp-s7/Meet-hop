@@ -61,9 +61,9 @@ end
   puts "Locality #{l}"
 end
 
-3.times do |e|
+10.times do |e|
   e = Event.create!(
-  name: Faker::Nation.nationality,
+  name: Faker::Lorem.characters(10),
   description: Faker::Restaurant.description[20..1000],
   start_date: Faker::Date.between(DateTime.now + 1 , DateTime.now + 2),
   duration: 10,
