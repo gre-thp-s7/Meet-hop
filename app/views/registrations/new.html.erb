@@ -1,2 +1,24 @@
 <h1>Registrations#new</h1>
-<p>Find me in app/views/registrations/new.html.erb</p>
+<div class="content row justify-content-md-center">
+  <div class="card col-lg-6">
+    <div class="card-body">
+  <h1>S'inscrire à l'événement "<%= @event.name %>"</h1>
+  </div>
+    <%= form_tag(:controller => "registrations", :action => "create") do %>
+        <div class="form-group">
+          <p> Description : <%= @event.description %></p>
+          <article>
+            <label class="amount">
+              <span>Amount: <%= 100 %> €</span>
+            </label>
+          </article>
+          <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                  data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                  data-description="<%= @event.name %>"
+                  data-amount="<%= 100 %>"
+                  data-locale="auto">
+                  </script>
+        <% end %>
+      </div>
+    </div>
+</div>

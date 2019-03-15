@@ -22,7 +22,7 @@ class UsersController < ApplicationController
     puts @current_page
     puts @params
     puts "**"*100
-    post_params = params[:user]
+    post_params = params[:profile]
 
     if @user.update(first_name: post_params[:first_name], last_name: post_params[:last_name], phone: post_params[:phone])
       flash[:notice] = "Vous avez bien mis à jour votre profil"
@@ -43,4 +43,5 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
+  
 end

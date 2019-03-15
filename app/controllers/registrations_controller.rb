@@ -5,34 +5,28 @@ class RegistrationsController < ApplicationController
   end
 
   def new
-
+    params.permit(:format)
+    event_id = params[:format]
     @user = current_user
-    @event = Event.find(params[:event_id])
+    @event = Event.find(event_id)
     @registration = Registration.new
-
   end
 
   def show
   end
 
   def create
-    user_id = current_user.id
-    event_id = Event.find(params[:event_id])
+    
+    params.permit(:format)
+    event_id = params[:format]
+    @user = current_user
+    @event = Event.find(event_id)
     @registration = Registration.new(:user_id, :event_id)
 
-    if @event.registration.include? current_user
-      flash[:error] = "Vous participez déjà à l'évènement."
-      redirect_to @event
-      return
-    else 
-      @event.registration << current_user
-  flash[:success] = "Vous participez à l'évènement."
-  redirect_to @event
-    end
-    end
 
-=begin
-  @amount = @event.spectator_price
+
+
+  @amount = 100
   
   #The code first creates a Customer object using two POST parameters. You can create a charge directly, but creating a customer first allows for repeat billing.
   
@@ -50,15 +44,22 @@ class RegistrationsController < ApplicationController
   })
   
   #Some payment attempts fail for a variety of reasons, such as an invalid CVC, bad card number, or general decline. Any Stripe::CardError exception will be caught and stored in the flash hash.
-  rescue Stripe::CardError => e
-  flash[:error] = e.message
-  redirect_to @event
+    rescue Stripe::CardError => e
+    flash[:error] = e.message
+    redirect_to @event
+
+    @registration = Registration.new(event_id: @event.id, user_id: current_user.id)
+
+    if @registration.save
+      flash[:success] = "Vous participez à l'évènement."
+      redirect_to @event
+      return
+    else 
+      flash[:error] = "Une erreur s'est produite"
+      redirect_to @event
+    end
   end
-  end
-=end
-  
-    
-  end
+
 
   def edit
   end
@@ -66,7 +67,7 @@ class RegistrationsController < ApplicationController
   def destroy
   end
 
-private
+  private
 
   def registration_params
     params.require(:registration).permit(:user_id, :event_id)
