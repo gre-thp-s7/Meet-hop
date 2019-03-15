@@ -12,43 +12,53 @@
 			<h2 class="h1 mb-3 font-weight-normal text-center">ICI LA CREATION D'UN NOUVEAU event !</h2>
 
 			<%= form_for @event do |f| %>
-				<label>name</label>
-				<%= f.text_field :name %>
-				</p>
-				<label>description</label>
-				<%= f.text_area :description %>
-				<p>
+			<div class="field mt-3">
+				<label>Nom</label>
+				<%= f.text_field :name, class: 'form-control' %>
+			</div>
+			<div class="field mt-3">
+
+				<label>Description</label>
+				<%= f.text_area :description, class: 'form-control' %>
+			</div>
+			<div class="field mt-3">
 				<label>start date</label>
-				<%= f.text_field :start_date %>
-				</p>
-				<label>duration</label>
-				<%= f.text_field :duration %>
-				</p>
-				<label>spectator price</label>
-				<%= f.text_field :spectator_price %>
-				</p>
+				<%= f.date_field :start_date, as: :date, value: f.object.try(:strftime,"%m/%d/%Y"), class: 'form-control'%>
+			</div>
+			<div class="field mt-3">
+				<label>Durée (minutes)</label>
+				<%= f.number_field :duration, class: 'form-control' %>
+			</div>
+			<div class="field mt-3">
+				<label>Prix spectateurs</label>
+				<%= f.number_field :spectator_price, class: 'form-control' %>
+			</div>
+			<div class="field mt-3">
+				<label>Prix participants</label>
+				<%= f.number_field :spectator_price, class: 'form-control' %>
+			</div>
+			<div class="field mt-3">
 				<label>rules</label>
-				<%= f.text_area :rules %>
-				</p>
+				<%= f.text_area :rules, class: 'form-control'  %>
+			</div>
+			<div class="field mt-3">
 				<label>prize money</label>
-				<%= f.text_field :prize_money %>
-				</p>
+				<%= f.text_field :prize_money, class: 'form-control' %>
+			</div>
 
 
-				<% @all_categories.each do |cate| %>
-<input type="checkbox" name="category[]" value=<%= cate.id %> ><%= cate.name %> <br />
-				<% end %>
+			<% @all_categories.each do |cate| %>
+			<input type="checkbox" name="category[]" value=<%= cate.id %> >  <%= cate.name %> <br/>
+			<% end %>
 
+			<label>image associée</label>
 
-				<label>image associée</label>
+			<p>=== attention, choisi bien, ce sera la seule et c'et inchangeable ! (pour le moment ) ===</p>
+			<%= f.file_field :picture %>
 
-				<p>=== attention, choisi bien, ce sera la seule et c'et inchangeable ! (pour le moment ) ===</p>	
-				<%= f.file_field :picture %>
-				</p>
-
-				<div class="actions">
+			<div class="actions">
 				<%= f.submit "Créer", class: "btn btn-submit btn-lg btn-block" %>
-				</div>
+			</div>
 
 			<% end %>
 
