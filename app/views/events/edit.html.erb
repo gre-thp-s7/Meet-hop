@@ -42,8 +42,11 @@
       <%= f.text_field :prize_money, class: 'form-control' %>
     </div>
 
-    <label>image associée</label><br/>
+    <% @all_categories.each do |cate| %>
+    <input type="checkbox" name="category[]" value=<%= cate.id %> >  <%= cate.name %> <br/>
+    <% end %>
 
+    <label>image associée</label><br/>
     <% if @event.picture.attached? %>
     <%= image_tag @event.picture, alt: 'picture', class:"img-responsive" %>
     <p>=== Il n'y a pas encore d'image liée à ce événement ===</p>
@@ -59,16 +62,5 @@
       <%= f.submit "Modifier", class: "btn btn-submit btn-lg btn-block" %>
     </div>
     <% end %>
-
-
-<p>=== si tu veux changer ton image c'est ici ===</p>
-<p ><%= f.file_field :picture %></p>
-
-
-<div class="actions">
-<%= f.submit "modifie", class: "btn btn-submit btn-lg btn-block" %>
-</div>
-
-<% end %>
-</div>
+  </div>
 </div>
