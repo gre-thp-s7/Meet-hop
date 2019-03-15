@@ -39,7 +39,7 @@ class EventsController < ApplicationController
 
   def create
     post_params = params.require(:event).permit!
-    category_params = params.permit(:category)
+    params.permit(:category)
     @event = Event.new(
       name: post_params[:name],
       description: post_params[:description],
@@ -52,13 +52,13 @@ class EventsController < ApplicationController
     @event.picture.attach(post_params[:picture])                      
     @event.locality_id = 1
     @event.promoter_id = current_user.id
-    binding.pry
 
-@event.category_ids = [1 , 2]
+
+@event.category_ids = params[:category]
 
     if @event.save!
       flash[:success] = "évènement créé !"
-      redirect_to(root_path)
+      redirect_to(event_path(@event.id))
     end
 
   end
