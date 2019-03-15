@@ -1,9 +1,9 @@
 class EventsController < ApplicationController
-  
+
   # for later with piture and active storage
   require 'open-uri'
 
-###### protection against path in search browser bar ###### 
+###### protection against path in search browser bar ######
   before_action :authenticate_user!, only: [:new, :create]
   before_action :is_promoter_of_the_event, only: [:edit, :update, :destroy]
 ############################################################
@@ -13,16 +13,13 @@ class EventsController < ApplicationController
   def whosit
     @promotor = is_promoter_of_the_event
     @already_participant = already_subscribed_to_the_event
-    @subscribtion_possible = can_subscribe_for_event    
+    @subscribtion_possible = can_subscribe_for_event
   end
 #############################################
 
   def index
     @events = Event.all
     @nb_events = @events.length
-    @last_event1 = Event.find_by(id: @nb_events)
-    @last_event2 = Event.find_by(id: @nb_events-1)
-    @last_event3 = Event.find_by(id: @nb_events-2)
   end
 
   def show
@@ -49,7 +46,7 @@ class EventsController < ApplicationController
       rules: post_params[:rules],
       prize_money: post_params[:prize_money],
       )
-    @event.picture.attach(post_params[:picture])                      
+    @event.picture.attach(post_params[:picture])
     @event.locality_id = 1
     @event.promoter_id = current_user.id
 
