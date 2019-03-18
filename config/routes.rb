@@ -5,9 +5,7 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  # resources :registrations
   resources :users
-  # resources :charges
   
   resources :events do
     resources :registrations
