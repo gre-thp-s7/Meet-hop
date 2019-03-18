@@ -45,6 +45,20 @@
           </div>
         </div>
 
+
+        <!-- affichage de l'avatar -->
+        <!-- a déplacer/retravailler en fonction -->
+            <% if @user.avatar.attached? == true %>
+            <div class="col-sm-6" style="padding-left: 75px; border-width: 2px; border-style: solid; border-color: #1C6EA4">
+                <%= image_tag @user.avatar, class:"img-responsive", alt: "" %>
+            </div>
+                <% else %>
+                <h1>pas d'image</h1>
+            <% end %>
+        <!--  fin d'affichage de l'avatar -->
+
+
+
         <!-- Buttons -->
         <p>
           <%= link_to edit_user_registration_path, class: "btn btn-style-4 btn-primary btn-sm" do%>

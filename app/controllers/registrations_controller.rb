@@ -16,15 +16,12 @@ class RegistrationsController < ApplicationController
   end
 
   def create
-    
-    params.permit(:format)
-    event_id = params[:format]
+
+    params.permit!
+
+    event_id = params[:event]
     @user = current_user
     @event = Event.find(event_id)
-    @registration = Registration.new(:user_id, :event_id)
-
-
-
 
   @amount = 100
   
@@ -48,7 +45,9 @@ class RegistrationsController < ApplicationController
     flash[:error] = e.message
     redirect_to @event
 
-    @registration = Registration.new(event_id: @event.id, user_id: current_user.id)
+    @registration = Registration.new!(event_id: @event.id, user_id: current_user.id)
+
+    
 
     if @registration.save
       flash[:success] = "Vous participez à l'évènement."

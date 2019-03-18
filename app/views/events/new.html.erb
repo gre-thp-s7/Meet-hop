@@ -13,6 +13,7 @@
 
 			<%= form_for @event do |f| %>
 			<div class="field mt-3">
+
 				<label>Nom</label>
 				<%= f.text_field :name, class: 'form-control' %>
 			</div>
@@ -34,10 +35,6 @@
 				<%= f.number_field :spectator_price, class: 'form-control' %>
 			</div>
 			<div class="field mt-3">
-				<label>Prix participants</label>
-				<%= f.number_field :spectator_price, class: 'form-control' %>
-			</div>
-			<div class="field mt-3">
 				<label>rules</label>
 				<%= f.text_area :rules, class: 'form-control'  %>
 			</div>
@@ -45,7 +42,6 @@
 				<label>prize money</label>
 				<%= f.text_field :prize_money, class: 'form-control' %>
 			</div>
-
 
 			<% @all_categories.each do |cate| %>
 			<input type="checkbox" name="category[]" value=<%= cate.id %> >  <%= cate.name %> <br/>
