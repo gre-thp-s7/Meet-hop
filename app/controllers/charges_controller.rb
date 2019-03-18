@@ -10,6 +10,7 @@ def new
 end
 
 def create
+  
   # Amount in cents
   @amount = 500
 
@@ -27,7 +28,6 @@ def create
     description: 'Rails Stripe customer',
     currency: 'eur',
   })
-
   #Some payment attempts fail for a variety of reasons, such as an invalid CVC, bad card number, or general decline. Any Stripe::CardError exception will be caught and stored in the flash hash.
   rescue Stripe::CardError => e
   flash[:error] = e.message

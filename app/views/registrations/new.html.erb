@@ -4,7 +4,7 @@
     <div class="card-body">
   <h1>S'inscrire à l'événement "<%= @event.name %>"</h1>
   </div>
-    <%= form_tag registrations_path(@event), method: "post" do %>
+    <%= form_tag registrations_path(@event), action: "post" do %>
         <div class="form-group">
           <p> Description : <%= @event.description %></p>
           <article>
@@ -18,7 +18,7 @@
                   data-description="<%= @event.name %>"
                   data-amount="<%= 100 %>"
                   data-locale="auto">
-                  </script>
+          </script>
         <% end %>
       </div>
     </div>

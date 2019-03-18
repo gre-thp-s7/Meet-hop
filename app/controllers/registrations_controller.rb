@@ -21,7 +21,7 @@ class RegistrationsController < ApplicationController
 
     event_id = params[:event]
     @user = current_user
-    @event = Event.find(event_id)
+    # @event = Event.find(event_id)
 
   @amount = 100
   
@@ -45,9 +45,8 @@ class RegistrationsController < ApplicationController
     flash[:error] = e.message
     redirect_to @event
 
-    @registration = Registration.new!(event_id: @event.id, user_id: current_user.id)
+    @registration = Registration.new(event_id: @event, user_id: @user)
 
-    
 
     if @registration.save
       flash[:success] = "Vous participez à l'évènement."
