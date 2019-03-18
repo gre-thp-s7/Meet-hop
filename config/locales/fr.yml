@@ -1,5 +1,13 @@
 fr:
   activerecord:
+    attributes:
+        user:
+            email: "Adresse email"
+            password: "Mot de passe"
+            password_confirmation: "Confirmer mot de passe"
+            first_name: "Prénom"
+            last_name: "Nom"
+            remember_me: "Se souvenir de moi"
     errors:
       messages:
         record_invalid: 'La validation a échoué : %{errors}'
@@ -216,3 +224,66 @@ fr:
       long: "%A %d %B %Y %Hh%M"
       short: "%d %b %Hh%M"
     pm: pm
+
+  devise:
+    confirmations:
+      confirmed: "Your email address has been successfully confirmed."
+      send_instructions: "You will receive an email with instructions for how to confirm your email address in a few minutes."
+      send_paranoid_instructions: "If your email address exists in our database, you will receive an email with instructions for how to confirm your email address in a few minutes."
+    failure:
+      already_authenticated: "Vous êtes déjà connecté."
+      inactive: "Ce compte n'est pas encore activé."
+      invalid: " %{authentication_keys} ou mot de passe non valide."
+      locked: "Votre compte est bloqué."
+      last_attempt: "You have one more attempt before your account is locked."
+      not_found_in_database: "%{authentication_keys} ou mot de passe non valide."
+      timeout: "Votre session a expiré, veuillez vous connecter à nouveau."
+      unauthenticated: "Vous devez vous connecter avant de continuer."
+      unconfirmed: "Vous devez confirmer votre addresse email avant de continuer."
+    mailer:
+      confirmation_instructions:
+        subject: "Confirmation"
+      reset_password_instructions:
+        subject: "Réinitialisation de mot de passe"
+      unlock_instructions:
+        subject: "Unlock instructions"
+      email_changed:
+        subject: "Adressese email changée"
+      password_change:
+        subject: "Mot de passe changé"
+    omniauth_callbacks:
+      failure: "Could not authenticate you from %{kind} because \"%{reason}\"."
+      success: "Autentification réussi avec le compte %{kind}."
+    passwords:
+      no_token: "You can't access this page without coming from a password reset email. If you do come from a password reset email, please make sure you used the full URL provided."
+      send_instructions: "Vous allez recevoir un email contenant les instructions nécessaires pour changer votre mot de passe."
+      send_paranoid_instructions: "If your email address exists in our database, you will receive a password recovery link at your email address in a few minutes."
+      updated: "Votre mot de passe a été changé avec succès."
+      updated_not_active: "Votre mot de passe a été changé avec succès."
+    registrations:
+      destroyed: "Votre compte a été correctement supprimé. A bientôt !"
+      signed_up: "Bienvenue ! Vous êtes maintenant inscrit."
+      signed_up_but_inactive: "Vous êtes enregistré. Activez votre compte avec l'email que nous vous avons envoyé."
+      signed_up_but_locked: "You have signed up successfully. However, we could not sign you in because your account is locked."
+      signed_up_but_unconfirmed: "Vous êtes enregistré. Activez votre compte avec l'email que nous vous avons envoyé."
+      update_needs_confirmation: "YVous êtes enregistré. Activez votre compte avec l'email que nous vous avons envoyé."
+      updated: "Votre compte a été mis à jour."
+      updated_but_not_signed_in: "Votre compte a été mis à jour."
+    sessions:
+      signed_in: "Ravi de vous revoir !"
+      signed_out: "A bientôt !"
+      already_signed_out: "A bientôt !"
+    unlocks:
+      send_instructions: "You will receive an email with instructions for how to unlock your account in a few minutes."
+      send_paranoid_instructions: "If your account exists, you will receive an email with instructions for how to unlock it in a few minutes."
+      unlocked: "Your account has been unlocked successfully. Please sign in to continue."
+  errors:
+    messages:
+      already_confirmed: "was already confirmed, please try signing in"
+      confirmation_period_expired: "needs to be confirmed within %{period}, please request a new one"
+      expired: "has expired, please request a new one"
+      not_found: "not found"
+      not_locked: "was not locked"
+      not_saved:
+        one: "1 error prohibited this %{resource} from being saved:"
+        other: "%{count} errors prohibited this %{resource} from being saved:"

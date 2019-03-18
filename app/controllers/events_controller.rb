@@ -5,7 +5,7 @@ class EventsController < ApplicationController
 
 ###### protection against path in search browser bar ######
   before_action :authenticate_user!, only: [:new, :create]
-  before_action :is_promoter_of_the_event, only: [:edit, :update, :destroy]
+  before_action :is_promoter_of_the_event, only: [:edit, :update, :destroy, :show]
 ############################################################
 
 ############ method to create variable for "if" in front ####
@@ -25,6 +25,7 @@ class EventsController < ApplicationController
     whosit
     post_params = params.permit(:id)
     @event = Event.find(params[:id])
+    @users = User.all
   end
 
   def new

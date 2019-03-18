@@ -7,7 +7,7 @@ border-color: #1C6EA4;">
       <br><br><br>
 
 
-      <h1 class="h3 mb-3 font-weight-normal text-center">Sign up</h1>
+      <h1 class="h3 mb-3 font-weight-normal text-center">S'inscrire</h1>
 
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
@@ -30,7 +30,7 @@ border-color: #1C6EA4;">
         <div class="field">
           <%= f.label :password %>
           <% if @minimum_password_length %>
-          <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <em>(<%= @minimum_password_length %> charactères minimum)</em>
           <% end %><br />
           <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
         </div>
@@ -41,7 +41,7 @@ border-color: #1C6EA4;">
         </div>
 
         <div class="actions pt-3 pb-3">
-          <%= f.submit "Sign up", class: "btn-primary btn-lg"%>
+          <%= f.submit "S'inscrire", class: "btn-primary btn-lg"%>
         </div>
       <% end %>
 
