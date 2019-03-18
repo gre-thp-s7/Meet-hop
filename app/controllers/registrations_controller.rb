@@ -5,28 +5,30 @@ class RegistrationsController < ApplicationController
   end
 
   def new
-    params.permit(:format)
-    event_id = params[:format]
+    puts params
+    params.permit!
+    puts params
+    event_id = params[:event_id]
     @user = current_user
     @event = Event.find(event_id)
     @registration = Registration.new
-    @categories = @event.categories
+@categories = @event.categories
+puts params
   end
 
   def show
   end
 
   def create
-puts "#"*60
-puts "t'est bien arrivé"
+puts "CREATE#"*60
+puts params
 
     params.permit!
 
-    event_id = params[:event]
     @user = current_user
     @event = Event.find(event_id)
-
-  @amount = 100
+    @registration = Registration.new
+    @amount = 100
   
   #The code first creates a Customer object using two POST parameters. You can create a charge directly, but creating a customer first allows for repeat billing.
   
@@ -38,28 +40,32 @@ puts "t'est bien arrivé"
   
   charge = Stripe::Charge.create({
     customer: customer.id,
-    amount: @amount,
+    amount: @amount * 100,
     description: 'Rails Stripe customer',
     currency: 'eur',
   })
   
   #Some payment attempts fail for a variety of reasons, such as an invalid CVC, bad card number, or general decline. Any Stripe::CardError exception will be caught and stored in the flash hash.
-    rescue Stripe::CardError => e
-    flash[:error] = e.message
-    redirect_to @event
 
-    @registration = Registration.new!(event_id: @event.id, user_id: current_user.id)
+
+    @registration = Registration.new(
+      event_id: @event.id,
+      user_id: current_user.id)
 
     
 
     if @registration.save
       flash[:success] = "Vous participez à l'évènement."
-      redirect_to @event
-      return
+      redirect_to event_path(@event.id)
+      puts "PARTICIPATION OK+++++++++++++"
     else 
       flash[:error] = "Une erreur s'est produite"
       redirect_to @event
     end
+    
+  rescue Stripe::CardError => e
+    flash[:error] = e.message
+    redirect_to @event
   end
 
 

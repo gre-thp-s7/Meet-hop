@@ -7,13 +7,20 @@ The controller does two things:
 =end
 
 def new
-  binding.pry
-
   @amount = 500
+  @registration = Registration.new
+  puts params
 end
 
 def create
-  binding.pry
+  puts params
+  params.permit!
+
+  event_id = @event
+  user_id = current_user
+
+  @amount = 500
+
   # Amount in cents
 
   #The code first creates a Customer object using two POST parameters. You can create a charge directly, but creating a customer first allows for repeat billing.
@@ -34,10 +41,15 @@ def create
   #Some payment attempts fail for a variety of reasons, such as an invalid CVC, bad card number, or general decline. Any Stripe::CardError exception will be caught and stored in the flash hash.
   rescue Stripe::CardError => e
   flash[:error] = e.message
-  binding.pry
+  
   redirect_to new_registration_path
   end
 
+  @registration = Registration.new(
+    event_id: :event,
+    user_id: :current_user)
 
-   redirect_to events_path
+  @registration.save
+
+
 end
