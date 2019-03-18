@@ -7,11 +7,14 @@ The controller does two things:
 =end
 
 def new
+  binding.pry
+
+  
 end
 
 def create
+  binding.pry
   # Amount in cents
-  @amount = 500
 
   #The code first creates a Customer object using two POST parameters. You can create a charge directly, but creating a customer first allows for repeat billing.
 

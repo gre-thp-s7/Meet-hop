@@ -1,24 +1,28 @@
 <h1>Registrations#new</h1>
 <div class="content row justify-content-md-center">
-  <div class="card col-lg-6">
-    <div class="card-body">
-  <h1>S'inscrire à l'événement "<%= @event.name %>"</h1>
-  </div>
-    <%= form_tag(:controller => "registrations", :action => "create") do %>
-        <div class="form-group">
-          <p> Description : <%= @event.description %></p>
-          <article>
-            <label class="amount">
-              <span>Amount: <%= 100 %> €</span>
-            </label>
-          </article>
-          <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                  data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-                  data-description="<%= @event.name %>"
-                  data-amount="<%= 100 %>"
-                  data-locale="auto">
-                  </script>
-        <% end %>
+<div class="card col-lg-6">
+<div class="card-body">
+<h1>S'inscrire à l'événement "<%= @event.name %>"</h1>
+</div>
+
+<%= form_tag(:controller => "charges", :action => "create") do %>
+  <article>
+
+<div class="control">
+  <label class="radio">
+    <input type="radio" name="danseur">
+    Danseur
+  </label>
+  <label class="radio">
+    <input type="radio" name="spectateur">
+    Spectateur
+  </label>
+
+  </article>
+      <div class="actions">
+        <%= submit_tag "Créer", class: "btn btn-submit btn-lg btn-block" %>
       </div>
-    </div>
+<% end %>
+
+</div>
 </div>
