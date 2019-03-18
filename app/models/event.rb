@@ -31,6 +31,9 @@ class Event < ApplicationRecord
 
 	validates :spectator_price,
 		presence: true
+	
+	validates :dancer_price,
+	presence: true
 
 	validates :rules,
 		presence: true
