@@ -5,7 +5,6 @@ def new
     @event = Event.find(params[:event])
     @categories = []
     @dancer = params[:dancer]
-
     @categories = params[:categories]
     @amount = "3700"
 end
@@ -16,9 +15,6 @@ def create
   @event_id = params[:event]
   @categories = params[:categories].split
   @babar = current_user.id
-    puts "@"*60
-    puts "voici les catégories auquel s'est inscrit le danseur"
-    puts " l'array d'id des danses #{@categories} %>"
 
   customer = Stripe::Customer.create(
     :email => params[:stripeEmail],
@@ -42,10 +38,6 @@ if params[:dancer]
 end
 ###########################################
     @registration.save!
-
-
-    puts "@"*60
-    puts "registration crée"
 
     rescue Stripe::CardError => e
     flash[:error] = e.message

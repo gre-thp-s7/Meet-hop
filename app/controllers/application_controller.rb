@@ -49,7 +49,40 @@ private
     end
   end
 ###################################################
+  def is_promot
+    puts "@"*60
+    puts "admin?"
+    puts "this method looks if your the creator of the event"
+    params.permit(:format)
+    @event = Event.find_by(id: params[:format])
+    current_user.id == @event.promoter_id
+  end 
 
+  def already_subs
+    params.permit(:format)
+    @event = Event.find_by(id: params[:format])
+    puts "@"*60
+    puts "déja inscrit?"
+    puts "this method looks if your already participant of the event"  
+    if @event.registrations.find_by(user_id: current_user.id) != nil
+      return true
+    else
+      return false
+    end
+  end
+
+  def can_subs
+    puts "@"*60
+    puts "pas admin et pas inscrit ?" 
+    puts "this method looks if you can subscribe to the event"   
+    if is_promot || already_subs
+      return false
+    else
+      return true
+    end
+  end
+
+#############################################################  
   protect_from_forgery with: :exception
 
   protected
