@@ -1,0 +1,22 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @x = 1 %>
+    <% @users.each do |user| %>
+    <tr>
+      <th scope="row"><%= @x %></th>
+      <td> <%= user.first_name %>  <%= user.last_name %></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <% @x += 1 %>
+    <% end %>
+  </tbody>
+</table>
