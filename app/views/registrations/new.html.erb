@@ -1,10 +1,12 @@
 <h1>Registrations#new</h1>
 <div class="content row justify-content-md-center">
-<<<<<<< HEAD
 <div class="card col-lg-6">
 <div class="card-body">
 <h1>S'inscrire à l'événement "<%= @event.name %>"</h1>
 </div>
+        <div class="form-group">
+          <p> Description : <%= @event.description %></p>
+      </div>
 
 <%= form_tag(:controller => "charges", :action => "create") do %>
   <article>
@@ -22,29 +24,8 @@
   </article>
       <div class="actions">
         <%= submit_tag "Créer", class: "btn btn-submit btn-lg btn-block" %>
-=======
   <div class="card col-lg-6">
-    <div class="card-body">
-  <h1>S'inscrire à l'événement "<%= @event.name %>"</h1>
-  </div>
-    <%= form_tag registrations_path(@event), method: "post" do %>
-        <div class="form-group">
-          <p> Description : <%= @event.description %></p>
-          <article>
-            <label class="amount">
-              <span>Amount: <%= 100 %> €</span>
-            </label>
-          </article>
-          <%= hidden_field_tag :event , @event.id %>
-          <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                  data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-                  data-description="<%= @event.name %>"
-                  data-amount="<%= 100 %>"
-                  data-locale="auto">
-                  </script>
-        <% end %>
->>>>>>> 1e12af2ec7735ef4890577bd7b43f571db481eb2
-      </div>
+
 <% end %>
 
 </div>
