@@ -17,6 +17,8 @@ class RegistrationsController < ApplicationController
   end
 
   def create
+puts "#"*60
+puts "t'est bien arrivé"
 
     params.permit!
 

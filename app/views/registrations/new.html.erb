@@ -22,9 +22,9 @@
   </label>
   <br>
 
-      <% @categories.each do |cate| %>
-      <input type="checkbox" name="category[]" value=<%= cate.id %> >  <%= cate.name %> <br/>
-      <% end %>
+<% @categories.each do |cate| %>
+<input type="checkbox" name="category[]" value=<%= cate.id %> >  <%= cate.name %> <br/>
+<% end %>
 
 
   </article>

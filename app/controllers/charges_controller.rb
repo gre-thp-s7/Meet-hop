@@ -9,7 +9,7 @@ The controller does two things:
 def new
   binding.pry
 
-  
+  @amount = 500
 end
 
 def create
@@ -34,6 +34,10 @@ def create
   #Some payment attempts fail for a variety of reasons, such as an invalid CVC, bad card number, or general decline. Any Stripe::CardError exception will be caught and stored in the flash hash.
   rescue Stripe::CardError => e
   flash[:error] = e.message
-  redirect_to new_charge_path
+  binding.pry
+  redirect_to new_registration_path
   end
+
+
+   redirect_to events_path
 end
