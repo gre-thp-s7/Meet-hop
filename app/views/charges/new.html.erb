@@ -1,6 +1,6 @@
-<%= form_tag new_event_charge_path(@event) do %>
-<%= hidden_field_tag :events , @events %>
-<h1>ici la famille</h1>
+<%= form_tag(:controller => "registrations", :action => "create") do %>
+<%= hidden_field_tag :event , @event %>
+<%= hidden_field_tag :user , @user %><h1>ici la famille</h1>
   <article>
     <% if flash[:error].present? %>
       <div id="error_explanation">

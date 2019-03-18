@@ -5,70 +5,46 @@ class RegistrationsController < ApplicationController
   end
 
   def new
-    puts params
+    puts "CONTROLLER#REGISTRATIONS#NEW"
     params.permit!
     puts params
+    
     event_id = params[:event_id]
-    @user = current_user
+    user_id = current_user.id
+    
+    puts event_id
+    puts current_user.id
+
     @event = Event.find(event_id)
     @registration = Registration.new
-@categories = @event.categories
-puts params
+    @categories = @event.categories
+
   end
 
   def show
   end
 
   def create
-puts "CREATE#"*60
-puts params
-
     params.permit!
-
-    @user = current_user
-    @event = Event.find(event_id)
-    @registration = Registration.new
-    @amount = 100
+    puts "CONTROLLER#REGISTRATIONS#CREATE"
+    puts params
   
-  #The code first creates a Customer object using two POST parameters. You can create a charge directly, but creating a customer first allows for repeat billing.
-  
-  #The :source property is set to the stripeToken parameter, representing the payment method provided. The token is automatically created by Checkout.
-  customer = Stripe::Customer.create({
-    email: params[:stripeEmail],
-    source: params[:stripeToken],
-  })
-  
-  charge = Stripe::Charge.create({
-    customer: customer.id,
-    amount: @amount * 100,
-    description: 'Rails Stripe customer',
-    currency: 'eur',
-  })
-  
-  #Some payment attempts fail for a variety of reasons, such as an invalid CVC, bad card number, or general decline. Any Stripe::CardError exception will be caught and stored in the flash hash.
-
+    event_id = params[:event]
+    user_id = current_user.id
 
     @registration = Registration.new(
-      event_id: @event.id,
-      user_id: current_user.id)
-
-    
+      event_id: event_id,
+      user_id: user_id)
 
     if @registration.save
       flash[:success] = "Vous participez à l'évènement."
       redirect_to event_path(@event.id)
-      puts "PARTICIPATION OK+++++++++++++"
+      puts "#####PARTICIPATION OK#####"
     else 
       flash[:error] = "Une erreur s'est produite"
-      redirect_to @event
+      redirect_to event_path
     end
-    
-  rescue Stripe::CardError => e
-    flash[:error] = e.message
-    redirect_to @event
   end
-
-
   def edit
   end
 
