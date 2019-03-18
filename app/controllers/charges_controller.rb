@@ -1,23 +1,24 @@
 class ChargesController < ApplicationController
 
 def new
-    params.permit(:event, :danseur, :category)
+    params.permit(:event, :dancer, :category)
     @event = Event.find(params[:event])
     @categories = []
-    binding.pry
+    @dancer = params[:dancer]
+
     @categories = params[:categories]
     @amount = "3700"
 end
 
 def create
-  params.permit(:amount, :event, :categories)
+  params.permit(:amount, :event, :dancer, :categories)
   @amount = params[:amount]
   @event_id = params[:event]
   @categories = params[:categories].split
   @babar = current_user.id
     puts "@"*60
     puts "voici les catégories auquel s'est inscrit le danseur"
-    puts " l'array d'id des danses <%= @categories %>"
+    puts " l'array d'id des danses #{@categories} %>"
 
   customer = Stripe::Customer.create(
     :email => params[:stripeEmail],
@@ -34,7 +35,15 @@ def create
     @registration = Registration.new
     @registration.user_id = @babar
     @registration.event_id = @event_id
-    @registration.save
+
+################# il faudra enlever ca  une fois l'ajax fait
+if params[:dancer]
+    @registration.category_ids = @categories
+end
+###########################################
+    @registration.save!
+
+
     puts "@"*60
     puts "registration crée"
 
