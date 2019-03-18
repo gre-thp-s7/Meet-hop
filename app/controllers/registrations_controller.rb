@@ -10,7 +10,6 @@ class RegistrationsController < ApplicationController
     @user = current_user
     @event = Event.find(event_id)
     @registration = Registration.new
-    binding.pry
     @categories = @event.categories
   end
 
