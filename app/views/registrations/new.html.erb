@@ -1,2 +1,39 @@
 <h1>Registrations#new</h1>
-<p>Find me in app/views/registrations/new.html.erb</p>
+
+<div class="content row justify-content-md-center">
+<div class="card col-lg-6">
+<div class="card-body">
+<h1>S'inscrire à l'événement "<%= @event.name %>"</h1>
+</div>
+        <div class="form-group">
+          <p> Description : <%= @event.description %></p>
+      </div>
+
+<%= form_tag({:controller => "charges", :action => "new"}, {:method => "get"}) do %>
+  <article>
+
+<div class="control">
+  <label class="radio">
+    <input type="radio" name="danseur">
+    Danseur
+  </label>
+  <label class="radio">
+    <input type="radio" name="spectateur">
+    Spectateur
+  </label>
+  <br>
+
+<% @categories.each do |cate| %>
+<input type="checkbox" name="category[]" value=<%= cate.id %> >  <%= cate.name %> <br/>
+<% end %>
+
+
+  </article>
+      <div class="actions">
+        <%= submit_tag "Créer", class: "btn btn-submit btn-lg btn-block"%>
+  <div class="card col-lg-6">
+
+<% end %>
+
+</div>
+</div>

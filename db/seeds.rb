@@ -62,13 +62,14 @@ end
   puts "Locality #{l}"
 end
 
-3.times do |e|
+10.times do |e|
   e = Event.create!(
-  name: Faker::Nation.nationality,
+  name: Faker::Lorem.characters(10),
   description: Faker::Restaurant.description[20..1000],
   start_date: Faker::Date.between(DateTime.now + 1 , DateTime.now + 2),
   duration: 10,
-  spectator_price: "trop cher",
+  spectator_price: rand(5..10),
+  dancer_price: rand(10..20),
   rules: "En gros c'est 2 mecs qui se battent en duel de danse",
   prize_money: "30€ de bons d'achat a Auchan",
   picture_url: "",
