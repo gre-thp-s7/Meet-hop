@@ -6,7 +6,7 @@
       <h1 class="h3 mb-3 font-weight-normal text-center"></h1>
 
 
-      <h2>Resend confirmation instructions</h2>
+      <h2>Renvoyer les informations de confirmation</h2>
 
       <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
@@ -17,7 +17,7 @@
       </div>
 
       <div class="actions">
-        <%= f.submit "Resend confirmation instructions", class: "btn-primary btn-lg" %>
+        <%= f.submit "Renvoyer les informations de confirmation", class: "btn-primary btn-lg" %>
       </div>
       <% end %>
 
