@@ -20,6 +20,12 @@
     <input type="radio" name="spectateur">
     Spectateur
   </label>
+  <br>
+
+      <% @categories.each do |cate| %>
+      <input type="checkbox" name="category[]" value=<%= cate.id %> >  <%= cate.name %> <br/>
+      <% end %>
+
 
   </article>
       <div class="actions">
