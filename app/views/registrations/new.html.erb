@@ -10,14 +10,14 @@
 
 <%= form_tag({:controller => "charges", :action => "new"}, {:method => "get"}) do %>
   <article>
+<%= hidden_field_tag :event , @event.id %>
+
 
 <div class="control">
   <label class="radio">
-    <input type="radio" name="danseur">
+    <input type="radio" name="danseur" value="true" >
     Danseur
-  </label>
-  <label class="radio">
-    <input type="radio" name="spectateur">
+    <input type="radio" name="danseur" value="false">
     Spectateur
   </label>
   <br>
@@ -29,7 +29,7 @@
 
   </article>
       <div class="actions">
-        <%= submit_tag "Créer", class: "btn btn-submit btn-lg btn-block" %>
+        <%= submit_tag "inscrit moi", class: "btn btn-submit btn-lg btn-block" %>
   <div class="card col-lg-6">
 
 <% end %>

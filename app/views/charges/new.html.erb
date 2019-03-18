@@ -1,19 +1,27 @@
 <%= form_tag charges_path do %>
 <h1>ici la famille</h1>
   <article>
+
     <% if flash[:error].present? %>
       <div id="error_explanation">
         <p><%= flash[:error] %></p>
       </div>
     <% end %>
+
     <label class="amount">
-      <span>Amount: <%= @amount %></span>
+      <span>prix a payer: <%= @amount %> €</span>
     </label>
+    
   </article>
+
+<%= hidden_field_tag :event , @event.id %>
+<%= hidden_field_tag :categories , @categories %>
+<%= hidden_field_tag :amount , @amount %>
+
 
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-description="Inscription à l'évènement"
+          data-description="<%= @event.name %>"
           data-amount="<%= @amount %>"
-          data-locale="auto"></script>
+          data-locale="eur"></script>
 <% end %>

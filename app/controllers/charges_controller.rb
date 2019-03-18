@@ -7,31 +7,40 @@ The controller does two things:
 =end
 
 def new
-  binding.pry
-
-  @amount = 500
+    binding.pry
+    params.permit(:event, :danseur, :category)
+    @event = Event.find(params[:event])
+    @categories = params[:category]
+    @amount = "3700"
 end
 
 def create
   binding.pry
-  # Amount in cents
+  params.permit(:amount, :event)
+  @amount = params[:amount]
+  @event_id = params[:event]
+  @babar = current_user.id
 
-  #The code first creates a Customer object using two POST parameters. You can create a charge directly, but creating a customer first allows for repeat billing.
 
-  #The :source property is set to the stripeToken parameter, representing the payment method provided. The token is automatically created by Checkout.
-  customer = Stripe::Customer.create({
-    email: params[:stripeEmail],
-    source: params[:stripeToken],
-  })
+  customer = Stripe::Customer.create(
+    :email => params[:stripeEmail],
+    :source  => params[:stripeToken]
+  )
 
-  charge = Stripe::Charge.create({
-    customer: customer.id,
-    amount: @amount,
-    description: 'Rails Stripe customer',
-    currency: 'eur',
-  })
+  charge = Stripe::Charge.create(
+    :customer    => customer.id,
+    :amount      => @amount,
+    :description => 'Rails Stripe customer',
+    :currency    => 'eur'
+  )
 
-  #Some payment attempts fail for a variety of reasons, such as an invalid CVC, bad card number, or general decline. Any Stripe::CardError exception will be caught and stored in the flash hash.
+  @registration = Registration.new
+  @registration.user_id = @babar
+  @registration.event_id = @event_id
+  @registration.save
+  puts "@"*60
+  puts "registration crée"
+  
   rescue Stripe::CardError => e
   flash[:error] = e.message
   binding.pry
@@ -39,5 +48,9 @@ def create
   end
 
 
-   redirect_to events_path
+
+
+
+
+
 end
