@@ -1,0 +1,82 @@
+<section id="portfolio-information" class="padding-top" style="padding-top: 80px">
+    <div class="container">
+        <div class="row">
+            <% unless @event.picture.attached? == false %>
+            <div class="col-sm-6" style="padding-left: 75px; border-width: 2px; border-style: solid; border-color: #1C6EA4">
+                <%= image_tag @event.picture, class:"img-responsive", alt: "" %>
+            </div>
+            <% end %>
+
+
+            <div class="col-sm-6" style="border-width: 2px; border-style: solid; border-color: #1C6EA4">
+                <div class="project-name overflow">
+                    <h2 class="bold"><%= @event.name %></h2>
+                    <ul class="nav navbar-nav navbar-default">
+                        <li><a href="#"><i class="fa fa-clock-o"></i><%= @event.created_at %></a></li>
+                    </ul>
+                </div>
+                <div class="project-info overflow">
+                    <h3>DESCRIPTION DE L'EVENEMENT</h3>
+                    <p><%= @event.description %></p>
+                    <h5> date:</h5>
+                    <p> <%= @event.start_date %></p>
+
+                    <h5> endroit :</h5>
+                    <p> <%= @event.locality.address %></p>
+                    <p> <%= @event.locality.zipcode %> <%= @event.locality.city_name %></p>
+
+                    <h5> prix public:</h5>
+                    <p> <%= @event.spectator_price %></p>
+                    <h5> rules:</h5>
+                    <p> <%= @event.rules %></p>
+                    <h5> prize money:</h5>
+                    <p> <%= @event.prize_money %></p>
+
+                    <h2> cet évenement a été crée par :</h2>
+                    <p> <%= @event.promoter.first_name %></p>
+                </div>
+                <div class="project-info overflow">
+                    <h3>liste des dance présentes</h3>
+                        <% @event.categories.each do |cate| %>
+                    <p> <%= cate.name %></p>
+                    <% end %>
+
+                </div>
+                <div class="client overflow">
+                    <h3>prix public :  <span style="color: #C03035"> <%= @event.spectator_price %> <i class="fa fa-euro"></i></span></h3>
+                    <ul class="nav navbar-nav navbar-default">
+                        <li><a href="#" style="font-size: 16px;"> </a></li>
+                    </ul>
+                </div>
+                
+                <% if @subscribtion_possible %>
+
+                    <div class="live-preview">
+                    
+                        <a href="<%= new_event_registration_path(@event.id) %>" class="btn btn-common" style="margin-top: 37px; border-width: 2px; border-style: solid; border-color: #1C6EA4">  <i class="fa fa-shopping-cart"></i> Je m'inscrit ! (doit rediriger vers new#registration avec une vue qui va bien ou de l'ajax sur cette page...) </a>
+                    </div>
+
+                <% elsif @promotor %>
+
+                    <div class="live-preview">
+                        <a href="<%= edit_event_path %>" class="btn btn-common" style="margin-top: 37px; border-width: 2px; border-style: solid; border-color: #1C6EA4">  <i class="fa fa-shopping-cart"></i> Je modifie ! (doit rediriger vers edit#event) </a>
+                    </div>
+
+                <% elsif @already_participant %>
+
+                    <div class="live-preview">
+                        <a href="#" class="btn btn-common" style="margin-top: 37px; border-width: 2px; border-style: solid; border-color: #1C6EA4">  <i class="fa fa-shopping-cart"></i> Je participe déja ! (doit rediriger vers .... ce qu'on voudrat) </a>
+                    </div>
+
+                <% end %>
+
+
+
+            </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</section>

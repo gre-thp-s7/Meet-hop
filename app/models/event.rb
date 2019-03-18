@@ -41,11 +41,14 @@ class Event < ApplicationRecord
 
 
 	####### will have to work on this part with the table locality
-	validates :locality, 
+	validates :locality,
 		presence: true
 
+############ picture with active storage #################
+	has_one_attached :picture
 
 
+private
 ############  method verifiction for the start date to include
 	validate :is_future
 	def is_future

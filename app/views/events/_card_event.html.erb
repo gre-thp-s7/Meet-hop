@@ -1,0 +1,17 @@
+<% @events.each do |event| %>
+<div class="col-4 p-2" style="padding-top: 30px; border-width: px; border-style: solid; border-color: #1C6EA4">
+  <%= link_to event_path(event), action: :go do %>
+  <div class=" pl-3">
+      <h2><%= event.name%></h2>
+      <%= l(event.start_date, format: :long ) %>
+      <p>Prix public : <%= event.spectator_price %> €</p>
+      <p>Prix inscription : PAS DEFINI DANS LA TABLE EVENT</p>
+
+      <%= event.rules %>
+      <p>Prize money <%= event.prize_money %></p>
+      <%= event.locality.city_name %>
+      <%= event.promoter.first_name %> <%= event.promoter.last_name %>
+      <% end%>
+    </div>
+  </div>
+  <% end %>

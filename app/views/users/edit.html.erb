@@ -1,17 +1,24 @@
   <div class="row">
-    <div class="col-md-6 offset-md-3">
-      <br><br><br>
+    <div class="col-md-6 offset-md-3"  style="border-width: 2px; border-style: solid; border-color: #1C6EA4;">
+      <br>
+      <br>
+      <br>
 
-        <%= form_for @user do |f| %>
-          <h1 class="h3 mb-3 font-weight-normal text-center">Mes Informations</h1>
-          <div class="form-group">
-            <%= f.text_field :first_name, class: 'form-control', placeholder: 'Prénom'%><br/>
-            <%= f.text_field :last_name, class: 'form-control', placeholder: 'Nom'%><br/>
-            <%= f.text_field :phone, class: 'form-control', placeholder: 'Numéro de téléphone'%><br/>
-          </div>
-          <div class="form-actions mt-3">
-            <button type="submit" class="btn btn-secondary"> Mettre à jour </button>
-          </div>
-        <% end %>
+      <%= form_for @user do |f| %>
+        <h1 class="h3 mb-3 font-weight-normal text-center">Mes Informations</h1>
+        <div class="form-group">
+          <%= f.text_field :first_name, class: 'form-control', placeholder: 'Prénom'%><br/>
+          <%= f.text_field :last_name, class: 'form-control', placeholder: 'Nom'%><br/>
+          <%= f.text_field :phone, class: 'form-control', placeholder: 'Numéro de téléphone'%><br/>
+        </div>
+              <label>image associée</label>
+
+      <p>=== attention, choisi bien, ce sera la seule et c'et inchangeable ! (pour le moment ) ===</p>
+      <%= f.file_field :avatar %>
+        <div class="form-actions mt-3">
+          <button type="submit" class="btn-primary btn-lg"> Mettre à jour </button>
+        </div>
+      <% end %>
+
     </div>
   </div>
