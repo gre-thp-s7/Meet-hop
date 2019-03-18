@@ -4,6 +4,9 @@ class RegistrationsController < ApplicationController
   def index
   end
 
+  def show
+  end
+
   def new
     puts "CONTROLLER#REGISTRATIONS#NEW"
     params.permit!
@@ -21,30 +24,27 @@ class RegistrationsController < ApplicationController
 
   end
 
-  def show
-  end
-
   def create
     params.permit!
     puts "CONTROLLER#REGISTRATIONS#CREATE"
     puts params
   
-    event_id = params[:event]
+    event_id = params[:event_id]
     user_id = current_user.id
 
     @registration = Registration.new(
       event_id: event_id,
       user_id: user_id)
-
-    if @registration.save
+    
+    
+    @registration.save!
       flash[:success] = "Vous participez à l'évènement."
-      redirect_to event_path(@event.id)
+      
+
       puts "#####PARTICIPATION OK#####"
-    else 
-      flash[:error] = "Une erreur s'est produite"
-      redirect_to event_path
-    end
+
   end
+  
   def edit
   end
 

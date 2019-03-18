@@ -46,15 +46,5 @@ def create
   flash[:error] = e.message
   redirect_to new_event_charge_path
   end
-  puts @user_id
-  binding.pry
-
-  @registration = Registration.new
-  @registration.user_id = current_user.id
-  @registration.event_id = @event_id
-
-  @registration.save
-    
-  puts "#####PARTICIPATION OK#####"
 
 end
