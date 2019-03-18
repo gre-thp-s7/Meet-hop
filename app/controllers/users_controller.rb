@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   end
 
   def index
+    @users = User.all
   end
 
   def create
@@ -30,8 +31,8 @@ class UsersController < ApplicationController
     end
 
     if @user.update(
-      first_name: post_params[:first_name], 
-      last_name: post_params[:last_name], 
+      first_name: post_params[:first_name],
+      last_name: post_params[:last_name],
       phone: post_params[:phone]
       )
 
