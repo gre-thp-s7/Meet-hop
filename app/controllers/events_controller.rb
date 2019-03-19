@@ -8,9 +8,22 @@ class EventsController < ApplicationController
   before_action :can_edit_the_event, only: [:edit, :update, :destroy, :show]
 ############################################################
 
+### needed this method cause i can't redirect with is_promoter_of_the_event when ask in edit#event navigation bar without causing error somewhere else
+  def can_edit_the_event
+    post_params = params.permit(:id)
+    event = Event.find_by(id: params[:id])
+    if current_user.id == event.promoter_id
+      flash.now[:info] = "tu es bien le créateur de l'événement"  
+    else      
+      flash[:info] = "tu n'es pas le créateur de l'événement"
+      redirect_to root_path and return false
+    end   
+  end 
+########################################
+
 ############ method to create variable for "if" in front ####
 ### it give boolean for each ###########
-  def whosit
+  def who_is_the_user
     @promotor = is_promoter_of_the_event
     @already_participant = already_subscribed_to_the_event
     @subscribtion_possible = can_subscribe_for_event
@@ -22,7 +35,7 @@ class EventsController < ApplicationController
   end
 
   def show
-    whosit
+    who_is_the_user
     post_params = params.permit(:id)
     @event = Event.find(params[:id])
     @users = User.all
