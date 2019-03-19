@@ -1,13 +1,10 @@
 class ChargesController < ApplicationController
-=begin 
-The controller does two things:
--------------------------------
-  Shows a credit card form (using Checkout).
-  Creates the actual charges by calling our API.
-=end
 
 def new
   params.permit!
+  binding.pry
+  @dancer = params[:dancer]
+  @categories = params[:categories]
   @amount = 500
   puts "CHARGES#CONTROLLER#NEW"
   puts params
@@ -19,9 +16,18 @@ def create
   puts "CHARGES#CONTROLLER#CREATE"
   puts params
   params.permit!
-
   @event_id = params[:event]
   @user_id = current_user.id
+ 
+  binding.pry
+  @categories = params[:categories].split
+  puts "DANCE CATEGOIES ARE AFTER THIS"
+  puts @categories  
+################# il faudra enlever ca  une fois l'ajax fait
+if params[:dancer]
+    @registration.category_ids = @categories
+end
+###########################################
 
   # Amount in cents
   @amount = 500
