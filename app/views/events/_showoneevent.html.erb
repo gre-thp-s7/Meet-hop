@@ -27,6 +27,8 @@
 
                     <h5> prix public:</h5>
                     <p> <%= @event.spectator_price %></p>
+                    <h5> prix danceur:</h5>
+                    <p> <%= @event.dancer_price %></p>
                     <h5> rules:</h5>
                     <p> <%= @event.rules %></p>
                     <h5> prize money:</h5>
@@ -53,7 +55,7 @@
 
                     <div class="live-preview">
                     
-                        <a href="<%= new_registration_path(@event.id) %>" class="btn btn-common" style="margin-top: 37px; border-width: 2px; border-style: solid; border-color: #1C6EA4">  <i class="fa fa-shopping-cart"></i> Je m'inscrit ! (doit rediriger vers new#registration avec une vue qui va bien ou de l'ajax sur cette page...) </a>
+                        <a href="<%= new_event_registration_path(@event.id) %>" class="btn btn-common" style="margin-top: 37px; border-width: 2px; border-style: solid; border-color: #1C6EA4">  <i class="fa fa-shopping-cart"></i> Je m'inscrit ! (doit rediriger vers new#registration avec une vue qui va bien ou de l'ajax sur cette page...) </a>
                     </div>
 
                 <% elsif @promotor %>

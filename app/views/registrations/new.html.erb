@@ -1,4 +1,5 @@
 <h1>Registrations#new</h1>
+
 <div class="content row justify-content-md-center">
 <div class="card col-lg-6">
 <div class="card-body">
@@ -8,7 +9,7 @@
           <p> Description : <%= @event.description %></p>
       </div>
 
-<%= form_tag(:controller => "charges", :action => "create") do %>
+<%= form_tag({:controller => "charges", :action => "new"}, {:method => "get"}) do %>
   <article>
 
 <div class="control">
@@ -22,14 +23,14 @@
   </label>
   <br>
 
-      <% @categories.each do |cate| %>
-      <input type="checkbox" name="category[]" value=<%= cate.id %> >  <%= cate.name %> <br/>
-      <% end %>
+<% @categories.each do |cate| %>
+<input type="checkbox" name="category[]" value=<%= cate.id %> >  <%= cate.name %> <br/>
+<% end %>
 
 
   </article>
       <div class="actions">
-        <%= submit_tag "Créer", class: "btn btn-submit btn-lg btn-block" %>
+        <%= submit_tag "Créer", class: "btn btn-submit btn-lg btn-block"%>
   <div class="card col-lg-6">
 
 <% end %>
