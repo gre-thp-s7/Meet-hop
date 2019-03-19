@@ -1,12 +1,13 @@
-<div class="container col-md-12">
+<div class="container">
   <div class="row">
-    <div class="col-md-3"></div>
-    <div class="col-md-6 offset-md-6">
-      <br><br><br>
+    <div class="col-md-6 offset-md-3">
+
       <h1 class="h3 mb-3 font-weight-normal text-center"></h1>
 
 
       <h2>Renvoyer les informations de confirmation</h2>
+
+      <%= devise_error_messages! %>
 
       <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>

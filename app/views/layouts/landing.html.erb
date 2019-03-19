@@ -14,14 +14,17 @@
   </head>
   <body class="d-flex flex-column ">
     <div>
-    <%= render "layouts/navbar_landing"  %>
+      <%= render "layouts/navbar_landing"  %>
     </div>
-    <%= render 'layouts/flash'%>
-
-    <%= yield %>
+    <div id="flash-container">
+      <%= render 'layouts/flash'%>
+    </div>
+    <div id="yield-container">
+      <%= yield %>
+    </div>
     <div class="footer-absolute">
-    <%= render "layouts/footer_landing"  %>
-  </div>
-</body>
+      <%= render "layouts/footer_landing"  %>
+    </div>
+  </body>
 
 </html>
