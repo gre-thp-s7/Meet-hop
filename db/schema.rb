@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_18_214253) do
+ActiveRecord::Schema.define(version: 2019_03_19_081213) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,6 +77,20 @@ ActiveRecord::Schema.define(version: 2019_03_18_214253) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "registration_dance_selections", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "registration_dances", force: :cascade do |t|
+    t.bigint "registration_id"
+    t.bigint "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_registration_dances_on_category_id"
+    t.index ["registration_id"], name: "index_registration_dances_on_registration_id"
+  end
+
   create_table "registrations", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "event_id"
@@ -101,7 +115,6 @@ ActiveRecord::Schema.define(version: 2019_03_18_214253) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "facebook_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

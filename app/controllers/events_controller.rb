@@ -5,15 +5,36 @@ class EventsController < ApplicationController
 
 ###### protection against path in search browser bar ######
   before_action :authenticate_user!, only: [:new, :create]
-  before_action :is_promoter_of_the_event, only: [:edit, :update, :destroy, :show]
+  before_action :can_edit_the_event, only: [:edit, :update, :destroy]
 ############################################################
+
+
+### needed this method cause i can't redirect with is_promoter_of_the_event when ask in edit#event navigation bar without causing error somewhere else
+  def can_edit_the_event
+    post_params = params.permit(:id)
+    event = Event.find_by(id: params[:id])
+
+      if current_user.id == event.promoter_id
+        flash.now[:info] = "tu es bien le créateur de l'événement"  
+      else      
+        flash[:info] = "tu n'es pas le créateur de l'événement"
+        redirect_to root_path and return false
+      end  
+  end 
+########################################
 
 ############ method to create variable for "if" in front ####
 ### it give boolean for each ###########
-  def whosit
-    @promotor = is_promoter_of_the_event
-    @already_participant = already_subscribed_to_the_event
-    @subscribtion_possible = can_subscribe_for_event
+  def who_is_the_user
+    if current_user != nil
+      @promotor = is_promoter_of_the_event
+      @already_participant = already_subscribed_to_the_event
+      @subscribtion_possible = can_subscribe_for_event
+    else
+      @promotor = false
+      @already_participant = false
+      @subscribtion_possible = false 
+    end
   end
 #############################################
 
@@ -22,8 +43,10 @@ class EventsController < ApplicationController
   end
 
   def show
-    whosit
-    post_params = params.permit(:id)
+    #### this method look if promotor or already subscribed
+    who_is_the_user
+
+    params.permit(:id)
     @event = Event.find(params[:id])
     @users = User.all
   end
@@ -42,6 +65,7 @@ class EventsController < ApplicationController
       description: post_params[:description],
       start_date: post_params[:start_date],
       duration: post_params[:duration],
+      dancer_price: post_params[:dancer_price],
       spectator_price: post_params[:spectator_price],
       rules: post_params[:rules],
       prize_money: post_params[:prize_money],
@@ -61,6 +85,9 @@ class EventsController < ApplicationController
   end
 
   def edit
+    if @promotor == false
+      flash.now[:danger] = "ne devrais pas pouvoir arriver ici, car n'est pas le créateur de l'event"
+    end
     @event = Event.find_by(id: params[:id])
     @all_categories = Category.all
     @categories = Category.new
