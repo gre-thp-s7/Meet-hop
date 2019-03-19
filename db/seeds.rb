@@ -39,6 +39,7 @@ I18n.reload!
   )
 #################################################
 
+# on peut passer `confirmed_at: Time.now` pour confirmer tes users dans le seed si on a confirmation par email dans devise
 10.times do |u|
   u = User.create!(
   first_name: Faker::Name.first_name,
