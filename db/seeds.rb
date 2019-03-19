@@ -84,7 +84,7 @@ end
   r = Registration.create!(
     user_id: User.all.sample.id,
     event_id: Event.all.sample.id,
-    role: "danceur ou spectateur"
+    role: ["dancer", "spectator"].sample
   )
   puts "Registration #{r}"
 end
