@@ -1,7 +1,7 @@
 class RegistrationsController < ApplicationController
 
   before_action :authenticate_user!, only: [:new, :create]
-  before_action :can_subs, only: [:new, :create]
+  before_action :can_subs, only: [:new]
 
   def new
     @can_subs = can_subs
@@ -33,6 +33,17 @@ class RegistrationsController < ApplicationController
     @registration = Registration.new(
       event_id: event_id,
       user_id: user_id)
+
+  binding.pry
+  @categories = params[:categories].split
+  puts "DANCE CATEGOIES ARE AFTER THIS"
+  puts @categories  
+################# il faudra enlever ca  une fois l'ajax fait
+if params[:dancer]
+    @registration.category_ids = @categories
+end
+###########################################
+
     
     
     @registration.save!
@@ -63,7 +74,6 @@ class RegistrationsController < ApplicationController
       flash.now[:info] = "tu es déja inscrit"        
       return true
     else
-      flash.now[:info] = "tu n'es pas inscrit" 
       return false
     end
   end

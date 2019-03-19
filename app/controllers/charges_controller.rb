@@ -3,6 +3,7 @@ class ChargesController < ApplicationController
 def new
   params.permit!
   binding.pry
+  @dancer = params[:dancer]
   @categories = params[:categories]
   @amount = 500
   puts "CHARGES#CONTROLLER#NEW"
@@ -15,12 +16,18 @@ def create
   puts "CHARGES#CONTROLLER#CREATE"
   puts params
   params.permit!
+  @event_id = params[:event]
+  @user_id = current_user.id
+ 
   binding.pry
   @categories = params[:categories].split
   puts "DANCE CATEGOIES ARE AFTER THIS"
   puts @categories  
-  @event_id = params[:event]
-  @user_id = current_user.id
+################# il faudra enlever ca  une fois l'ajax fait
+if params[:dancer]
+    @registration.category_ids = @categories
+end
+###########################################
 
   # Amount in cents
   @amount = 500
@@ -39,11 +46,6 @@ def create
     description: 'Rails Stripe customer',
     currency: 'eur',
   })
-################# il faudra enlever ca  une fois l'ajax fait
-if params[:dancer]
-    @registration.category_ids = @categories
-end
-###########################################
 
   #Some payment attempts fail for a variety of reasons, such as an invalid CVC, bad card number, or general decline. Any Stripe::CardError exception will be caught and stored in the flash hash.
   rescue Stripe::CardError => e

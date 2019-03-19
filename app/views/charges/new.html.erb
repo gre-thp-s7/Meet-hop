@@ -1,32 +1,20 @@
-<%= form_tag charges_path do %>
-  <h1>ici la famille</h1>
-    <article>
-
-      <% if flash[:error].present? %>
-        <div id="error_explanation">
-          <p><%= flash[:error] %></p>
-        </div>
-      <% end %>
-
-      <label class="amount">
-        <span>prix a payer: <%= @amount %> €</span>
-      </label>
-
-    </article>
-
-  <h1> en dessous il y a des hidden field = html breach a corriger avec une nested routes ou en feature suplémentaire (dans 2 semaines)</h1>
-    <%= hidden_field_tag :event , @event.id %>
-    <%= hidden_field_tag :categories , @categories %>
-    <%= hidden_field_tag :amount , @amount %>
-    <%= hidden_field_tag :dancer , @dancer %>
-  <h1> fin des hidden field en sandwich</h1>
-
-  <h1>NE PAS OUBLIER D'INDENTER LE CODE</h1>
-
-
+<%= form_tag(:controller => "registrations", :action => "create") do %>
+<h1>ici la famille</h1>
+  <article>
+    <% if flash[:error].present? %>
+      <div id="error_explanation">
+        <p><%= flash[:error] %></p>
+      </div>
+    <% end %>
+    <label class="amount">
+      <span>Amount: <%= @amount %></span>
+    </label>
+  </article>
+<%= hidden_field_tag :categories , @categories %>
+<%= hidden_field_tag :dancer , @dancer %>
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-    data-description="<%= @event.name %>"
-    data-amount="<%= @amount %>"
-    data-locale="eur"></script>
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-description="Inscription à l'évènement"
+          data-amount="<%= @amount %>"
+          data-locale="auto"></script>
 <% end %>
