@@ -1,25 +1,26 @@
 <header id="header" class="fixed-top">
 
-    <div class="logo float-left">
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <h1 class="text-light"><a href="#header"><span>NewBiz</span></a></h1> -->
-      <a href="<%= root_path%>" class="scrollto ml-5"><img src="https://www.thehackingproject.org/packs/packs/dashboard/images/profile/default_profile-a3318a5e66467f9958f16a172f9d15d6.jpg" alt="" class="img-fluid"></a>
-    </div>
+  <div class="logo float-left">
+    <!-- Uncomment below if you prefer to use an image logo -->
+    <!-- <h1 class="text-light"><a href="#header"><span>NewBiz</span></a></h1> -->
+    <a href="<%= root_path%>" class="scrollto ml-5"><img src="https://www.thehackingproject.org/packs/packs/dashboard/images/profile/default_profile-a3318a5e66467f9958f16a172f9d15d6.jpg" alt="" class="img-fluid"></a>
+  </div>
 
-    <nav class="main-nav float-right d-none d-lg-block">
-      <ul>
-        <% if user_signed_in? %>
-        <li class="active"><%= link_to "Créer un nouvel évènement", new_event_path %></li>
-        <li><%= link_to('Se déconnecter', destroy_user_session_path, method: :delete, class: "btn btn-common") %></li>
-        <li><%= link_to "Profil", user_path(current_user) %></li>
-          <% else %>
-        <li class="active"><%= link_to "Créer un nouvel évènement", new_event_path %></li>
-        <li><%= link_to "Se connecter", new_user_session_path %></li>
-        <li><%= link_to "Se connecter avec Facebook", user_facebook_omniauth_authorize_path %></li>
-        <li><%= link_to "S'inscrire", new_user_registration_path %></li>
-        <% end %>
-        <% if current_user != nil && current_user.is_god == true %>
-          <li><%= link_to "lien admin non déterminé", root_path %></li>
-        <%end%>
-      </ul>
-    </nav><!-- .main-nav -->
+  <nav class="main-nav float-right d-none d-lg-block">
+    <ul>
+      <% if user_signed_in? %>
+      <li class="active"><%= link_to "Créer un nouvel évènement", new_event_path %></li>
+      <li><%= link_to('Se déconnecter', destroy_user_session_path, method: :delete, class: "btn btn-common") %></li>
+      <li><%= link_to "Profil", user_path(current_user) %></li>
+      <% else %>
+      <li class="active"><%= link_to "Créer un nouvel évènement", new_event_path %></li>
+      <li><%= link_to "Se connecter", new_user_session_path %></li>
+      <li><%= link_to "Se connecter avec Facebook", user_facebook_omniauth_authorize_path %></li>
+      <li><%= link_to "S'inscrire", new_user_registration_path %></li>
+      <% end %>
+      <% if current_user != nil && current_user.is_god == true %>
+      <li><%= link_to "lien admin non déterminé", root_path %></li>
+      <%end%>
+    </ul>
+  </nav><!-- .main-nav -->
+</header>
