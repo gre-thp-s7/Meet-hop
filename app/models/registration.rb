@@ -26,5 +26,14 @@ class Registration < ApplicationRecord
     PromoterMailer.event_registration_email(user, event).deliver_now
 
   end
+
+  # Send an email when the promoter update an event
+  after_update :send_event_update_email
+  def send_event_update_email
+
+    # Tell the PromoterMailer to send a email when the Promoter update an event
+    PromoterMailer.event_update_email(user, event).deliver_now
+
+  end
   #=============================================
 end
