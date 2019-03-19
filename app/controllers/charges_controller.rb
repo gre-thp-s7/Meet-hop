@@ -2,39 +2,36 @@ class ChargesController < ApplicationController
 
 def new
   params.permit!
-  binding.pry
   @dancer = params[:dancer]
   @categories = params[:categories]
-  @amount = 500
-  puts "CHARGES#CONTROLLER#NEW"
-  puts params
-  puts "USERS IS AFTER THIS"
-  puts current_user.id
+  @event = Event.find(params[:event_id])
+  
+  if @dancer == "true"
+    puts "le prix dancer #{@event.dancer_price}"
+    @amount = @event.dancer_price.to_i * 100
+  else
+    puts "le prix spectateur #{@event.spectator_price}"
+    @amount = @event.spectator_price.to_i * 100
+  end 
+
 end
 
 def create
-  puts "CHARGES#CONTROLLER#CREATE"
-  puts params
+
   params.permit!
-  @event_id = params[:event]
+
   @user_id = current_user.id
- 
-  binding.pry
-  @categories = params[:categories].split
-  puts "DANCE CATEGOIES ARE AFTER THIS"
-  puts @categories  
-################# il faudra enlever ca  une fois l'ajax fait
-if params[:dancer]
-    @registration.category_ids = @categories
-end
-###########################################
 
-  # Amount in cents
-  @amount = 500
+  @event = Event.find(params[:event_id])
+  
+  if @dancer == "true"
+    puts "le prix dancer #{@event.dancer_price}"
+    @amount = @event.dancer_price
+  else
+    puts "le prix spectateur #{@event.spectator_price}"
+    @amount = @event.spectator_price
+  end
 
-  #The code first creates a Customer object using two POST parameters. You can create a charge directly, but creating a customer first allows for repeat billing.
-
-  #The :source property is set to the stripeToken parameter, representing the payment method provided. The token is automatically created by Checkout.
   customer = Stripe::Customer.create({
     email: params[:stripeEmail],
     source: params[:stripeToken],
@@ -42,12 +39,11 @@ end
 
   charge = Stripe::Charge.create({
     customer: customer.id,
-    amount: @amount,
+    amount: @amount.to_i * 100,
     description: 'Rails Stripe customer',
     currency: 'eur',
   })
 
-  #Some payment attempts fail for a variety of reasons, such as an invalid CVC, bad card number, or general decline. Any Stripe::CardError exception will be caught and stored in the flash hash.
   rescue Stripe::CardError => e
   flash[:error] = e.message
   redirect_to new_event_charge_path

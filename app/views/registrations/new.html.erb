@@ -17,14 +17,14 @@
 				<% if @can_subs == true %>
 					<div class="control">
 						<label class="radio">
-							<input type="radio" name="dancer" value="true" >
+							<input type="radio" name="dancer" value="true" required>
 							Danseur
-							<input type="radio" name="dancer" value="false">
+							<input type="radio" name="dancer" value="false" required>
 							Spectateur
 						</label>
-						<br>	
+						<br>
 					</div>
-					
+
 					<% @categories.each do |cate| %>
 						<input type="checkbox" name="categories[]" value=<%= cate.id %> >  <%= cate.name %> <br/>
 					<% end %>

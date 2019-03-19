@@ -39,7 +39,7 @@ class RegistrationsController < ApplicationController
   puts "DANCE CATEGOIES ARE AFTER THIS"
   puts @categories  
 ################# il faudra enlever ca  une fois l'ajax fait
-if params[:dancer]
+if params[:dancer] == true
     @registration.category_ids = @categories
 end
 ###########################################

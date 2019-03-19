@@ -1,0 +1,32 @@
+
+
+<% @x = 1 %>
+<% 3.times do |x| %>
+<div class="col-sm-4 padding" style="padding-top: 30px; border-width: 2px; border-style: solid; border-color: #1C6EA4">
+  <%= link_to event_path(@events[-@x]), action: :go do %>
+  <div class=" pl-3">
+    <% if @events[-@x] != nil %>
+    <h2><%= @events[-@x].name%></h2>
+    <p><%= l(@events[-@x].start_date, format: :long ) %> </p>
+    <p>Durée : <% if @events[-@x].duration/60 > 0 %> <%= @events[-@x].duration/60 %>h<%end%> <%= @events[-@x].duration % 60 %>min</p>
+
+    <p>Prix public : <%= @events[-@x].spectator_price %> €</p>
+    <p>Prix inscription : PAS DEFINI DANS LA TABLE EVENT</p>
+
+    <p>Règles</p>
+    <p><%= @events[-@x].rules %></p>
+    <p>Prize money</p>
+    <p><%= @events[-@x].prize_money %></p>
+
+    <p>this is just to show that there's here !</p>
+    <p><%= @events[-@x].locality.city_name %></p>
+    <p><%= @events[-@x].promoter.first_name %> <%= @events[-@x].promoter.last_name %></p>
+
+    <% else %>
+    <P>== not enough events in db ==</P>
+    <% end%>
+  </div>
+  <% end %>
+</div>
+<% @x += 1 %>
+<% end %>
