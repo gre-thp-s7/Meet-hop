@@ -12,19 +12,26 @@ class DashboardController < ApplicationController
 
 
 
-
 puts "@"*60
 puts "ici les evenement créer"
-puts "#{@event_created.each do |i|;
-	i.name;
+puts "il y en a #{@event_created.length}"
+	@event_created.each do |i|
+		puts "#{i.name}"
 	end
-	 }"
+
 puts "@"*60
-puts "iciles evenement participé en tant que danseur"
-puts "#{@event_participed_dancer}"
+puts "ici les evenement participé en tant que danseur"
+puts "il y en a #{@event_participed_dancer.length}"
+	@event_participed_dancer.each do |i|
+		puts "#{i.event.name}"
+	end
+
 puts "@"*60
 puts "ici les evenement participé en tant que spectateur"
-puts "#{@event_participed_spectator}"
+puts "il y en a #{@event_participed_spectator.length}"
+	@event_participed_spectator.each do |i|
+		puts "#{i.event.name}"
+	end
 puts "@"*60
 
   end
