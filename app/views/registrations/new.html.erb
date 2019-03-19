@@ -1,39 +1,46 @@
 <h1>Registrations#new</h1>
 
 <div class="content row justify-content-md-center">
-<div class="card col-lg-6">
-<div class="card-body">
-<h1>S'inscrire à l'événement "<%= @event.name %>"</h1>
-</div>
-        <div class="form-group">
-          <p> Description : <%= @event.description %></p>
-      </div>
+	<div class="card col-lg-6">
 
-<%= form_tag({:controller => "charges", :action => "new"}, {:method => "get"}) do %>
-  <article>
+		<div class="card-body">
+		<h1>S'inscrire à l'événement "<%= @event.name %>"</h1>
+		</div>
 
-<div class="control">
-  <label class="radio">
-    <input type="radio" name="danseur">
-    Danseur
-  </label>
-  <label class="radio">
-    <input type="radio" name="spectateur">
-    Spectateur
-  </label>
-  <br>
+		<div class="form-group">
+		<p> Description : <%= @event.description %></p>
+		</div>
 
-<% @categories.each do |cate| %>
-<input type="checkbox" name="category[]" value=<%= cate.id %> >  <%= cate.name %> <br/>
-<% end %>
+		<%= form_tag({:controller => "charges", :action => "new"}, {:method => "get"}) do %>
+			<article>
 
+				<% if @can_subs == true %>
+					<div class="control">
+						<label class="radio">
+							<input type="radio" name="dancer" value="true" >
+							Danseur
+							<input type="radio" name="dancer" value="false">
+							Spectateur
+						</label>
+						<br>	
+					</div>
+					
+					<% @categories.each do |cate| %>
+						<input type="checkbox" name="categories[]" value=<%= cate.id %> >  <%= cate.name %> <br/>
+					<% end %>
 
-  </article>
-      <div class="actions">
-        <%= submit_tag "Créer", class: "btn btn-submit btn-lg btn-block"%>
-  <div class="card col-lg-6">
+					<div class="actions">
+					<%= submit_tag "inscrit moi", class: "btn btn-submit btn-lg btn-block" %>
+					<div class="card col-lg-6">
 
-<% end %>
+				<% else %>
 
-</div>
+					<h1> tu es soit déja inscrit ou soit le créateur, ce msg apparait car le callback before action ne fonctionne pas <- merci yaya !</h1>
+
+				<% end %>
+
+			</article>
+		<% end %>
+
+	</div>
 </div>

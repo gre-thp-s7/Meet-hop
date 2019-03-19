@@ -8,6 +8,10 @@
     </tr>
   </thead>
   <tbody>
+
+<!-- if there's no registration, there where an error -->
+<% if @user != nil %>
+
     <% @x = 1 %>
     <% @users.each do |user| %>
     <tr>
@@ -19,5 +23,8 @@
     </tr>
     <% @x += 1 %>
     <% end %>
+
+<% end %>
+
   </tbody>
 </table>
