@@ -2,15 +2,18 @@ class ChargesController < ApplicationController
 
 def new
   params.permit!
-  binding.pry
+  #binding.pry
   @dancer = params[:dancer]
   @categories = params[:categories]
-  @event = Event.find(id: params[:event_id])
-  if @dancer == true
-    @amount = Event.find(params[:event_id]).dancer_price
+  @event = Event.find(params[:event_id])
+  
+  if @dancer == "true"
+    puts "le prix dancer #{@event.dancer_price}"
+    @amount = @event.dancer_price
   else
-    @event = Event.find(params[:event_id]).spectator_price
-  end
+    puts "le prix spectateur #{@event.spectator_price}"
+    @amount = @event.spectator_price
+  end 
 
   puts "CHARGES#CONTROLLER#NEW"
   puts params
@@ -25,11 +28,14 @@ def create
 
   @user_id = current_user.id
 
-  @event = Event.find(id: params[:event_id])
-  if @dancer == true
-    @amount = Event.find(params[:event_id]).dancer_price
+  @event = Event.find(params[:event_id])
+  
+  if @dancer == "true"
+    puts "le prix dancer #{@event.dancer_price}"
+    @amount = @event.dancer_price
   else
-    @event = Event.find(params[:event_id]).spectator_price
+    puts "le prix spectateur #{@event.spectator_price}"
+    @amount = @event.spectator_price
   end 
 
 #   @categories = params[:categories].split
