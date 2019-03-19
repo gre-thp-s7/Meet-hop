@@ -5,13 +5,16 @@
   </head>
   <body>
     <h1>Bienvenue <%= @user.first_name %>!</h1>
+    <br/>
     <p>
-      Votre compte a été créé avec succés avec l'e-mail suivant :  <%= @user.email %> sur notre site https://meet-hop-staging.herokuapp.com/
-    <br>
+      Votre compte <i>Meet-Hop</i> a été créé avec succés avec l'e-mail suivant :  <%= @user.email %> sur notre site https://meet-hop-staging.herokuapp.com
     </p>
+    <br/>
     <p>
       Pour vous connecter sur le site, cliquez sur le lien suivant : <%= link_to "Se connecter", @url %>.
     </p>
-    <p>Merci de nous avoir rejoins!</p>
+    <br/>
+
+    <h3>Merci de nous avoir rejoint !</h3>
   </body>
 </html>
