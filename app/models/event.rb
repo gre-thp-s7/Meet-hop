@@ -59,8 +59,8 @@ private
 			errors.add(:expiration_date, "dans le futur c'est mieux !")
 		end
 	end
-#######################################################@
-  #=================== MAILER =================
+#######################################################
+  #================PROMOTER MAILER =============
   # Send an email after a event is created
   after_create :send_event_creation_email
 
