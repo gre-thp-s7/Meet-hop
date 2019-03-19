@@ -5,7 +5,7 @@ class EventsController < ApplicationController
 
 ###### protection against path in search browser bar ######
   before_action :authenticate_user!, only: [:new, :create]
-  before_action :is_promoter_of_the_event, only: [:edit, :update, :destroy, :show]
+  before_action :can_edit_the_event, only: [:edit, :update, :destroy, :show]
 ############################################################
 
 ############ method to create variable for "if" in front ####
@@ -61,6 +61,13 @@ class EventsController < ApplicationController
   end
 
   def edit
+
+    whosit
+    if @promotor == false
+      flash.now[:danger] = "ne devrais pas pouvoir arriver ici, car n'est pas le créateur de l'event"
+    end
+
+
     @event = Event.find_by(id: params[:id])
     @all_categories = Category.all
     @categories = Category.new
