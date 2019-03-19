@@ -2,28 +2,22 @@ class ChargesController < ApplicationController
 
 def new
   params.permit!
-  #binding.pry
   @dancer = params[:dancer]
   @categories = params[:categories]
   @event = Event.find(params[:event_id])
   
   if @dancer == "true"
     puts "le prix dancer #{@event.dancer_price}"
-    @amount = @event.dancer_price
+    @amount = @event.dancer_price.to_i * 100
   else
     puts "le prix spectateur #{@event.spectator_price}"
-    @amount = @event.spectator_price
+    @amount = @event.spectator_price.to_i * 100
   end 
 
-  puts "CHARGES#CONTROLLER#NEW"
-  puts params
-  puts "USERS IS AFTER THIS"
-  puts current_user.id
 end
 
 def create
-  puts "CHARGES#CONTROLLER#CREATE"
-  puts params
+
   params.permit!
 
   @user_id = current_user.id
@@ -36,16 +30,7 @@ def create
   else
     puts "le prix spectateur #{@event.spectator_price}"
     @amount = @event.spectator_price
-  end 
-
-#   @categories = params[:categories].split
-#   puts "DANCE CATEGOIES ARE AFTER THIS"
-#   puts @categories  
-# ################# il faudra enlever ca  une fois l'ajax fait
-# if params[:dancer] == true
-#     @registration.category_ids = @categories
-# end
-# ###########################################
+  end
 
   customer = Stripe::Customer.create({
     email: params[:stripeEmail],
@@ -54,7 +39,7 @@ def create
 
   charge = Stripe::Charge.create({
     customer: customer.id,
-    amount: @amount,
+    amount: @amount.to_i * 100,
     description: 'Rails Stripe customer',
     currency: 'eur',
   })
