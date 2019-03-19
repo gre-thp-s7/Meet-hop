@@ -2,6 +2,8 @@ class Registration < ApplicationRecord
   belongs_to :user
   belongs_to :event
 
+  has_many :registration_dance
+  has_many :categories, through: :registration_dance
 
   #=================== MAILER =================
   # Send an email after a user is registered to an event

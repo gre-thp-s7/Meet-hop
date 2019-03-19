@@ -27,16 +27,15 @@ ActiveRecord::Base.connection.reset_pk_sequence!('localities')
 I18n.reload!
 
 ###### this is super user (admin and devellopper) ##########
-  User.create!(
-  first_name: "first_name",
-  last_name: "last_name",
-  nick_name: "my_name_is_god",
-  avatar_url: "",
-  phone: "01 47 20 00 01",
-  is_god: true,
-  email: "thp.sess7.gre@gmail.com",
-  password: "azeaze"
-  )
+  User.create!( first_name: "first_name",
+                last_name: "last_name",
+                nick_name: "my_name_is_god",
+                avatar_url: "",
+                phone: "01 47 20 00 01",
+                is_god: true,
+                email: "thp.sess7.gre@gmail.com",
+                password: "azeaze"
+                )
 #################################################
 
 # on peut passer `confirmed_at: Time.now` pour confirmer tes users dans le seed si on a confirmation par email dans devise
