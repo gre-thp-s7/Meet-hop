@@ -11,7 +11,6 @@ class DashboardController < ApplicationController
   	@event_participed_spectator = @event_participed.where(role: "spectator")
 
 
-
 puts "@"*60
 puts "ici les evenement créer"
 puts "il y en a #{@event_created.length}"
