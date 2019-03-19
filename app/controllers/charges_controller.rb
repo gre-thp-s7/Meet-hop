@@ -3,7 +3,7 @@ class ChargesController < ApplicationController
 def new
   params.permit!
   binding.pry
-    @categories = params[:categories]
+  @categories = params[:categories]
   @amount = 500
   puts "CHARGES#CONTROLLER#NEW"
   puts params

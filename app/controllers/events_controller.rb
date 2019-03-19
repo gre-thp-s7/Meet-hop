@@ -5,7 +5,7 @@ class EventsController < ApplicationController
 
 ###### protection against path in search browser bar ######
   before_action :authenticate_user!, only: [:new, :create]
-  before_action :can_edit_the_event, only: [:edit, :update, :destroy, :show]
+  before_action :can_edit_the_event, only: [:edit, :update, :destroy]
 ############################################################
 
 ### needed this method cause i can't redirect with is_promoter_of_the_event when ask in edit#event navigation bar without causing error somewhere else
@@ -75,7 +75,6 @@ class EventsController < ApplicationController
 
   def edit
 
-    whosit
     if @promotor == false
       flash.now[:danger] = "ne devrais pas pouvoir arriver ici, car n'est pas le créateur de l'event"
     end

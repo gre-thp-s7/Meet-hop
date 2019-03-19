@@ -4,7 +4,7 @@ class RegistrationsController < ApplicationController
   before_action :can_subs, only: [:new, :create]
 
   def new
-
+    @can_subs = can_subs
     puts "CONTROLLER#REGISTRATIONS#NEW"
     params.permit!
     puts params
