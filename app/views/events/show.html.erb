@@ -1,3 +1,5 @@
-<%= render 'events/showoneevent'%>
+<%= render 'events/showoneevent' %>
 
-
+<% if @promotor %>
+<%= render 'users/users_index' %>
+<% end %>

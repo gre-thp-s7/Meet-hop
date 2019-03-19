@@ -1,3 +1,6 @@
+https://dashboard.heroku.com/apps/meet-hop-staging/
+
+
 # The Hacking Project - The final project !
 
 The past weeks have been a lot of hard work, and the last straight line's ahead. Here's an app to help you if you struggle to use templates.

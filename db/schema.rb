@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2019_03_18_164843) do
+=======
+ActiveRecord::Schema.define(version: 2019_03_18_214253) do
+>>>>>>> delivery_yaya
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,6 +68,7 @@ ActiveRecord::Schema.define(version: 2019_03_18_164843) do
     t.bigint "promoter_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "dancer_price"
     t.index ["locality_id"], name: "index_events_on_locality_id"
     t.index ["promoter_id"], name: "index_events_on_promoter_id"
   end

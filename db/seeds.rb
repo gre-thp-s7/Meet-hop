@@ -9,6 +9,7 @@
 require 'faker'
 
 
+
 ################### these lignes clear the DB ##############@
 User.destroy_all
 ActiveRecord::Base.connection.reset_pk_sequence!('users')
@@ -23,7 +24,7 @@ ActiveRecord::Base.connection.reset_pk_sequence!('category_events')
 Locality.destroy_all
 ActiveRecord::Base.connection.reset_pk_sequence!('localities')
 ##################################################################
-
+I18n.reload!
 
 ###### this is super user (admin and devellopper) ##########
   User.create!(
@@ -36,7 +37,7 @@ ActiveRecord::Base.connection.reset_pk_sequence!('localities')
   email: "thp.sess7.gre@gmail.com",
   password: "azeaze"
   )
-#################################################  
+#################################################
 
 10.times do |u|
   u = User.create!(
@@ -67,7 +68,8 @@ end
   description: Faker::Restaurant.description[20..1000],
   start_date: Faker::Date.between(DateTime.now + 1 , DateTime.now + 2),
   duration: 10,
-  spectator_price: "trop cher",
+  spectator_price: rand(5..10),
+  dancer_price: rand(10..20),
   rules: "En gros c'est 2 mecs qui se battent en duel de danse",
   prize_money: "30€ de bons d'achat a Auchan",
   picture_url: "",

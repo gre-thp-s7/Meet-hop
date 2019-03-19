@@ -1,49 +1,53 @@
 <h1>Registrations#new</h1>
+
 <div class="content row justify-content-md-center">
-<div class="card col-lg-6">
-<div class="card-body">
-<h1>S'inscrire à l'événement "<%= @event.name %>"</h1>
-</div>
-<div class="form-group">
-<p> Description : <%= @event.description %></p>
-</div>
+	<div class="card col-lg-6">
 
-<%= form_tag({:controller => "charges", :action => "new"}, {:method => "get"}) do %>
-<article>
+		<div class="card-body">
+		<h1>S'inscrire à l'événement "<%= @event.name %>"</h1>
+		</div>
 
-<h1> en dessous il y a des hidden field = html breach a corriger en feature suplémentaire (dans 2 semaines)</h1>
+		<div class="form-group">
+		<p> Description : <%= @event.description %></p>
+		</div>
 
-<%= hidden_field_tag :event , @event.id %>
+		<%= form_tag({:controller => "charges", :action => "new"}, {:method => "get"}) do %>
+			<article>
 
-<h1> fin des hidden field en sandwich</h1>
+			<h1> en dessous il y a des hidden field = html breach a corriger en feature suplémentaire (dans 2 semaines)</h1>
 
-<h1>NE PAS OUBLIER D'INDENTER LE CODE</h1>
+			<%= hidden_field_tag :event , @event.id %>
+
+			<h1> fin des hidden field en sandwich</h1>
+
+			<h1>NE PAS OUBLIER D'INDENTER LE CODE</h1>
 
 
-<% if @can_subscribe == true %>
-<div class="control">
-<label class="radio">
-<input type="radio" name="dancer" value="true" >
-Danseur
-<input type="radio" name="dancer" value="false">
-Spectateur
-</label>
-<br>
+			<% if @can_subscribe == true %>
+				<div class="control">
+				<label class="radio">
+				<input type="radio" name="dancer" value="true" >
+				Danseur
+				<input type="radio" name="dancer" value="false">
+				Spectateur
+				</label>
+				<br>	
 
-<% @categories.each do |cate| %>
-<input type="checkbox" name="categories[]" value=<%= cate.id %> >  <%= cate.name %> <br/>
-<% end %>
+				<% @categories.each do |cate| %>
+				<input type="checkbox" name="categories[]" value=<%= cate.id %> >  <%= cate.name %> <br/>
+				<% end %>
 
-</article>
+				</article>
 
-<div class="actions">
-<%= submit_tag "inscrit moi", class: "btn btn-submit btn-lg btn-block" %>
-<div class="card col-lg-6">
-<% else %>
-	<h1> tu es soit déja inscrit ou soit le créateur, ce msg apparait car le callback before action ne fonctionne pas <- merci yaya !</h1>
-<% end %>
 
-<% end %>
+				<div class="actions">
+				<%= submit_tag "inscrit moi", class: "btn btn-submit btn-lg btn-block" %>
+				<div class="card col-lg-6">
+			<% else %>
+				<h1> tu es soit déja inscrit ou soit le créateur, ce msg apparait car le callback before action ne fonctionne pas <- merci yaya !</h1>
+			<% end %>
 
-</div>
+		<% end %>
+
+	</div>
 </div>
