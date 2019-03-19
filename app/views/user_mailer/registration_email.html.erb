@@ -5,13 +5,16 @@
   </head>
   <body>
     <h1>Bonjour <%= @user.first_name %>!</h1>
+    <br/>
     <p>
       Vous êtes inscrit à l'évènement suivant : <%= @event.name %>
-    <br>
     </p>
+    <br/>
     <p>
       Pour vous connecter sur le site, cliquez sur le lien suivant : <%= link_to "Se connecter", @url %>.
     </p>
-    <p>Enjoy!</p>
+    <br/>
+
+    <h3>A bientôt sur <i>Meet-Hop</i> !</h3>
   </body>
 </html>
