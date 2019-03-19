@@ -11,78 +11,84 @@ private
 
   def authenticate_user
     unless current_user
-      flash[:danger] = "Connecte toi stp con***** !"
+      flash[:danger] = "Connecte toi stp!"
       redirect_to new_session_path
     end
   end
 
   def is_promoter_of_the_event
-    puts "@"*60
-    puts "admin?"
-    puts "this method looks if your the creator of the event"
+    #binding.pry
     post_params = params.permit(:id)
     event = Event.find_by(id: params[:id])
-    current_user.id == event.promoter_id
+    if current_user.id == event.promoter_id
+      flash[:info] = "tu es le créateur de l'événement"   
+      end   
   end 
 
   def already_subscribed_to_the_event
     post_params = params.permit(:id)
-    @event = Event.find_by(id: params[:id])
-    puts "@"*60
-    puts "déja inscrit?"
-    puts "this method looks if your already participant of the event"    
+    @event = Event.find_by(id: params[:id]) 
+    #binding.pry
     if @event.registrations.find_by(user_id: current_user.id) != nil
+      flash[:info] = "tu es déja inscrit"  
       return true
     else
+      flash[:info] = "tu n'es pas inscrit" 
       return false
     end
   end
 
-  def can_subscribe_for_event
-    puts "@"*60
-    puts "pas admin et pas inscrit ?" 
-    puts "this method looks if you can subscribe to the event"    
+  def can_subscribe_for_event  
+    #binding.pry
     if is_promoter_of_the_event || already_subscribed_to_the_event
+      flash[:danger] = "tu ne peux pas t'inscrire"
       return false
     else
+      flash[:success] = "tu peux t'inscrire"
       return true
     end
   end
-###################################################
+
+
+############### this is for registration controller ############# please let these comments for the moment <- yaya #######################
   def is_promot
-    puts "@"*60
-    puts "admin?"
-    puts "this method looks if your the creator of the event"
-    params.permit(:format)
-    @event = Event.find_by(id: params[:format])
-    current_user.id == @event.promoter_id
+    params.permit(:event_id)
+    @event = Event.find_by(id: params[:event_id])
+    #binding.pry
+    if current_user.id == event.promoter_id
+      flash[:info] = "tu es le créateur de l'événement"   
+      end  
   end 
 
   def already_subs
-    params.permit(:format)
-    @event = Event.find_by(id: params[:format])
-    puts "@"*60
-    puts "déja inscrit?"
-    puts "this method looks if your already participant of the event"  
+    params.permit(:event_id)
+    @event = Event.find_by(id: params[:event_id])
+    #binding.pry
     if @event.registrations.find_by(user_id: current_user.id) != nil
+      flash[:info] = "tu es déja inscrit"        
       return true
     else
+      flash[:info] = "tu n'es pas inscrit" 
       return false
     end
   end
 
-  def can_subs
-    puts "@"*60
-    puts "pas admin et pas inscrit ?" 
-    puts "this method looks if you can subscribe to the event"   
+  def can_subs 
+    #binding.pry
+
     if is_promot || already_subs
-      return false
+      flash[:danger] = "tu ne peux pas t'inscrire"
+      render and return false
     else
+      flash[:success] = "tu peux t'inscrire"
       return true
     end
   end
 
 #############################################################  
+
+
+
   protect_from_forgery with: :exception
 
   protected
