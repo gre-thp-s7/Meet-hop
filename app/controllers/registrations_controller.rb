@@ -34,16 +34,17 @@ class RegistrationsController < ApplicationController
       event_id: event_id,
       user_id: user_id)
 
-  binding.pry
   @categories = params[:categories].split
   puts "DANCE CATEGOIES ARE AFTER THIS"
   puts @categories  
 ################# il faudra enlever ca  une fois l'ajax fait
-if params[:dancer] == true
-    @registration.category_ids = @categories
+if params[:dancer] == "true"
+  @registration.category_ids = @categories
+  @registration.role = "dancer"
+else
+  @registration.role = "spectator"
 end
 ###########################################
-
     
     
     @registration.save!
