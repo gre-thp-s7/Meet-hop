@@ -12,20 +12,22 @@
  *
  *= require_tree .
  *= require_self
- *= require bootstrap/css/bootstrap-grid.css
- *= require bootstrap/css/bootstrap-reboot.css
- *= require bootstrap/css/bootstrap.css
- *= require css/custom.css
- *= require css/style.css
- *= require css/components.css
- *= require chocolat/css/chocolat.css
- *= require css/skins/reverse.css
- 
-
- *= require jqvmap/jqvmap.css
- *= require OwlCarousel/owl.carousel.css
- *= require OwlCarousel/owl.theme.default.css
-
-
+ *= require style
+ *= require vendor
  */
  
+ #img-home{ 
+  background-image: image-url('home.jpg') 
+  }
+
+ #img-home-seconde-section1{
+  background-image: image-url('paris.jpg')
+ }
+
+ #img-home-seconde-section2{
+  background-image: url('grenoble.jpg')
+ }
+
+ #img-home-seconde-section3{
+  background-image: url('lyon.jpg')
+ }
