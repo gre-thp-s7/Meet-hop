@@ -10,29 +10,18 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require rails-ujs
+//= require jquery
+//= require jquery_ujs
+//= require popper
 //= require activestorage
+//= require turbolinks
 //= require_tree .
-//= require js/jquery
-//= require js/popper
-//= require js/tooltip
-
-//= require bootstrap/js/bootstrap.bundle
-//= require bootstrap/js/bootstrap
-//= require js/jquery.nicescroll
-//= require js/moment
-//= require js/custom
-//= require js/scripts
-//= require js/stisla
-//= require js/cleave
-//= require js/sparkline
-//= require chocolat/js/jquery.chocolat
-//= require js/Chart
-//= require dropzone/dropzone
-
-//= require jqvmap/jquery.vmap
-//= require js/pwstrength
-//= require js/page/index
-
-
+//= require rails-ujs
+//= require jquery.accordion
+//= require jquery.selectric
+//= require bootstrap
+//= require app
+//= require modernizr
+//= require prism
+//= require vendor.min
 
