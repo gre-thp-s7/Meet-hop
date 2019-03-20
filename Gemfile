@@ -60,7 +60,7 @@ group :development, :test do
 ################## add by the team ################
   gem 'rspec-rails', '~> 3.8'
   gem 'factory_bot'
-  gem 'faker'
+#  gem 'faker'
   gem 'pry-rails'
   gem 'sidekick'
 ####################################################
