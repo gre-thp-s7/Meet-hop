@@ -5,8 +5,6 @@ require_relative 'application'
 Rails.application.initialize!
 
 
-
-Faker::Config.locale = :en
 ########### ADD BY THE TEAM ########
 ActionMailer::Base.smtp_settings = {
   :user_name => ENV['SENDGRID_LOGIN'],
