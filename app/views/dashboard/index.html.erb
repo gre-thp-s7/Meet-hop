@@ -1,22 +1,125 @@
-<!-- Main Content -->
+<% if @event_created .length != 0 %>
+    <table class="table table-hover">
+        <h3>voici les evenements que tu as crée</h3>
+        <h4><%= @event_created.length %> creation</h4>        
+      <thead>
+        <tr>
+          <th scope="col">id#</th>
+          <th scope="col">Name</th>
+          <th scope="col">danseurs incrit</th>
+          <th scope="col">spectateurs inscrit</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <% @x = 1 %>
+        <% @event_created.each do |event| %>
+        <tr>
+          <th scope="row"><%= @x %></th>
+
+          <td><%= link_to "#{event.name}", event_path(event.id) %></td>
+
+          <td><a href=""><%= event.registrations.where(role: "dancer").length %></a></td>
+          <td><a href=""><%= event.registrations.where(role: "spectator").length %></a></td>
+        </tr>
+        <% @x += 1 %>
+        <% end %>
+
+      </tbody>
+    </table>
+<% end %>
+
+<% if @event_participed_dancer .length != 0 %>
+    <table class="table table-hover">
+        <h3>voici les evenements auxquels tu as participé en tant que danseur</h3>
+        <h4><%= @event_participed_dancer.length %> participations</h4>        
+      <thead>
+        <tr>
+          <th scope="col">id#</th>
+          <th scope="col">Name</th>
+          <th scope="col">danseurs incrit</th>
+          <th scope="col">spectateurs inscrit</th>
+        </tr>
+      </thead>
+      <tbody>
+
+    <!-- if there's no registration, there where an error -->
+
+        <% @x = 1 %>
+        <% @event_participed_dancer.each do |i| %>
+        <tr>
+          <th scope="row"><%= @x %></th>
+
+          <td><%= link_to "#{i.event.name}", event_path(i.event.id) %></td>
+
+          <td><a href=""><%= i.event.registrations.where(role: "dancer").length %></a></td>
+          <td><a href=""><%= i.event.registrations.where(role: "spectator").length %></a></td>
+        </tr>
+        <% @x += 1 %>
+        <% end %>
+
+      </tbody>
+    </table>
+<% end %>
+
+<% if @event_participed_spectator.length != 0 %>
+    <table class="table table-hover">
+        <h3>voici les evenements auxquels tu as participé en tant que spectateur</h3>
+        <h4><%= @event_participed_spectator.length %> participations</h4>        
+      <thead>
+        <tr>
+          <th scope="col">id#</th>
+          <th scope="col">Name</th>
+          <th scope="col">danseurs incrit</th>
+          <th scope="col">spectateurs inscrit</th>
+        </tr>
+      </thead>
+      <tbody>
+
+    <!-- if there's no registration, there where an error -->
+    <% if @event_participed_spectator != nil %>
+
+        <% @x = 1 %>
+        <% @event_participed_spectator.each do |i| %>
+        <tr>
+          <th scope="row"><%= @x %></th>
+
+          <td><%= link_to "#{i.event.name}", event_path(i.event.id) %></td>
+
+          <td><a href=""><%= i.event.registrations.where(role: "dancer").length %></a></td>
+          <td><a href=""><%= i.event.registrations.where(role: "spectator").length %></a></td>
+        </tr>
+        <% @x += 1 %>
+        <% end %>
+
+    <% end %>
+
+      </tbody>
+    </table>
+<% end %>
+
+
+
+<!-- Main Content 
 <div class="main-content">
   <section class="section">
     <div class="row">
-        <%= render "dashboard/components/card_order"  %>
-        <%= render "dashboard/components/card_graph", id: "balance-chart", title: "Balance", amount: "187,13"  %>
-        <%= render "dashboard/components/card_graph", id: "sales-chart", title: "Sales", amount: "4,732"  %>
+        <% render "dashboard/components/card_order"  %>
+        <% render "dashboard/components/card_graph", id: "balance-chart", title: "Balance", amount: "187,13"  %>
+        <% render "dashboard/components/card_graph", id: "sales-chart", title: "Sales", amount: "4,732"  %>
     </div>
     <div class="row">
-        <%= render "dashboard/components/card_chart_comparison"  %>
-        <%= render "dashboard/components/card_top"  %>
+        <% render "dashboard/components/card_chart_comparison"  %>
+        <% render "dashboard/components/card_top"  %>
     </div>
     <div class="row">
-        <%= render 'dashboard/components/card_best_products'  %>
-        <%= render 'dashboard/components/card_top_countries'  %>
+        <% render 'dashboard/components/card_best_products'  %>
+        <% render 'dashboard/components/card_top_countries'  %>
     </div>
     <div class="row">
-        <%= render 'dashboard/components/card_invoices'  %>
-        <%= render 'dashboard/components/card_customer_support'  %>
+        <% render 'dashboard/components/card_invoices'  %>
+        <% render 'dashboard/components/card_customer_support'  %>
     </div>
   </section>
 </div>
+-->

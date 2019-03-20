@@ -10,8 +10,11 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 Rails.application.config.assets.paths << Rails.root.join('lib')
 Rails.application.config.assets.paths << Rails.root.join('vendor/assets')
 Rails.application.config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
-Rails.application.config.assets.precompile += %w( landing.scss landing.js )
-Rails.application.config.assets.precompile += %w( dashboard.scss dashboard.js )
+Rails.application.config.assets.precompile += %w( style.css vendor.css )
+Rails.application.config.assets.precompile += %w( jquery.accordion.js jquery.selectric.js )
+Rails.application.config.assets.precompile += %w( modernizr.js prism.js )
+Rails.application.config.assets.precompile += %w( vendor.min.js app.js )
+
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in the app/assets
