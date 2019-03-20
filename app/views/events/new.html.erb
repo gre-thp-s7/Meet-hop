@@ -20,7 +20,7 @@
 			</div>
 			<div class="field mt-3">
 				<label>Durée</label><br/>
-				<%= f.time_select :duration, {minute_step: 15, prompt: {hour: 'Heures', minute: 'Minutes'}},class: 'form-control date-select' %>
+				<%= f.time_select :duration, {minute_step: 15, prompt: {hour: 'Heures', minute: 'Minutes'}, end_hour: (4)}, class: 'form-control date-select' %>
 			</div>
 			<div class="field mt-3">
 				<label>Prix spectateurs</label>
