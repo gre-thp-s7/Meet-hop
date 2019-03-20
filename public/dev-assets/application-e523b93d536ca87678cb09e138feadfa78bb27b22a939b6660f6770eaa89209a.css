@@ -28,11 +28,6 @@ body {
   margin-bottom: 30px;
 }
 
-.date-select {
-    display: inline-block;
-    width: auto;
-}
-
 .alert-row {
   position: fixed;
   top: 100px;
