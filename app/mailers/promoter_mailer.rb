@@ -7,7 +7,7 @@ class PromoterMailer < ApplicationMailer
 
       @event = event
       #on définit une variable @url qu'on utilisera dans la view d’e-mail
-      @url  = 'url de levent'
+      @url  = "https://meet-hop.herokuapp.com/login"
   
       # c'est cet appel à mail() qui permet d'envoyer l’e-mail en définissant destinataire et sujet.
       mail(
@@ -17,6 +17,11 @@ class PromoterMailer < ApplicationMailer
     end
   
     def event_registration_email(user, event)
+
+    	@event_participed = Registration.where(user: @user)
+      @event_participed_dancer = @event_participed.where(role: "dancer")  	
+      @event_participed_spectator = @event_participed.where(role: "spectator")
+
       #on récupère l'instance user pour ensuite pouvoir la passer à la view en @user
       @user = user
 
