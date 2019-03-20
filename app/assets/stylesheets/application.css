@@ -17,11 +17,11 @@
  */
  
 #img-home{ 
-background-image: image-url('home.jpg') 
+background-image: url('home.jpg') 
 }
 
 #img-home-seconde-section1{
-background-image: image-url('paris.jpg')
+background-image: url('paris.jpg')
 }
 
 #img-home-seconde-section2{
