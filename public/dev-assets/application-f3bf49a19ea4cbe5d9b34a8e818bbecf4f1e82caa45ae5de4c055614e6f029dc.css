@@ -1,7 +1,6 @@
 *= require reset
 *= require global
 *= require layout
-*= require 
 
 
 html, body {
@@ -27,6 +26,11 @@ body {
 
 .mb-30 {
   margin-bottom: 30px;
+}
+
+.date-select {
+    display: inline-block;
+    width: auto;
 }
 
 .alert-row {
