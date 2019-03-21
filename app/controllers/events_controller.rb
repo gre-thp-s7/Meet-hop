@@ -42,6 +42,9 @@ class EventsController < ApplicationController
       spectator_price: post_params[:spectator_price],
       rules: post_params[:rules],
       prize_money: post_params[:prize_money],
+      zipcode: post_params[:zipcode],
+      city: post_params[:city],
+      address: post_params[:address]
       )
     @event.picture.attach(post_params[:picture])
     @event.locality_id = 1
@@ -88,6 +91,9 @@ class EventsController < ApplicationController
       spectator_price: post_params[:spectator_price],
       rules: post_params[:rules],
       prize_money: post_params[:prize_money],
+      zipcode: post_params[:zipcode],
+      city: post_params[:city],
+      address: post_params[:address]
       )
 
       # these lines change the attached picture
