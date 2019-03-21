@@ -35,13 +35,7 @@
   background-image: url('lyon.jpg')
  }
 
- .alert-row {
-   position: fixed;
-   top: 100px;
-   right: 40px;
-   z-index: 2;
-   width: 300px;
- }
+
 
  .date-select-inline {
      display: inline-block;
@@ -54,7 +48,7 @@
    right: 40px;
    z-index: 2;
    width: 300px;
-   
+
  }
 
  .alert-error {
