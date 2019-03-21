@@ -1,3 +1,4 @@
+<!--
 <div class="alert-row">
   <%= devise_error_messages! %>
 </div>
@@ -28,3 +29,42 @@
     </div>
   </div>
 </div>
+-->
+
+<%= render 'home/navbar2'%>
+
+<div class="alert-row">
+  <%= devise_error_messages! %>
+</div>
+
+
+<section class="viewport">
+  <div id="login-img" class="image image-overlay" ></div>
+  <div class="container">
+    <div class="row justify-content-center align-items-center vh-100">
+      <div class="col-md-6 col-lg-5">
+        <div class="accordion-group accordion-group-portal" data-accordion-group>
+          <div class="accordion open" data-accordion>
+            <div class="accordion-control" data-control>
+              <h5>Mot de passe oublié ?</h5>
+            </div>
+            <div class="accordion-content" data-content>
+              <div class="accordion-content-wrapper">
+                <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+                  <%= render "devise/shared/error_messages", resource: resource %>
+                  <div class="form-group">
+                    <%= f.label :email %>
+                    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", id: 'exampleFormControlInput1', placeholder: 'name@example.com' %>
+                  </div>
+
+                    <%= f.submit "Envoyer email de réinitialisation", class: " btn btn-primary btn-block devise-btn" %>
+                    <%end%>
+                  <%= render "devise/shared/links" %>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
