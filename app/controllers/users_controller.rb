@@ -1,16 +1,19 @@
 class UsersController < ApplicationController
+
+####### we don't need these two one cause devise create users
   def new
   end
+
+  def create
+  end
+################################
 
   def index
     @users = User.all
   end
 
-  def create
-  end
-
-  def destroy
-    sign_out_and_redirect(root_path)
+  def show
+    @user = current_user
   end
 
   def edit
@@ -19,10 +22,6 @@ class UsersController < ApplicationController
 
   def update
     @user = current_user
-    puts "**"*100
-    puts @current_page
-    puts @params
-    puts "**"*100
     post_params = params.require(:user).permit!
 
     if params[:user][:avatar] != nil
@@ -31,13 +30,12 @@ class UsersController < ApplicationController
     end
 
     if @user.update(
-      first_name: post_params[:first_name],
-      last_name: post_params[:last_name],
-      phone: post_params[:phone]
-      )
+          first_name: post_params[:first_name],
+          last_name: post_params[:last_name],
+          phone: post_params[:phone]
+        )
 
       flash[:notice] = "Vous avez bien mis à jour votre profil"
-
       redirect_to user_path(current_user.id)
     else
       if @user.errors.any?
@@ -50,9 +48,8 @@ class UsersController < ApplicationController
 
   end
 
-  def show
-    @user = current_user
+  def destroy
+    sign_out_and_redirect(root_path)
   end
-
   
 end
