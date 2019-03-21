@@ -17,6 +17,10 @@
  *= require font-awesome
  */
 
+#login-img{
+  background-image: url('login.jpg')
+}
+
 #img-home{ background-image: image-url("home.jpg"); }
 
  #img-home-seconde-section1{
