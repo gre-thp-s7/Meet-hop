@@ -15,7 +15,7 @@ class EventsController < ApplicationController
   end
 
   def show
-    #### this method look if promotor or already subscribed in helper
+
     who_is_the_user
 
     params.permit(:id)

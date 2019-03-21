@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
-# ajout des quatres alertes principale en bootstrap (3autres manquantes)
   add_flash_types :danger, :info, :warning, :success
 
 private
