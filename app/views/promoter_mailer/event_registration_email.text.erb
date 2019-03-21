@@ -1,9 +1,13 @@
 Une personne s'est inscrite à votre évènement <%= @event.promoter.first_name %>!
-===============================================
+========================================================
 
-blabla bla blablabla bla ! Il s'agit de <%= @user.first_name %> !
+Il s'agit de <%= @user.first_name %> !
+
+Il y a <%= @event.registrations.length %> personnes inscrites au total.
 
 
 Pour vous connecter sur le site, cliquez sur le lien suivant : <%= link_to "Se connecter", @url %>.
 
-Merci !
+Bonne journée !
+
+L'équipe Meet-Hop.
