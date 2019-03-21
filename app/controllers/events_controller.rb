@@ -68,10 +68,11 @@ class EventsController < ApplicationController
       dancer_price: post_params[:dancer_price],
       spectator_price: post_params[:spectator_price],
       rules: post_params[:rules],
-      prize_money: post_params[:prize_money],
+      zipcode: post_params[:zipcode],
+      city: post_params[:city],
+      address: post_params[:address]
       )
     @event.picture.attach(post_params[:picture])
-    @event.locality_id = 1
     @event.promoter_id = current_user.id
 
 
@@ -108,6 +109,9 @@ class EventsController < ApplicationController
       spectator_price: post_params[:spectator_price],
       rules: post_params[:rules],
       prize_money: post_params[:prize_money],
+      zipcode: post_params[:zipcode],
+      city: post_params[:city],
+      address: post_params[:address]
       )
 
     if params[:event][:picture] != nil

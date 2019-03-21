@@ -21,8 +21,6 @@ Category.destroy_all
 ActiveRecord::Base.connection.reset_pk_sequence!('categories')
 CategoryEvent.destroy_all
 ActiveRecord::Base.connection.reset_pk_sequence!('category_events')
-Locality.destroy_all
-ActiveRecord::Base.connection.reset_pk_sequence!('localities')
 ##################################################################
 I18n.reload!
 
@@ -50,22 +48,18 @@ I18n.reload!
   email: "teamgre38#{u}@yopmail.com",
   password: "123456"
   )
-  puts "User #{u}"
-end
-
-10.times do |l|
-  l = Locality.create!(
-    city_name: Faker::House.room,
-    zipcode: "38330 en force",
-    address: "rue de la poupée qui tousse"
-  )
-  puts "Locality #{l}"
+  puts "User #{u.first_name}"
 end
 
 10.times do |e|
   e = Event.create!(
-  name: Faker::Lorem.characters(10),
+  name: Faker::Music::RockBand.name,
   description: Faker::Restaurant.description[20..1000],
+  address: Faker::Address.street_address,
+  zipcode: Faker::Address.zip_code,
+  city_name: Faker::Address.city,
+  latitude: Faker::Address.latitude,
+  longitude: Faker::Address.longitude,
   start_date: Faker::Date.between(DateTime.now + 1 , DateTime.now + 2),
   duration: 10,
   spectator_price: rand(5..10),
@@ -74,9 +68,8 @@ end
   prize_money: "30€ de bons d'achat a Auchan",
   picture_url: "",
   promoter_id: User.all.sample.id,
-  locality_id: Locality.all.sample.id
   )
-  puts " Event #{e}"
+  puts " Event #{e.name}"
 end
 
 
@@ -86,19 +79,20 @@ end
     event_id: Event.all.sample.id,
     role: ["dancer", "spectator"].sample
   )
-  puts "Registration #{r}"
+  puts "Registration #{r.role}"
 end
 
 10.times do |c|
   c = Category.create!(
-    name: Faker::Restaurant.name
+    name: Faker::Music.genre
   )
-  puts "Category #{c}"
+  puts "Category #{c.name}"
 end
 
-20.times do |ca|
+15.times do |ca|
   ca = CategoryEvent.create!(
     category_id: Category.all.sample.id,
     event_id: Event.all.sample.id
   )
+  puts "CategoryEvent #{ca}"
 end
