@@ -14,11 +14,10 @@
  *= require_self
  *= require style
  *= require vendor
+ *= require font-awesome
  */
- 
- #img-home{ 
-  background-image: image-url('home.jpg') 
-  }
+
+#img-home{ background-image: image-url("home.jpg"); }
 
  #img-home-seconde-section1{
   background-image: image-url('paris.jpg')
