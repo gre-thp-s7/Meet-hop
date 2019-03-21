@@ -2,8 +2,6 @@ class Event < ApplicationRecord
 
 ############# link between tables ################@
 
-  belongs_to :locality
-
   has_many :category_events
   has_many :categories, through: :category_events
 
@@ -49,10 +47,6 @@ class Event < ApplicationRecord
 		presence: true
 
 	validates :address,
-		presence: true
-
-	####### will have to work on this part with the table locality
-	validates :locality,
 		presence: true
 
 ############ picture with active storage #################

@@ -24,13 +24,14 @@ class EventsController < ApplicationController
   end
 
   def new
+    @new = true
     @event = Event.new
     @all_categories = Category.all
     @categories = Category.new
   end
 
   def create
-    params.require(:event).permit!
+    post_params = params.require(:event).permit!
     params.permit(:category)
 
     @event = Event.new(
@@ -43,7 +44,7 @@ class EventsController < ApplicationController
       rules: post_params[:rules],
       prize_money: post_params[:prize_money],
       zipcode: post_params[:zipcode],
-      city: post_params[:city],
+      city_name: post_params[:city_name],
       address: post_params[:address]
       )
     @event.picture.attach(post_params[:picture])
@@ -65,6 +66,7 @@ class EventsController < ApplicationController
 
   def edit
 
+    @new = false
     if @promotor == false
       flash.now[:danger] = "ne devrais pas pouvoir arriver ici, car n'est pas le créateur de l'event"
     end
@@ -92,7 +94,7 @@ class EventsController < ApplicationController
       rules: post_params[:rules],
       prize_money: post_params[:prize_money],
       zipcode: post_params[:zipcode],
-      city: post_params[:city],
+      city_name: post_params[:city_name],
       address: post_params[:address]
       )
 

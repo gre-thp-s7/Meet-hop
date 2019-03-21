@@ -12,12 +12,17 @@
       <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
   <header class="header-sticky header-dark">
-  <%= render "layouts/navbar"  %>
+    <div class="container">
+      <%= render "layouts/navbar"  %>
+    </div>
   </header>
   <body>
-    <%= render 'layouts/flash'%>
-
-    <%= yield %>
+    <div class="container">
+      <%= render 'layouts/flash'%>
+    </div>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
   <footer>
   <%= render "layouts/footer"  %>

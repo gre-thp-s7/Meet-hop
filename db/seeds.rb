@@ -12,8 +12,6 @@ Category.destroy_all
 ActiveRecord::Base.connection.reset_pk_sequence!('categories')
 CategoryEvent.destroy_all
 ActiveRecord::Base.connection.reset_pk_sequence!('category_events')
-Locality.destroy_all
-ActiveRecord::Base.connection.reset_pk_sequence!('localities')
 ##################################################################
 I18n.reload!
 

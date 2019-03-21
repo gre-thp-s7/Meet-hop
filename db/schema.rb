@@ -60,6 +60,9 @@ ActiveRecord::Schema.define(version: 2019_03_19_081213) do
     t.text "rules"
     t.string "prize_money"
     t.string "picture_url"
+    t.string "city_name"
+    t.string "zipcode"
+    t.string "address"
     t.bigint "locality_id"
     t.bigint "promoter_id"
     t.datetime "created_at", null: false
@@ -67,14 +70,6 @@ ActiveRecord::Schema.define(version: 2019_03_19_081213) do
     t.string "dancer_price"
     t.index ["locality_id"], name: "index_events_on_locality_id"
     t.index ["promoter_id"], name: "index_events_on_promoter_id"
-  end
-
-  create_table "localities", force: :cascade do |t|
-    t.string "city_name"
-    t.string "zipcode"
-    t.string "address"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "registration_dance_selections", force: :cascade do |t|
