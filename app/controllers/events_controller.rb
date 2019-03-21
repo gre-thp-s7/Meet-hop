@@ -83,7 +83,7 @@ class EventsController < ApplicationController
       spectator_price: post_params[:spectator_price],
       rules: post_params[:rules],
       zipcode: post_params[:zipcode],
-      city: post_params[:city],
+      city_name: post_params[:city_name],
       address: post_params[:address]
       )
     @event.picture.attach(post_params[:picture])
