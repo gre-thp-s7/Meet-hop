@@ -12,10 +12,14 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     else
       flash[:error] = "La connexion avec facebook a échoué, veuillez compléter le formulaire"
 
-      #recupere les infos users afin de preremplir
-      session['devise.facebook'] = request.env['omniauth.auth']
+      #Catch user s informations
+      session["devise.facebook_data"] = request.env["omniauth.auth"]
 
       redirect_to new_user_registration_url
+    end
+    
+    def failure
+      redirect_to root_path
     end
   end
 end
