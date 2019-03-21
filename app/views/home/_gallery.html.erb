@@ -1,0 +1,63 @@
+<!-- gallery -->
+    <section class="bg-light">
+      <div class="container">
+        <div class="row align-items-center justify-content-between">
+          <div class="col-md-4">
+            <h2 class="h1">Trouver le bon <br><b>Évènements</b>.</h2>
+            <ul class="list-group list-group-line">
+              <li class="list-group-item d-flex align-items-center">
+                <%= fa_icon "briefcase", class: "icon fs-24 text-orange"%>
+                <span>Hand luggage safety room.</span>
+              </li>
+              <li class="list-group-item d-flex align-items-center">
+              <%= fa_icon "book", class: "icon fs-24 text-orange"%>
+                <span>Book library available</span>
+              </li>
+              <li class="list-group-item d-flex align-items-center">
+                <i class="icon-check-circle2 fs-24 text-orange"></i>
+                <span>Fast check-in included</span>
+              </li>
+            </ul>
+            
+            <%= link_to "Voir les Événements" , events_path, class:"btn btn-with-ico btn-orange text-white mt-3" %>
+          </div>
+
+          <div class="col-md-8">
+            <ul class="masonry gallery row gutter-1">
+              <li class="col-6" data-aos="zoom-in">
+                <figure class="photo equal equal-double">
+                  <a href="../../assets/images/demo/hotel/hotel-2.jpg"
+                    id = 'img-home-seconde-section1'>
+                    <span class="photo-caption">
+                      <span>Paris</span>
+                    </span>
+                  </a>
+                </figure>
+              </li>
+              <li class="col-6" data-aos="zoom-in">
+                <figure class="photo equal">
+                  <a href="../../assets/images/demo/hotel/hotel-3.jpg"
+                    id = 'img-home-seconde-section2'
+                    >
+                    <span class="photo-caption">
+                      <span>Grenoble</span>
+                    </span>
+                  </a>
+                </figure>
+              </li>
+              <li class="col-6" data-aos="zoom-in">
+                <figure class="photo equal">
+                  <a href="../../assets/images/demo/hotel/hotel-4.jpg"
+                    id = 'img-home-seconde-section3'>
+                    <span class="photo-caption">
+                      <span>Lyon</span>
+                    </span>
+                  </a>
+                </figure>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- / gallery -->
