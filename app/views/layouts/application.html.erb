@@ -13,17 +13,15 @@
   </head>
 
   <header class="header-sticky header-dark">
-    <div class="container">
-      <%= render "layouts/navbar"  %>
-    </div>
+
+      <%= render "layouts/navbar_light"  %>
+
   </header>
   <body>
-    <div class="container">
+
       <%= render 'layouts/flash'%>
-    </div>
-    <div class="container">
       <%= yield %>
-    </div>
+
 
   </body>
   <footer>

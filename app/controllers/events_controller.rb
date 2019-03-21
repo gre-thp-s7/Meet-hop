@@ -108,11 +108,7 @@ class EventsController < ApplicationController
       rules: post_params[:rules],
       prize_money: post_params[:prize_money],
       zipcode: post_params[:zipcode],
-<<<<<<< HEAD
       city_name: post_params[:city_name],
-=======
-      city: post_params[:city],
->>>>>>> delivery_yaya
       address: post_params[:address]
       )
 
