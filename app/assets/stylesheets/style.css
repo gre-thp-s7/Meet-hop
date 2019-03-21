@@ -69,6 +69,38 @@ body {
   text-align: left;
   background-color: #fff; }
 
+#dance_color1{
+  color: #fa1924;
+  text-shadow: 2px 2px 2px #ad0000;
+}
+#dance_color2{
+  color: #ff5733;
+  text-shadow: 2px 2px 2px #bd4429;                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+}
+#dance_color3{
+  color: #E3C038;
+  text-shadow: 2px 2px 2px rgb(160, 136, 41);                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+}
+#dance_color4{
+  color: #4829B2;
+  text-shadow: 2px 2px 2px rgb(61, 34, 148);                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+}
+#dance_color5{
+  color: #F3A83C;
+  text-shadow: 2px 2px 2px rgb(199, 136, 49);                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+}
+#dance_color6{
+  color: #54AF5D;
+  text-shadow: 2px 2px 2px rgb(68, 143, 76);                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+}
+#dance_color7{
+  color: #ec0076;
+  text-shadow: 2px 2px 2px #c00060;                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+}
+#dance_color8{
+  color: #d50a0a;
+  text-shadow: 2px 2px 2px #b40808;                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+}
 [tabindex="-1"]:focus {
   outline: 0 !important; }
 

@@ -17,6 +17,10 @@
  *= require font-awesome
  */
 
+#img-cover{
+  background-image: url('login.jpg')
+}
+
 #login-img{
   background-image: url('login.jpg')
 }
@@ -34,3 +38,7 @@
  #img-home-seconde-section3{
   background-image: url('lyon.jpg')
  }
+
+.font_dance_category{
+  font-family: 'Permanent Marker', cursive;
+}
