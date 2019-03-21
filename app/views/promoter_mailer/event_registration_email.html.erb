@@ -4,17 +4,23 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Une personne s'est inscrite à votre évènement <%= @event.promoter.first_name %>!</h1>
+    <h1>Une personne s'est inscrite à votre évènement, <%= @event.name %>, <%= @event.promoter.first_name %>!</h1>
     <br/>
     <p>
-      blabla bla blablabla bla ! Il s'agit de <%= @user.first_name %> !
+      Il s'agit de <%= @user.first_name %> !
+    </p>
+    <br/>
+    <p>
+    Il y a <%= @event.registrations.length %> personnes inscrites au total.
     </p>
     <br/>
     <p>
       Pour vous connecter sur le site, cliquez sur le lien suivant : <%= link_to "Se connecter", @url %>.
     </p>
     <br/>
-
-    <h3>Merci!</h3>
+    <h3>Bonne journée!</h3>
+    <br/>
+    <h3>L'équipe <i>Meet-Hop</i>.</h3>
   </body>
 </html>
+
