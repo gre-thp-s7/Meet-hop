@@ -6,11 +6,11 @@
             <h2 class="h1">Trouver le bon <br><b>Évènements</b>.</h2>
             <ul class="list-group list-group-line">
               <li class="list-group-item d-flex align-items-center">
-                <i class="icon-briefcase2 fs-24 text-orange"></i>
+                <%= fa_icon "briefcase", class: "icon fs-24 text-orange"%>
                 <span>Hand luggage safety room.</span>
               </li>
               <li class="list-group-item d-flex align-items-center">
-                <i class="icon-book2 fs-24 text-orange"></i>
+              <%= fa_icon "book", class: "icon fs-24 text-orange"%>
                 <span>Book library available</span>
               </li>
               <li class="list-group-item d-flex align-items-center">
@@ -18,7 +18,8 @@
                 <span>Fast check-in included</span>
               </li>
             </ul>
-            <button type="button" class="btn btn-with-ico btn-orange text-white mt-3">Make a Reservation <i class="icon-arrow-right2 fs-20"></i></button>
+            
+            <%= link_to "Voir les Événements" , events_path, class:"btn btn-with-ico btn-orange text-white mt-3" %>
           </div>
 
           <div class="col-md-8">
