@@ -1,17 +1,20 @@
 <% @events.each do |event| %>
-<div class="col-4 p-2" style="padding-top: 30px; border-width: px; border-style: solid; border-color: #1C6EA4">
-  <%= link_to event_path(event), action: :go do %>
-  <div class=" pl-3">
-      <h2><%= event.name%></h2>
+<div class="col-md-6" data-aos="fade-up">
+  <div class="card rising">
+    <a href="" class="card-img-container d-flex" style= 'max-height: 350px; align-items: center; justify-content: center'>
+      <%= image_tag  'event1.jpg', class: "card-img-top", alt: "Image" %>
+      <h5 class="card-footer card-title"><%= event.name%></h5>
+    </a>
+    <div class="card-body">
       <%= l(event.start_date, format: :long ) %>
       <p>Prix public : <%= event.spectator_price %> €</p>
       <p>Prix danseur : <%= event.dancer_price %> €</p>
 
-      <%= event.rules %>
       <p>Prize money <%= event.prize_money %></p>
-      <%= event.city_name %>
-      <%= event.promoter.first_name %> <%= event.promoter.last_name %>
-      <% end%>
+      <p><%= event.city_name %></p>
+      <p><%= event.promoter.first_name %> <%= event.promoter.last_name %></p>
+      <%= link_to 'Voir plus', event_path(event), class:"btn btn-outline-primary btn-rounded"%>
     </div>
   </div>
-  <% end %>
+</div>
+<% end %>

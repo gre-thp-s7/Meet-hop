@@ -17,6 +17,10 @@
  *= require font-awesome
  */
 
+#login-img{
+  background-image: url('login.jpg')
+}
+
 #img-home{ background-image: image-url("home.jpg"); }
 
  #img-home-seconde-section1{
@@ -30,3 +34,53 @@
  #img-home-seconde-section3{
   background-image: url('lyon.jpg')
  }
+
+ .alert-row {
+   position: fixed;
+   top: 100px;
+   right: 40px;
+   z-index: 2;
+   width: 300px;
+ }
+
+ .date-select-inline {
+     display: inline-block;
+     width: auto;
+ }
+
+ .alert-row {
+   position: fixed;
+   top: 100px;
+   right: 40px;
+   z-index: 2;
+   width: 300px;
+   
+ }
+
+ .alert-error {
+     background-color: #f2dede;
+     border-color: #eed3d7;
+     color: #b94a48;
+     text-align: left;
+  }
+
+ .alert-alert {
+     background-color: #f2dede;
+     border-color: #eed3d7;
+     color: #b94a48;
+     text-align: left;
+  }
+
+ .alert-success {
+     background-color: #dff0d8;
+     border-color: #d6e9c6;
+     color: #468847;
+     text-align: left;
+  }
+
+ .alert-notice {
+     background-color: #dff0d8;
+     border-color: #d6e9c6;
+     color: #468847;
+     text-align: left;
+  }
