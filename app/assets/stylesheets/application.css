@@ -14,20 +14,19 @@
  *= require_self
  *= require style
  *= require vendor
+ *= require font-awesome
  */
- 
-#img-home{ 
-background-image: image-url('home.jpg') 
-}
 
-#img-home-seconde-section1{
-background-image: image-url('paris.jpg')
-}
+#img-home{ background-image: image-url("home.jpg"); }
 
-#img-home-seconde-section2{
-background-image: url('grenoble.jpg')
-}
+ #img-home-seconde-section1{
+  background-image: image-url('paris.jpg')
+ }
 
-#img-home-seconde-section3{
-background-image: url('lyon.jpg')
-}
+ #img-home-seconde-section2{
+  background-image: url('grenoble.jpg')
+ }
+
+ #img-home-seconde-section3{
+  background-image: url('lyon.jpg')
+ }

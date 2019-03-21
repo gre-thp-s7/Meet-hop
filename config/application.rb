@@ -16,6 +16,9 @@ class Application < Rails::Application
   #config.action_view.raise_on_missing_translations = false
   config.i18n.enforce_available_locales = false
 
+  config.time_zone = 'Paris'
+  config.active_record.default_timezone = :local
+
 end
 module DashboardThpFp
     # Initialize configuration defaults for originally generated Rails version.
