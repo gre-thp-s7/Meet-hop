@@ -24,8 +24,8 @@
   </div>
 
   <div class="field mt-3">
-    <label>start date</label>
-    <%= f.date_field :start_date, as: :date, value: f.object.try(:strftime,"%m/%d/%Y"), class: 'form-control'%>
+    <label>Date et heure</label><br/>
+    <%=f.datetime_select :start_date, {ampm: true, minute_step: 15, :order => [:day, :month, :year, :hour, :minute], prompt: {day: 'Jour', month: 'Mois', year: 'Année'}, start_year: Date.current.year, end_year: Date.current.year + (2)}, class: 'form-control date-select'%>
   </div>
 
   <div class="field mt-3">

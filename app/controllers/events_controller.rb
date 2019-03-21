@@ -36,6 +36,7 @@ class EventsController < ApplicationController
 
   def create
     post_params = params.require(:event).permit!
+
     @start_date = DateTime.civil(
       params[:event][:"start_date(1i)"].to_i,
       params[:event][:"start_date(2i)"].to_i,
@@ -43,6 +44,7 @@ class EventsController < ApplicationController
       params[:event][:"start_date(4i)"].to_i,
       params[:event][:"start_date(5i)"].to_i
     )
+
     @duration_hours = params[:event][:"duration(4i)"].to_i * 60
     @duration_minutes = params[:event][:"duration(5i)"].to_i * 60
     @duration = @duration_hours + @duration_minutes
