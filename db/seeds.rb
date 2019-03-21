@@ -1,14 +1,4 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
-require 'faker'
-
-
+# require 'faker'
 
 ################### these lignes clear the DB ##############@
 User.destroy_all
@@ -35,6 +25,14 @@ I18n.reload!
                 password: "azeaze"
                 )
 #################################################
+Category.create!(name: "break")
+Category.create!(name: "locking")
+Category.create!(name: "popping")
+Category.create!(name: "house dance")
+Category.create!(name: "hip hop new style")
+Category.create!(name: "krump")
+Category.create!(name: "voquing")
+Category.create!(name: "toprock")
 
 # on peut passer `confirmed_at: Time.now` pour confirmer tes users dans le seed si on a confirmation par email dans devise
 10.times do |u|
@@ -89,7 +87,7 @@ end
   puts "Category #{c.name}"
 end
 
-15.times do |ca|
+20.times do |ca|
   ca = CategoryEvent.create!(
     category_id: Category.all.sample.id,
     event_id: Event.all.sample.id

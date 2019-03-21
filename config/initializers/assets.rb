@@ -6,11 +6,12 @@ Rails.application.config.assets.version = '1.0'
 # Add additional assets to the asset load path.
 # Rails.application.config.assets.paths << Emoji.images_path
 # Add Yarn node_modules folder to the asset load path.
+
 Rails.application.config.assets.paths << Rails.root.join('node_modules')
 Rails.application.config.assets.paths << Rails.root.join('lib')
 Rails.application.config.assets.paths << Rails.root.join('vendor/assets')
 Rails.application.config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
-Rails.application.config.assets.precompile += %w( style.css vendor.css )
+Rails.application.config.assets.precompile += %w( style.css vendor.css application.css )
 Rails.application.config.assets.precompile += %w( jquery.accordion.js jquery.selectric.js )
 Rails.application.config.assets.precompile += %w( modernizr.js prism.js )
 Rails.application.config.assets.precompile += %w( vendor.min.js app.js )
