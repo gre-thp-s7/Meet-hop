@@ -4,6 +4,7 @@ fr:
         user:
             email: "Adresse email"
             password: "Mot de passe"
+            current_password: "Mot de passe actuel"
             password_confirmation: "Confirmer mot de passe"
             first_name: "Prénom"
             last_name: "Nom"

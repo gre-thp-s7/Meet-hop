@@ -1,6 +1,5 @@
 <%= form_tag(:controller => "registrations", :action => "create") do %>
-<%= hidden_field_tag :event , @event %>
-<%= hidden_field_tag :user , @user %><h1>ici la famille</h1>
+<h1>ici la famille</h1>
   <article>
     <% if flash[:error].present? %>
       <div id="error_explanation">
@@ -8,13 +7,23 @@
       </div>
     <% end %>
     <label class="amount">
-      <span>Amount: <%= @amount %></span>
+
+      <% if @dancer == "true" %>
+        <span>tu t'es inscrit en tant que danseur</span>  
+      <% else %>    
+        <span>tu t'es inscrit en tant que spectateur</span>
+      <% end %>
+
+      <span>prix a payer: <%= @amount/100 %> €</span>
+
     </label>
   </article>
-
+<%= hidden_field_tag :categories , @categories %>
+<%= hidden_field_tag :dancer , @dancer %>
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
           data-description="Inscription à l'évènement"
           data-amount="<%= @amount %>"
-          data-locale="auto"></script>
+          data-currency="EUR"
+          data-locale="fr"></script>
 <% end %>
