@@ -39,6 +39,9 @@ class Event < ApplicationRecord
 	validates :prize_money,
 		presence: true,
 		allow_blank: true
+	
+	validates :city_name,
+	presence: true
 
 	validates :city_name,
 	presence: true

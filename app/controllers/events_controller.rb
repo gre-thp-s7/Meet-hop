@@ -12,6 +12,10 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.all.order("start_date")
+    @promoter = Event.where(promoter_id: current_user.id)
+    @spectator = Registration.where(role: "spectateur")
+    @dancer = Registration.where(role: "danceur")
+
   end
 
   def show
@@ -32,13 +36,23 @@ class EventsController < ApplicationController
 
   def create
     post_params = params.require(:event).permit!
+    @start_date = DateTime.civil(
+      params[:event][:"start_date(1i)"].to_i,
+      params[:event][:"start_date(2i)"].to_i,
+      params[:event][:"start_date(3i)"].to_i,
+      params[:event][:"start_date(4i)"].to_i,
+      params[:event][:"start_date(5i)"].to_i
+    )
+    @duration_hours = params[:event][:"duration(4i)"].to_i * 60
+    @duration_minutes = params[:event][:"duration(5i)"].to_i * 60
+    @duration = @duration_hours + @duration_minutes
     params.permit(:category)
 
     @event = Event.new(
       name: post_params[:name],
       description: post_params[:description],
-      start_date: post_params[:start_date],
-      duration: post_params[:duration],
+      start_date: @start_date,
+      duration: @duration,
       dancer_price: post_params[:dancer_price],
       spectator_price: post_params[:spectator_price],
       rules: post_params[:rules],
@@ -48,7 +62,6 @@ class EventsController < ApplicationController
       address: post_params[:address]
       )
     @event.picture.attach(post_params[:picture])
-    @event.locality_id = 1
     @event.promoter_id = current_user.id
 
 # this ligne add events categories
@@ -91,10 +104,15 @@ class EventsController < ApplicationController
       start_date: post_params[:start_date],
       duration: post_params[:duration],
       spectator_price: post_params[:spectator_price],
+      dancer_price: post_params[:dancer_price],
       rules: post_params[:rules],
       prize_money: post_params[:prize_money],
       zipcode: post_params[:zipcode],
+<<<<<<< HEAD
       city_name: post_params[:city_name],
+=======
+      city: post_params[:city],
+>>>>>>> delivery_yaya
       address: post_params[:address]
       )
 

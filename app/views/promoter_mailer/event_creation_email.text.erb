@@ -1,8 +1,10 @@
-Voici votre nouvel évènement <%= @event.promoter.first_name %>!
+Votre évènement à bien été créé <%= @event.promoter.first_name %>!
 ===============================================
 
-blabla bla blablabla bla !
+Vous avez créé l'évènement suivant, <%= @event.name %>, qui aura lieu le <%= @event.start_date %>.
 
 Pour vous connecter sur le site, cliquez sur le lien suivant : <%= link_to "Se connecter", @url %>.
 
-Merci !
+Bonne journée !
+
+L'équipe Meet-Hop.
