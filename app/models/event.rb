@@ -42,6 +42,14 @@ class Event < ApplicationRecord
 		presence: true,
 		allow_blank: true
 
+	validates :city_name,
+	presence: true
+
+	validates :zipcode,
+		presence: true
+
+	validates :address,
+		presence: true
 
 	####### will have to work on this part with the table locality
 	validates :locality,
