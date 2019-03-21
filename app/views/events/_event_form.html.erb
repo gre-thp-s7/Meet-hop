@@ -25,12 +25,13 @@
 
   <div class="field mt-3">
     <label>Date et heure</label><br/>
-    <%=f.datetime_select :start_date, {ampm: true, minute_step: 15, :order => [:day, :month, :year, :hour, :minute], prompt: {day: 'Jour', month: 'Mois', year: 'Année'}, start_year: Date.current.year, end_year: Date.current.year + (2)}, class: 'form-control date-select'%>
+    <%=f.datetime_select :start_date, {ampm: true, minute_step: 15, :order => [:day, :month, :year, :hour, :minute], prompt: {day: 'Jour', month: 'Mois', year: 'Année'}, start_year: Date.current.year, end_year: Date.current.year + (2)} %>
   </div>
 
   <div class="field mt-3">
-    <label>Durée (minutes)</label>
-    <%= f.number_field :duration, class: 'form-control' %>
+    <label>Durée</label><br/>
+    <div class=" ">
+    <%= f.time_select :duration, {minute_step: 15, prompt: {hour: 'Heures', minute: 'Minutes'}, end_hour: (4)}, input_html: {} %></div>
   </div>
 
   <div class="field mt-3">
@@ -39,7 +40,7 @@
   </div>
 
   <div class="field mt-3">
-    <label>Prix danceurs</label>
+    <label>Prix danseurs</label>
     <%= f.number_field :dancer_price, class: 'form-control' %>
   </div>
 
@@ -61,10 +62,10 @@
   </div>
 
   <div class="field mt-3">
-    <label>image associée</label>
+    <label>Image</label><br/>
 
     <%= f.file_field :picture %>
-    <p>=== choisi bien, une seule autorisée pour le moment ===</p>
+
   </div>
 
   <div class="actions">
