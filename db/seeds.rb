@@ -1,5 +1,4 @@
-
-#require 'faker'
+# require 'faker'
 
 ################### these lignes clear the DB ##############@
 User.destroy_all
@@ -35,21 +34,11 @@ Category.create!(name: "popping")
 Category.create!(name: "house dance")
 Category.create!(name: "hip hop new style")
 Category.create!(name: "krump")
-Category.create!(name: "krump")
 Category.create!(name: "voquing")
-Category.create!(name: "boogaloo")
-Category.create!(name: "smurf")
-Category.create!(name: "hype")
-Category.create!(name: "uprock")
+Category.create!(name: "toprock")
 
 
-Locality.create!(
-    city_name: Faker::House.room,
-    zipcode: "38330 en force",
-    address: "rue de la poupée qui tousse"
-  )
-
-# on peut passer `confirmed_at: Time.now` pour confirmer tes users dans le seed si on a confirmation par email dans devise
+# # on peut passer `confirmed_at: Time.now` pour confirmer tes users dans le seed si on a confirmation par email dans devise
 # 10.times do |u|
 #   u = User.create!(
 #   first_name: Faker::Name.first_name,
@@ -63,7 +52,6 @@ Locality.create!(
 #   )
 #   puts "User #{u}"
 # end
-
 
 
 # 10.times do |e|

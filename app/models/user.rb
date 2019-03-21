@@ -17,7 +17,7 @@ class User < ApplicationRecord
 
 
   validates :first_name, presence: true
-  validates :last_name, presence: { message: "must be given connard " }
+  validates :last_name, presence: true
   validates :phone, presence: true, allow_blank: true
   validates :nick_name, uniqueness: true, allow_blank: true
 
@@ -63,7 +63,7 @@ private
       user.last_name = auth.info.last_name
        # a check si ça affiche publiquement
       user.password = Devise.friendly_token[0, 20] #genere un mdp aleatoire
-      # user.skip_comfirmation! 
+      # user.skip_comfirmation!
 
     end
   end
