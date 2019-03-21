@@ -1,34 +1,44 @@
 <%= render 'home/navbar2'%>
-    <section class="viewport">
-      <div id="login-img" class="image image-overlay" ></div>
-      <div class="container">
-        <div class="row justify-content-center align-items-center vh-100">
-          <div class="col-md-6 col-lg-5">
-            <div class="accordion-group accordion-group-portal" data-accordion-group>
-              <div class="accordion open" data-accordion>
-                <div class="accordion-control" data-control>
-                  <h5>Se connecter</h5>
-                </div>
-                <div class="accordion-content" data-content>
-                  <div class="accordion-content-wrapper">
-                    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-                      <div class="form-group">
-                        <%= f.label :email %>
-                        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", id: 'exampleFormControlInput1', placeholder: 'name@example.com' %>
-                      </div>
-                      <div class="form-group">
-                        <%= f.label :password %>
-                        <%= f.password_field :password, autocomplete: "current-password", class: "form-control", id: 'exampleFormControlInput2' %>
-                      </div>
-                      <% if devise_mapping.rememberable? %>
-                        <div class="field">
-                          <%= f.check_box :remember_me %>
-                          <%= f.label :remember_me %>
-                        </div>
-                        <% end %>
-                        <%= f.submit "Se connecter", class: " btn btn-primary btn-block" %>
-                        <%end%>
-                      <%= render "devise/shared/links" %>
+
+<div class="alert-row">
+  <%= devise_error_messages! %>
+</div>
+
+<section class="viewport">
+  <div id="login-img" class="image image-overlay" ></div>
+  <div class="container">
+    <div class="row justify-content-center align-items-center vh-100">
+      <div class="col-md-6 col-lg-5">
+        <div class="accordion-group accordion-group-portal" data-accordion-group>
+          <div class="accordion open" data-accordion>
+            <div class="accordion-control" data-control>
+              <h5>Se connecter</h5>
+            </div>
+            <div class="accordion-content" data-content>
+              <div class="accordion-content-wrapper">
+                <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+                  <%= render "devise/shared/error_messages", resource: resource %>
+
+                  <div class="form-group">
+                    <%= f.label :email %>
+                    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", id: 'exampleFormControlInput1', placeholder: 'name@example.com' %>
+                  </div>
+                  <div class="form-group">
+                    <%= f.label :password %>
+                    <%= f.password_field :password, autocomplete: "current-password", class: "form-control", id: 'exampleFormControlInput2' %>
+                  </div>
+                  <% if devise_mapping.rememberable? %>
+                    <div class="field">
+                      <%= f.check_box :remember_me %>
+                      <%= f.label :remember_me %>
+                    </div>
+                    <% end %>
+                    <%= f.submit "Se connecter", class: " btn btn-primary btn-block devise-btn" %>
+                    <%end%>
+
+                  <%= render "devise/shared/links" %>
+                  
                 </div>
             </div>
           </div>

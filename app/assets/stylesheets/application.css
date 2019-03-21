@@ -17,6 +17,10 @@
  *= require font-awesome
  */
 
+#img-cover{
+  background-image: url('login.jpg')
+}
+
 #login-img{
   background-image: url('login.jpg')
 }
@@ -35,7 +39,20 @@
   background-image: url('lyon.jpg')
  }
 
+<<<<<<< HEAD
 
+=======
+.font_dance_category{
+  font-family: 'Permanent Marker', cursive;
+}
+ .alert-row {
+   position: fixed;
+   top: 100px;
+   right: 40px;
+   z-index: 2;
+   width: 300px;
+ }
+>>>>>>> 45f96394f1a2dd36a7e66bf338925aa983c292c7
 
  .date-select-inline {
      display: inline-block;
