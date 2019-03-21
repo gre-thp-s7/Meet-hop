@@ -1,5 +1,7 @@
 class RegistrationsController < ApplicationController
 
+include RegistrationsHelper
+
   before_action :authenticate_user!, only: [:new, :create]
   before_action :can_subs, only: [:new]
 

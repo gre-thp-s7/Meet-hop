@@ -2,26 +2,11 @@ class EventsController < ApplicationController
 
   # for later with piture and active storage
   require 'open-uri'
-
+  include EventsHelper
 ###### protection against path in search browser bar ######
   before_action :authenticate_user!, only: [:new, :create]
   before_action :can_edit_the_event, only: [:edit, :update, :destroy]
 ############################################################
-
-
-### needed this method cause i can't redirect with is_promoter_of_the_event when ask in edit#event navigation bar without causing error somewhere else
-  def can_edit_the_event
-    post_params = params.permit(:id)
-    event = Event.find_by(id: params[:id])
-
-      if current_user.id == event.promoter_id
-        flash.now[:info] = "tu es bien le créateur de l'événement"  
-      else      
-        flash[:info] = "tu n'es pas le créateur de l'événement"
-        redirect_to root_path and return false
-      end  
-  end 
-########################################
 
 ############ method to create variable for "if" in front ####
 ### it give boolean for each ###########
