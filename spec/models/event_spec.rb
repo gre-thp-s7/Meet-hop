@@ -1,7 +1,6 @@
 require 'rails_helper'
 RSpec.describe Event, type: :model do
 
-# clean de la db svp !
 User.destroy_all
 if Event.all == nil
 Event.destroy_all
@@ -21,24 +20,21 @@ end
       password: "azeaze"      
       )
 
-    @valid_locality = Locality.create!(
-      city_name: "grenoble",
-      zipcode: "38000 en force",
-      address: "cherche encore"
-      )
-
 		@valid_event = Event.create!(
 			name: "battle royale",
-			description: "toi meme tu sais ################",
+			description: "Il s'agit d'un event bla bla bla bla bla",
 			start_date: (Time.now + 1.day),
 			duration: 90 ,
-			spectator_price: "5" ,
-			locality_id: @valid_locality.id ,
-      prize_money: "une pipe de ginette",
+      spectator_price: rand(5..10),
+      dancer_price: rand(10..20),
+      prize_money: "100 patates",
       rules: "un seul doit survivre",
-			promoter_id: @valid_user.id
+      promoter_id: @valid_user.id,
+      address: "10 rue du pont",
+      zipcode: "38000",
+      city_name: "Grenoble"
       )
-	end
+  end
 
 	context "validation" do
 
@@ -82,7 +78,6 @@ end
       end
     end
 
-
     describe "#promoter" do
       it "should not be valid without a promoter" do
 		    @valid_event.promoter_id = nil       
@@ -90,7 +85,27 @@ end
       end
     end
 
-############################ missing attribute ##########@
+    describe "#address" do
+      it "should not be valid without a address" do
+		    @valid_event.address = nil       
+        expect(@valid_event).not_to be_valid
+      end
+    end
+
+    describe "#city_name" do
+      it "should not be valid without a city name" do
+		    @valid_event.city_name = nil       
+        expect(@valid_event).not_to be_valid
+      end
+    end
+    
+    describe "#zipcode" do
+      it "should not be valid without a zipcode" do
+		    @valid_event.zipcode = nil       
+        expect(@valid_event).not_to be_valid
+      end
+    end
+  #================ Missing attribute ==============
 
     describe "#start_date" do
       it "should not be valid without a past date (=< Time.now)" do
@@ -127,6 +142,5 @@ end
         expect(@valid_event).not_to be_valid 
       end
     end
-
   end
 end
