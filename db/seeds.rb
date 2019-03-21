@@ -31,7 +31,7 @@ Category.create!(name: "popping")
 Category.create!(name: "house dance")
 Category.create!(name: "hip hop new style")
 Category.create!(name: "krump")
-Category.create!(name: "voquing")
+Category.create!(name: "voguing")
 Category.create!(name: "toprock")
 
 # on peut passer `confirmed_at: Time.now` pour confirmer tes users dans le seed si on a confirmation par email dans devise
