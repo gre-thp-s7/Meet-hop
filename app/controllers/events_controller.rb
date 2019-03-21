@@ -1,34 +1,21 @@
 class EventsController < ApplicationController
 
-  # for later with piture and active storage
+  # needed for active storage see if we can have it in application helper or says that we don't need to require it somewhere
+
   require 'open-uri'
   include EventsHelper
+
 ###### protection against path in search browser bar ######
   before_action :authenticate_user!, only: [:new, :create]
   before_action :can_edit_the_event, only: [:edit, :update, :destroy]
 ############################################################
-
-############ method to create variable for "if" in front ####
-### it give boolean for each ###########
-  def who_is_the_user
-    if current_user != nil
-      @promotor = is_promoter_of_the_event
-      @already_participant = already_subscribed_to_the_event
-      @subscribtion_possible = can_subscribe_for_event
-    else
-      @promotor = false
-      @already_participant = false
-      @subscribtion_possible = false 
-    end
-  end
-#############################################
 
   def index
     @events = Event.all.order("start_date")
   end
 
   def show
-    #### this method look if promotor or already subscribed
+    #### this method look if promotor or already subscribed in helper
     who_is_the_user
 
     params.permit(:id)
@@ -43,8 +30,9 @@ class EventsController < ApplicationController
   end
 
   def create
-    post_params = params.require(:event).permit!
+    params.require(:event).permit!
     params.permit(:category)
+
     @event = Event.new(
       name: post_params[:name],
       description: post_params[:description],
@@ -59,28 +47,35 @@ class EventsController < ApplicationController
     @event.locality_id = 1
     @event.promoter_id = current_user.id
 
-
-@event.category_ids = params[:category]
+# this ligne add events categories
+    @event.category_ids = params[:category]
 
     if @event.save!
       flash[:success] = "évènement créé !"
       redirect_to(event_path(@event.id))
+    else
+      flash[:danger] = "problème a la création, essaye encore "
+      reender :new      
     end
 
   end
 
   def edit
+
     if @promotor == false
       flash.now[:danger] = "ne devrais pas pouvoir arriver ici, car n'est pas le créateur de l'event"
     end
+
     @event = Event.find_by(id: params[:id])
     @all_categories = Category.all
     @categories = Category.new
+
   end
 
 
   def update
-    posted_paramse = params.permit(:event)
+
+#    posted_paramse = params.permit(:event)
     post_params = params.require(:event).permit!
 
     @event = Event.find_by(id: params[:id])
@@ -95,13 +90,13 @@ class EventsController < ApplicationController
       prize_money: post_params[:prize_money],
       )
 
-    if params[:event][:picture] != nil
-      @event.picture.attach(params[:event][:picture])
-      @event.save
-    end
+      # these lines change the attached picture
+      if params[:event][:picture] != nil
+        @event.picture.attach(params[:event][:picture])
+        @event.save
+      end
 
-
-      flash[:success] = "Ton évenement a bien été modifié connard !"
+      flash[:success] = "Ton évenement a bien été modifié!"
       flash[:danger] = "faudra envoyer un mail aux gens inscrits !"
       redirect_to event_path(@event)
     else

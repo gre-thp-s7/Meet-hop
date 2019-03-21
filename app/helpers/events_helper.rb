@@ -1,7 +1,5 @@
 module EventsHelper
 
-############ method to create variable for "if" in front ####
-### it give boolean for each ###########
   def who_is_the_user
     if current_user != nil
       @promotor = is_promoter_of_the_event
@@ -13,18 +11,17 @@ module EventsHelper
       @subscribtion_possible = false 
     end
   end
-#############################################
 
   def is_promoter_of_the_event
     params.permit(:id)
     event = Event.find(params[:id])
 
-      if current_user.id == event.promoter.id
-        flash[:info] = "tu es le créateur de l'événement"  
-      else      
-        flash[:info] = "tu n'es pas le créateur de l'événement"
-        return false
-      end
+    if current_user.id == event.promoter.id
+      flash[:info] = "tu es le créateur de l'événement"  
+    else      
+#      flash[:info] = "tu n'es pas le créateur de l'événement"
+      return false
+    end
 
   end 
 
@@ -32,13 +29,13 @@ module EventsHelper
     post_params = params.permit(:id)
     @event = Event.find(params[:id]) 
 
-        if @event.registrations.find_by(user_id: current_user.id) != nil
-          flash[:info] = "tu es déja inscrit"  
-          return true
-        else
-          flash[:info] = "tu n'es pas inscrit" 
-          return false
-        end
+    if @event.registrations.find_by(user_id: current_user.id) != nil
+      flash[:info] = "tu es inscrit a cet evenement"  
+      return true
+    else
+#      flash[:info] = "tu n'es pas inscrit" 
+      return false
+    end
 
   end
 
@@ -47,10 +44,10 @@ module EventsHelper
     @event = Event.find_by(id: params[:id]) 
 
     if is_promoter_of_the_event || already_subscribed_to_the_event
-      flash.now[:danger] = "tu ne peux pas t'inscrire"
+#      flash.now[:danger] = "tu ne peux pas t'inscrire"
       render :show and return false
     else
-      flash.now[:success] = "tu peux t'inscrire"
+#      flash.now[:success] = "tu peux t'inscrire"
       return true
     end
 
@@ -61,14 +58,12 @@ module EventsHelper
     post_params = params.permit(:id)
     event = Event.find_by(id: params[:id])
 
-      if current_user.id == event.promoter_id
-        flash.now[:info] = "tu es bien le créateur de l'événement"  
-      else      
-        flash[:info] = "tu n'es pas le créateur de l'événement"
-        redirect_to root_path and return false
-      end  
+    if current_user.id == event.promoter_id
+      flash.now[:info] = "tu es bien le créateur de l'événement"  
+    else      
+      flash[:info] = "tu n'es pas le créateur de l'événement"
+      redirect_to root_path and return false
+    end  
   end 
-########################################
-
 
 end
