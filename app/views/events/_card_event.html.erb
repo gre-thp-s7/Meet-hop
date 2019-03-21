@@ -7,8 +7,9 @@
     </a>
     <div class="card-body">
       <%= l(event.start_date, format: :long ) %>
-      <p>Prix public : <%= event.spectator_price %> €<br>
-      Prix inscription : <%= event.dancer_price %> €</p>
+      <p>Prix public : <%= event.spectator_price %> €</p>
+      <p>Prix danseur : <%= event.dancer_price %> €</p>
+
       <p>Prize money <%= event.prize_money %></p>
       <p><%= event.city_name %></p>
       <p><%= event.promoter.first_name %> <%= event.promoter.last_name %></p>

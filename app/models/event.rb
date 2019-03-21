@@ -31,7 +31,7 @@ class Event < ApplicationRecord
 		presence: true
 	
 	validates :dancer_price,
-	presence: true
+		presence: true
 
 	validates :rules,
 		presence: true
@@ -41,7 +41,10 @@ class Event < ApplicationRecord
 		allow_blank: true
 	
 	validates :city_name,
-	presence: true
+		presence: true
+
+	validates :city_name,
+		presence: true
 
 	validates :zipcode,
 		presence: true
