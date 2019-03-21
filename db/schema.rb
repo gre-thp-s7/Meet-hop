@@ -63,8 +63,7 @@ ActiveRecord::Schema.define(version: 2019_03_19_204744) do
     t.string "city_name"
     t.string "zipcode"
     t.string "address"
-    t.float "latitude"
-    t.float "longitude"
+
     t.bigint "promoter_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
