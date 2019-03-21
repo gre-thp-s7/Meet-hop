@@ -1,7 +1,5 @@
 class Event < ApplicationRecord
 
-	#========== Link between tables ===========
-
   has_many :category_events
   has_many :categories, through: :category_events
 
