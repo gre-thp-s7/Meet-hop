@@ -7,6 +7,16 @@
  * Copyright 2011-2018 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
+
+/* we added these style */
+.devise-btn{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* end of our style */
+
+
 :root {
   --blue: #0030AE;
   --indigo: #6610f2;

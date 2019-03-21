@@ -1,3 +1,4 @@
+<!--
 <div class="alert-row">
   <%= devise_error_messages! %>
 </div>
@@ -47,3 +48,76 @@
     </div>
   </div>
 </div>
+
+-->
+
+
+
+<%= render 'home/navbar2'%>
+
+<div class="alert-row">
+  <%= devise_error_messages! %>
+</div>
+
+<section class="viewport">
+  <div id="login-img" class="image image-overlay" ></div>
+  <div class="container">
+    <div class="row justify-content-center align-items-center vh-100">
+      <div class="col-md-6 col-lg-5">
+        <div class="accordion-group accordion-group-portal" data-accordion-group>
+          <div class="accordion open" data-accordion>
+            <div class="accordion-control" data-control>
+
+              <h5>Modifier email et mot de passe</h5>
+
+            </div>
+            <div class="accordion-content" data-content>
+              <div class="accordion-content-wrapper">
+
+                <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+
+                  <%= render "devise/shared/error_messages", resource: resource %>
+
+                  <div class="field">
+                    <%= f.label :password %><br />
+                    <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
+                    <% if @minimum_password_length %>
+                      <em><%= @minimum_password_length %> charactères minimum</em>
+                    <% end %>
+                  </div>
+
+                  <div class="field pt-2 pb-3">
+                    <%= f.label :password_confirmation %><br />
+                    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+                  </div>
+
+                  <div class="field pt-3 pb-3">
+                    <%= f.label :current_password %> <i>(Entrez votre mot de passe actuel pour confirmer les changements)</i><br />
+                    <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control" %>
+                  </div>
+
+                  <div class="actions">
+                    <%= f.submit "Mettre à jour", class: "btn btn-primary devise-btn" %>
+                  </div>
+                <% end %>
+
+
+
+                <h3 class="no-margin-no-padding">Supprimer mon compte</h3>
+                <p><i>(Attention, cette action est irreversible !)</i>
+                <p><%= button_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Etes-vous sûr(e) ?" }, method: :delete, class: "btn-primary btn-lg devise-btn" %></p>
+
+                <%= button_to "Retour", :back, class: "btn btn-primary devise-btn" %>
+
+                <%= render "devise/shared/links" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
