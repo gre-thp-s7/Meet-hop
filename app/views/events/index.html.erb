@@ -1,45 +1,22 @@
 <%= render 'cover_index'%>
 
-    <section class="bg-light">
-      <div class="container">
-      <div class="row">
-      <%= render 'navbar_category'%>
-        <div class="row justify-content-center">
-          <div class="col-lg-10">
-            <div class="row" data-aos="fade-up">
-            </div>
-            <div class="row gutter-2">
-              <div class="col-md-6" data-aos="fade-up">
-                <div class="card rising">
-                  <a href="" class="card-img-container">
-                    
-                    <img class="card-img-top" src="../../assets/images/demo/fitness/fitness-3.jpg" alt="Image">
-                    <h5 class="card-footer card-title">Shaping</h5>
-                  </a>
-                  <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="" class="btn btn-outline-primary btn-rounded">Learn More</a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6" data-aos="fade-up">
-                <div class="card rising">
-                  <a href="" class="card-img-container">
-                    <img class="card-img-top" src="../../assets/images/demo/fitness/fitness-4.jpg" alt="Image">
-                    <h5 class="card-footer card-title">Crossfit</h5>
-                  </a>
-                  <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="" class="btn btn-outline-primary btn-rounded">Learn More</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+<section class="bg-light">
+  <div class="container">
+  <div class="row">
+  <%= render 'navbar_category'%>
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <div class="row" data-aos="fade-up">
+        </div>
+        <div class="row gutter-2">
+        <%= render 'card_event'%>
         </div>
       </div>
-    </section>
-    <!-- / services -->
+    </div>
+  </div>
+</section>
+
+<!-- / services -->
 <!-- destinations carousel -->
     <% if user_signed_in? && @dancer != nil%>
     <section class="section-decorated-bottom pt-0">
