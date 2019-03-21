@@ -12,9 +12,9 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.all.order("start_date")
-    @promoter = Event.where(promoter_id: current_user.id)
-    @spectator = Registration.where(role: "spectateur")
-    @dancer = Registration.where(role: "danceur")
+    # @promoter = Event.where(promoter_id: current_user.id)
+    # @spectator = Registration.where(role: "spectateur")
+    # @dancer = Registration.where(role: "danceur")
 
   end
 
