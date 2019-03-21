@@ -43,12 +43,6 @@ Category.create!(name: "hype")
 Category.create!(name: "uprock")
 
 
-Locality.create!(
-    city_name: Faker::House.room,
-    zipcode: "38330 en force",
-    address: "rue de la poupée qui tousse"
-  )
-
 # on peut passer `confirmed_at: Time.now` pour confirmer tes users dans le seed si on a confirmation par email dans devise
 # 10.times do |u|
 #   u = User.create!(
