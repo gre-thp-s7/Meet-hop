@@ -54,19 +54,28 @@ private
 
 
   #=============Connect with facebook==========
-  def self.from_facebook(auth)
+
+  def self.from_omniauth(auth)
 
     where(facebook_id: auth.uid).first_or_create do |user|
 
       user.email = auth.info.email #find fb email
       user.first_name = auth.info.first_name
       user.last_name = auth.info.last_name
-       # a check si ça affiche publiquement
+      user.image = auth.info.image
       user.password = Devise.friendly_token[0, 20] #genere un mdp aleatoire
-      # user.skip_comfirmation!
-
+      user.skip_comfirmation!
     end
   end
+
+    # def self.new_with_session(params, session)
+    #   super.tap do |user|
+    #     if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
+    #       user.email = data["email"] if user.email.blank?
+    #     end
+    #   end
+    # end
+  
   #============================================
   #=================== MAILER =================
   # Send an email after a user is created
