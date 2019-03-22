@@ -28,18 +28,18 @@ fr:
     - sam
     abbr_month_names:
     -
-    - jan.
-    - fév.
-    - mar.
-    - avr.
+    - janvier
+    - février
+    - mars
+    - avril
     - mai
     - juin
-    - juil.
+    - juillet
     - août
-    - sept.
-    - oct.
-    - nov.
-    - déc.
+    - septembre
+    - octobre
+    - novembre
+    - décembre
     day_names:
     - dimanche
     - lundi
