@@ -17,6 +17,7 @@ class EventsController < ApplicationController
   end
 
   def show
+    
     @user = User.find_by(id: params[:user_id])
   	@event_created = Event.where(promoter: @user)
   	@event_participed = Registration.where(user: @user)

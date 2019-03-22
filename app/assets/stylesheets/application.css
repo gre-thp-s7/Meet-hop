@@ -21,6 +21,8 @@
   background-image: url('login.jpg')
 }
 
+#img-home{ background-image: url("test1.jpg"); }
+
 #login-img{
   background-image: url('login.jpg')
 }
@@ -38,6 +40,7 @@
  #img-home-seconde-section3{
   background-image: url('lyon.jpg')
  } */
+
 
 
 .font_dance_category{

@@ -35,9 +35,9 @@
                           <li class="list-group-item">250 euros</li>
                         </ul>
                       </div>
-                      <a href="" class="card-footer text-orange">
-                        <strong class="card-price text-orange">19 €</strong>
-                      </a>
+                      <%= link_to new_event_registration_path(@event.id), class: "card-footer" do %>
+                        <strong class="card-price">19 €</strong>
+                      <%end%>
                     </div>
                   </div>
                 </div>
@@ -65,7 +65,7 @@
                         </ul>
                       </div>
                       <%= link_to new_event_registration_path(@event.id), class: "card-footer" do %>
-                        <strong class="card-price">99 €</strong>
+                        <strong class="card-price">9 €</strong>
                       <%end%>
                     </div>
                   </div>
@@ -73,4 +73,3 @@
         </div>
       </div>
     </section>
-    <!-- / pricing -->
