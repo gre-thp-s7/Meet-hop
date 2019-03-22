@@ -1,14 +1,35 @@
-<!-- pricing -->
-    <section class="bg-gray text-orange">
-      <div class="container mb-0 text-orange">
-        <div class="row align-items-center">
-          <div class="col-lg-4 text-orange">
-            <h2>Prix</h2>
-            <div class="nav nav-switch mt-2">
-              <a class="nav-item nav-link active" id="first-tab" data-toggle="tab" href="#pricing-first">Danseur</a>
-              <a class="nav-item nav-link " id="second-tab" data-toggle="tab" href="#pricing-second">Spectateur</a>
+
+<section class="bg-gray text-orange">
+  <div class="container mb-0 text-orange">
+    <div class="row align-items-center">
+      <div class="col-lg-4 text-orange">
+        <h2>Prix</h2>
+        <div class="nav nav-switch mt-2">
+          <a class="nav-item nav-link active" id="first-tab" data-toggle="tab" href="#pricing-first">Danseur</a>
+          <a class="nav-item nav-link " id="second-tab" data-toggle="tab" href="#pricing-second">Spectateur</a>
+        </div>
+      </div>
+      <div class="col-lg-8 text-orange">
+        <div class="tab-content" id="myTabContent-2">
+          <div class="tab-pane show active" id="pricing-first" role="tabpanel" aria-labelledby="first-tab">
+            <div class="row gutter-2">
+              <div class="col-md-6" data-aos="fade-up" data-aos-delay="150">
+                <div class="card card-price bordered rising">
+                  <div class="card-body">
+                  <h4 class="card-title">Danseur</h4>
+                  <ul class="list-group list-group-minimal text-muted">
+                    <li class="list-group-item">Viens kiffez</li>
+                    <li class="list-group-item">Prize money</li>
+                    <li class="list-group-item">250 euros</li>
+                  </ul>
+                </div>
+                <%= link_to new_event_registration_path(@event.id), class: "card-footer" do %>
+                <strong class="card-price"><%= @event.dancer_price %> €</strong>
+                <%end%>
+              </div>
             </div>
           </div>
+
           <div class="col-lg-8 text-orange">
             <div class="tab-content" id="myTabContent-2">
               <div class="tab-pane show active" id="pricing-first" role="tabpanel" aria-labelledby="first-tab">
@@ -50,7 +71,10 @@
                       <%end%>
                     </div>
                   </div>
+
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
