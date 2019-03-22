@@ -59,7 +59,7 @@
                     <div class="equal">
                       <div class="boxed bg-primary text-white">
                         <div class="equal-header">
-                          <b class="h1">30</b>
+                          <b class="h1"><%= @event_participed_dancer.length %></b>
                         </div>
                         <div class="equal-footer">
                           <span class="text-muted">Danseurs</span>
@@ -71,7 +71,7 @@
                     <div class="equal">
                       <div class="boxed">
                         <div class="equal-header">
-                          <b class="h1">65</b>
+                          <b class="h1"><%= @event_participed_spectator.length %></b>
                         </div>
                         <div class="equal-footer">
                           <span class="text-muted">Spectateurs</span>
@@ -83,7 +83,7 @@
                     <div class="equal">
                       <div class="boxed">
                         <div class="equal-header">
-                          <b class="h1">5</b>
+                          <b class="h1">2</b>
                         </div>
                         <div class="equal-footer">
                           <span class="text-muted">Invité</span>
@@ -95,10 +95,10 @@
                     <div class="equal">
                       <div class="boxed">
                         <div class="equal-header">
-                          <b class="h1">100</b>
+                          <b class="h1"><%= @event_participed_dancer.length + @event_participed_spectator.length %></b>
                         </div>
                         <div class="equal-footer">
-                          <span class="text-muted"> Participant</span>
+                          <span class="text-muted"> Participants</span>
                         </div>
                       </div>
                     </div>
