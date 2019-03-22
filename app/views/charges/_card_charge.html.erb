@@ -8,7 +8,7 @@
     </a>
     <div class="card-body">
       <p>Le 
-      <%= l(@event.start_date, format: :long ) %> à <%= @event.city_name %></p>
+      <%= l(@event.start_date, format: :short ) %> à <%= @event.city_name %></p>
       <p>Organisé par <%= @event.promoter.first_name %> <%= @event.promoter.last_name %>.</p>
       <p>Prix public : <%= @event.spectator_price %> €</p>
       <p>Prix danseur : <%= @event.dancer_price %> €</p>
