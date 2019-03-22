@@ -26,8 +26,8 @@
                   <li class="nav-item dropdown">
                   <% if user_signed_in? %>
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown-2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Nom et Prénom
-                    </a>
+                    <%= current_user.first_name %>
+                    <%= current_user.last_name %></a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                       <%= link_to "Créer un nouvel évènement", new_event_path, class: " dropdown-item" %>
                       <div class="dropdown-divider"></div>
