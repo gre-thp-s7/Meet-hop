@@ -1,40 +1,65 @@
-https://dashboard.heroku.com/apps/meet-hop-staging/
+# Bienvenue sur Meet-Hop
 
+--------
 
-# The Hacking Project - The final project !
+### Organisateur d’événement autour de la danse hip-hop
 
-The past weeks have been a lot of hard work, and the last straight line's ahead. Here's an app to help you if you struggle to use templates.
+#### Le constat
 
-This app has been created for [The Hacking Project](https://www.thehackingproject.org/) and is destined to be used only by the students & the creator.
+Le sites répertoriant les événements du monde du hip hop sont visuellement agressifs, souvent amateurs, la plupart sont présentés comme des sorte de blogs, avec des agendas simples… Entre ceux-ci et les pages Facebook, difficile de s’y retrouver.
 
+--------------
 
-# Organisation
-Two templates are within this app, one is a one page, and the other one is a dashboard. Most of the assets can be found in the `vendor/assets` folder. As there's a lot of plugins that you might no know, we strongly advice you not to change any files in there.
-The `root` will take you to the NewBiz template (see below)
+#### Intérêts pour les organisateurs
 
-## Dashboard - Stistla
-- The index is located in the folder `app/views/dashboard/index.html`
-- Most of the components are in the folder `app/views/dashboard/components`, such as the searchbar.
-All your files are listed in the file explorer. You can switch from one to another by aergcking a file in the list.
-- You can also find the rendered elements in the layout folder, located in  `app/views/layouts`
-- You can find the documentation on the [Stisla documentation folder](https://docs.getstisla.com/#/en/2.2.0/overview)
-## One page template - NewBiz
-- The index is located in the folder `app/views/home/index.html`
-- You can find the original template on the [NewBiz homepage](http://demo.themequarry.com/theme/newbiz-new-bizbusiness-template-ASCGQEKQ)
+* Les évènements gagnent en visibilité et en référencement.
 
+* La gestion des évènements est simplifiée.
 
-# Particularities
-As you can see, the *dashboard* template is organised in a specific way. We recommend you to use the same structure.
-The one page template isn't  implemented following the same methodology : you have to do it. Training is the best way to learn ;)
+* Le système de paiement en ligne pour les préventes spectateur comme pour les inscriptions des danseurs permet une dématérialisation d’une partie de recettes. Les préventes permettent de sécuriser une partie du budget. Nous envisageons l’intégration d’une API de gestion de billetterie comme Ticket Master pour ce feature. La gestion du flux des spectateurs sera également plus fluide à l’entrée.
 
-## Two templates for one app ?
+* Prochainement : Sous-application permettant de générer l’organisation et le déroulement du battle de danse en fonction des participant ayant bien validé leurs présence, avec un système de random matching, de tournoi, etc...
 
-Yes, it is possible, quite simply actually. You just have to follow those steps :
-1. In the controllers, specify which layout you want to use. Have a look in the `dashboard_controller` : we've used the `layout "dashboard"` line to do so.
-2. In the layout folder, `app/views/layouts` create a layout html file (in our exemple, `dashboard.html.erb`)
-3. In that folder, specify which stylesheet file / js file you want to use, like so : `<%= stylesheet_link_tag 'dashboard', media: 'all' %>`
-4. Then, edit your path to take you were you want (in our example : `/dashboard` will takes us to the dashboard page, and the root to the one page template).
+--------------
 
-# Links
-- [Stisla documentation folder](https://docs.getstisla.com/#/en/2.2.0/overview)
-- [NewBiz homepage](http://demo.themequarry.com/theme/newbiz-new-bizbusiness-template-ASCGQEKQ)
+#### Intérêts pour les participants et spectateurs
+
+* Inscription aux événements avec sécurisation du paiement et certitude de pouvoir participer.
+
+* Affichage des informations réservées aux participants :
+  - Déroulé de l'événement
+  - Modalités d’accueil des danseurs
+  - règles des battles etc...
+
+* Prochainement : 
+  - Intégration d’une API agenda permettant d’afficher évènements auxquels ils sont inscrits, et programmer un rappel par mail.
+  - Choix de l’événement en fonction des préférences de style, emplacement géographique, prix etc...
+
+--------------
+
+#### Les Features 
+
+*Mailer*
+- `À l'inscription sur le site`
+- `Mot de passe oublié`
+- `Création d'un événement (envoie d'un email au créateur)`
+- `Modification d'un événement (envoie d'un email aux participants)`
+- `Inscription à un événement (envoie d'un email au créateur)`
+- `Inscription à un événement (envoie d'un email au participant)`
+
+*Devise*
+- `Gestion des utilisateurs`
+
+*Activestorage*
+- `Gestion d'une photo de profil et d'une photo pour les événements`
+
+*Stripe* 
+- `Paiement afin de valider l'inscription à un événement en temps que danseurs ou spectateurs`
+
+--------------
+
+Retrouvez nous sur [Meet-Hop](https://Meet-Hop.herokuapp.com/) !
+
+--------------
+
+Voici une [vidéo]() dévoilant la fonctionnalitée principale de Meet-Hop
