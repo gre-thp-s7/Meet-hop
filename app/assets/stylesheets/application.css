@@ -41,18 +41,10 @@
 
 <<<<<<< HEAD
 
-=======
+
 .font_dance_category{
   font-family: 'Permanent Marker', cursive;
 }
- .alert-row {
-   position: fixed;
-   top: 100px;
-   right: 40px;
-   z-index: 2;
-   width: 300px;
- }
->>>>>>> 45f96394f1a2dd36a7e66bf338925aa983c292c7
 
  .date-select-inline {
      display: inline-block;
@@ -61,7 +53,7 @@
 
  .alert-row {
    position: fixed;
-   top: 100px;
+   top: 120px;
    right: 40px;
    z-index: 2;
    width: 300px;
