@@ -35,15 +35,13 @@
 
                   <div class="field pb-3 pt-1">
                     <%= f.label :email %><br />
-                    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control"%>
+                    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "prenomnom@email.com"%>
                   </div>
 
                   <div class="field pb-3 pt-1">
                     <%= f.label :password %>
-                    <% if @minimum_password_length %>
-                      <em>(<%= @minimum_password_length %> charactères minimum)</em>
-                    <% end %><br />
-                    <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
+                  
+                    <%= f.password_field :password, autocomplete: "new-password", class: "form-control", placeholder: "6 caractères minimum" %>
                   </div>
 
                   <div class="field pb-3 pt-1">

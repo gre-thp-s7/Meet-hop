@@ -1,0 +1,314 @@
+<section class="p-0 bg-light">
+    <div class="row gutter-1 mb-6">
+  </div>
+</section>
+
+
+<section class="bg-light p-0">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col col-md-12 col-lg-8">
+        <div class="nav nav-tabs mb-1">
+          <a class="nav-item nav-link active" data-toggle="tab" href="#demo-2-1">Résumé</a>
+          <a class="nav-item nav-link" data-toggle="tab" href="#demo-2-2">Liste des participants</a>
+          <a class="nav-item nav-link" data-toggle="tab" href="#demo-2-3">Liste des spectateurs</a>
+          <a class="nav-item nav-link" data-toggle="tab" href="#demo-2-4">Invités</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="bg-light pt-2">
+
+  <div class="container">
+    <div class="tab-content" id="demo-2">
+
+      <!-- tab info -->
+      <div class="tab-pane show active" id="demo-2-1" role="tabpanel" aria-labelledby="demo-2-1">
+        <div class="row justify-content-center">
+          <div class="col-md-10 col-lg-8">
+            
+            <!-- stats -->
+            <div class="row gutter-1 mb-2">
+              <div class="col-6 col-md-4 col-lg-3">
+                <div class="equal">
+                  <div class="boxed bg-primary text-white">
+                    <div class="equal-header">
+                         
+
+                      <b class="h1"><% if @event_participed_spectator != nil %><%= @event_participed_spectator.length %><% else %> 0 <% end %></b>
+                    </div>
+                    <div class="equal-footer">
+                      <span class="text-muted">Danseurs</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6 col-md-4 col-lg-3">
+                <div class="equal">
+                  <div class="boxed">
+                    <div class="equal-header">
+                      <b class="h1"><% if @event_dancer != nil %><%= @event_dancer.length %><% else %> 0 <% end %></b>
+                    </div>
+                    <div class="equal-footer">
+                      <span class="text-muted">Spectateurs</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6 col-md-4 col-lg-3">
+                <div class="equal">
+                  <div class="boxed">
+                    <div class="equal-header">
+                      <b class="h1">2</b>
+                    </div>
+                    <div class="equal-footer">
+                      <span class="text-muted">Invité</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6 col-md-4 col-lg-3">
+                <div class="equal">
+                  <div class="boxed">
+                    <div class="equal-header">  
+                      <b class="h1"><% if @event_participants != nil %><%= @event_participants.length %><% else %> 0 <% end %></b>
+                    </div>
+                    <div class="equal-footer">
+                      <span class="text-muted"> Participants</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- / stats -->
+
+
+            <!-- Informations event -->
+            <div class="row">
+              <div class="col">
+                <article class="card">
+                  <div class="card-body overflow-hidden">
+                    <blockquote class="blockquote">
+                      <p class="mb-0">Informations event</p>
+                      <p class="blockquote-footer">Compte a rebours ? </p>
+                    </blockquote>
+                  </div>
+                  <div class="card-footer">
+                    <div class="row">
+                      <div class="col">
+                        <a href="VUE NORMAL?" class="btn btn-ico btn-sm rounded btn-outline-light text-red"><i class="icon-heart2 fs-22"></i></a>
+                      </div>
+                      <div class="col text-right">
+                        <div class="dropdown">
+                          <a class="btn btn-ico btn-outline-light text-dark rounded btn-sm" href="#" role="button" id="dropdownMenuLink-2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="icon-more-vertical fs-22"></i>
+                          </a>
+
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink-2">
+                            <a class="dropdown-item" href="#">Editer</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- / information event -->
+
+
+      <!-- Liste des spectateurs -->
+      <div class="tab-pane" id="demo-2-2" role="tabpanel" aria-labelledby="demo-2-2">
+        <div class="row justify-content-center">
+          <div class="col-md-10 col-lg-8">
+            <div class="row gutter-1">
+
+              <div class="col-12">
+                <div class="boxed p-2">
+                  <div class="row align-items-center justify-content-between">
+                    <div class="col-10">
+                      <div class="media align-items-center">
+                        <img src="../../assets/images/demo/user-5.jpg" alt="Avatar" class="avatar avatar-lg rounded mr-3">
+                        <div class="media-body">
+                          <h5 class="mb-0">Nicole Doe</h5>
+                          <span class="text-muted">Senior UI Designer</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <div class="boxed p-2">
+                  <div class="row align-items-center justify-content-between">
+                    <div class="col-10">
+                      <div class="media align-items-center">
+                        <img src="../../assets/images/demo/user-5.jpg" alt="Avatar" class="avatar avatar-lg rounded mr-3">
+                        <div class="media-body">
+                          <h5 class="mb-0">Nicole Doe</h5>
+                          <span class="text-muted">Senior UI Designer</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <div class="boxed p-2">
+                  <div class="row align-items-center justify-content-between">
+                    <div class="col-10">
+                      <div class="media align-items-center">
+                        <img src="../../assets/images/demo/user-5.jpg" alt="Avatar" class="avatar avatar-lg rounded mr-3">
+                        <div class="media-body">
+                          <h5 class="mb-0">Nicole Doe</h5>
+                          <span class="text-muted">Senior UI Designer</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- lite des spectateurs -->
+
+      <!-- tab invité -->
+      <div class="tab-pane" id="demo-2-3" role="tabpanel" aria-labelledby="demo-2-3">
+        <div class="row justify-content-center">
+          <div class="col-md-10 col-lg-8">
+            <div class="row gutter-1">
+            
+           
+
+              <div class="col-12">
+                <div class="boxed p-2">
+                  <div class="row align-items-center justify-content-between">
+                    <div class="col-10">
+                      <div class="media align-items-center">
+                        <img src="../../assets/images/demo/user-5.jpg" alt="Avatar" class="avatar avatar-lg rounded mr-3">
+                        <div class="media-body">
+                          <h5 class="mb-0">Nicole Doe</h5>
+                          <span class="text-muted">Senior UI Designer</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+               <div class="col-12">
+                <div class="boxed p-2">
+                  <div class="row align-items-center justify-content-between">
+                    <div class="col-10">
+                      <div class="media align-items-center">
+                        <img src="../../assets/images/demo/user-5.jpg" alt="Avatar" class="avatar avatar-lg rounded mr-3">
+                        <div class="media-body">
+                          <h5 class="mb-0">Nicole Doe</h5>
+                          <span class="text-muted">Senior UI Designer</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+               <div class="col-12">
+                <div class="boxed p-2">
+                  <div class="row align-items-center justify-content-between">
+                    <div class="col-10">
+                      <div class="media align-items-center">
+                        <img src="../../assets/images/demo/user-5.jpg" alt="Avatar" class="avatar avatar-lg rounded mr-3">
+                        <div class="media-body">
+                          <h5 class="mb-0">Nicole Doe</h5>
+                          <span class="text-muted">Senior UI Designer</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- / tab invité-->
+
+      <!-- tab participant -->
+      <div class="tab-pane" id="demo-2-4" role="tabpanel" aria-labelledby="demo-2-4">
+        <div class="row justify-content-center">
+          <div class="col-md-10 col-lg-8">
+            <div class="row gutter-1">
+
+          
+              <div class="col-12">
+                <div class="boxed p-2">
+                  <div class="row align-items-center justify-content-between">
+                    <div class="col-10">
+                      <div class="media align-items-center">
+                        <img src="../../assets/images/demo/user-5.jpg" alt="Avatar" class="avatar avatar-lg rounded mr-3">
+                        <div class="media-body">
+                          <h5 class="mb-0">Nicole Doe</h5>
+                          <span class="text-muted">Senior UI Designer</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <div class="boxed p-2">
+                  <div class="row align-items-center justify-content-between">
+                    <div class="col-10">
+                      <div class="media align-items-center">
+                        <img src="../../assets/images/demo/user-5.jpg" alt="Avatar" class="avatar avatar-lg rounded mr-3">
+                        <div class="media-body">
+                          <h5 class="mb-0">Nicole Doe</h5>
+                          <span class="text-muted">Senior UI Designer</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <div class="boxed p-2">
+                  <div class="row align-items-center justify-content-between">
+                    <div class="col-10">
+                      <div class="media align-items-center">
+                        <img src="../../assets/images/demo/user-5.jpg" alt="Avatar" class="avatar avatar-lg rounded mr-3">
+                        <div class="media-body">
+                          <h5 class="mb-0">Nicole Doe</h5>
+                          <span class="text-muted">Senior UI Designer</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- / tab participant -->
+
+    </div>
+  </div>
+</section>
