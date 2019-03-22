@@ -9,7 +9,9 @@
         <div class="row" data-aos="fade-up">
         </div>
         <div class="row gutter-2">
-        <%= render 'card_event'%>
+          <% if @events != nil %>
+            <%= render 'card_event'%>
+          <% end %>
         </div>
       </div>
     </div>
@@ -26,11 +28,11 @@
           </div>
         </div>
       <div class="decorated-bottom text-light">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 40"  preserveAspectRatio="none">  
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 40"  preserveAspectRatio="none">
           <path d="">
-            <animate 
-              attributeName="d" 
-              begin="0s" 
+            <animate
+              attributeName="d"
+              begin="0s"
               dur="5s"
               repeatCount="indefinite"
               values="
@@ -45,7 +47,9 @@
         <div class="row" data-aos="fade-left" data-aos-delay="500">
           <div class="col">
             <div class="owl-carousel visible" data-items="[3,2,1]" data-margin="20" data-dots="true" data-loop="true" data-center="true">
-            <%= render 'card_event_dancer'%>
+              <% if @events != nil %>
+                <%= render 'card_event_dancer'%>
+              <% end %>
             </div>
           </div>
         </div>
@@ -60,11 +64,11 @@
           </div>
         </div>
       <div class="decorated-bottom text-light">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 40"  preserveAspectRatio="none">  
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 40"  preserveAspectRatio="none">
           <path d="">
-            <animate 
-              attributeName="d" 
-              begin="0s" 
+            <animate
+              attributeName="d"
+              begin="0s"
               dur="5s"
               repeatCount="indefinite"
               values="
@@ -79,7 +83,9 @@
         <div class="row" data-aos="fade-left" data-aos-delay="500">
           <div class="col">
             <div class="owl-carousel visible" data-items="[3,2,1]" data-margin="20" data-dots="true" data-loop="true" data-center="true">
-            <%= render 'card_event_dancer'%>
+              <% if @events != nil %>
+                <%= render 'card_event_dancer'%>
+              <% end %>
             </div>
           </div>
         </div>
@@ -94,11 +100,11 @@
           </div>
         </div>
       <div class="decorated-bottom text-light">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 40"  preserveAspectRatio="none">  
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 40"  preserveAspectRatio="none">
           <path d="">
-            <animate 
-              attributeName="d" 
-              begin="0s" 
+            <animate
+              attributeName="d"
+              begin="0s"
               dur="5s"
               repeatCount="indefinite"
               values="
@@ -113,7 +119,9 @@
         <div class="row" data-aos="fade-left" data-aos-delay="500">
           <div class="col">
             <div class="owl-carousel visible" data-items="[3,2,1]" data-margin="20" data-dots="true" data-loop="true" data-center="true">
-            <%= render 'card_event_dancer'%>
+              <% if @events != nil %>
+                <%= render 'card_event_dancer'%>
+              <% end %>
             </div>
           </div>
         </div>
