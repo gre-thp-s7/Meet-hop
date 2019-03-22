@@ -56,7 +56,7 @@
 
   <% if @new == true %>
     <div class="field mt-3">
-    <label>Catégories présentes</label> 
+    <p>Catégories présentes</p> 
       <% @all_categories.each do |cate| %>
         <input type="checkbox" name="category[]" value=<%= cate.id %> >
         <%= cate.name %> <br/>
