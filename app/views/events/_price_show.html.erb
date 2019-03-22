@@ -64,9 +64,9 @@
                           <li class="list-group-item">Différent style représenter</li>
                         </ul>
                       </div>
-                      <a href="" class="card-footer">
+                      <%= link_to new_event_registration_path(@event.id), class: "card-footer" do %>
                         <strong class="card-price">99 €</strong>
-                      </a>
+                      <%end%>
                     </div>
                   </div>
           </div>
