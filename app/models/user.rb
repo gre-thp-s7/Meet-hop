@@ -20,35 +20,35 @@ class User < ApplicationRecord
   validates :nick_name, uniqueness: true, allow_blank: true
 
 
-########## something to try for validation ##############@
-########## this is documentation wher i find this ################
-# https://guides.rubyonrails.org/active_record_validations.html#common-validation-options ####
+  ########## something to try for validation ##############@
+  ########## this is documentation wher i find this ################
+  # https://guides.rubyonrails.org/active_record_validations.html#common-validation-options ####
 
 
-#####  email validation #########
+  #####  email validation #########
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email,
     presence: true,
     length: { maximum: 255 },
     format: { with: VALID_EMAIL_REGEX },
     uniqueness: { case_sensitive: false }
-####### end email validation #############
+  ####### end email validation #############
 
 
-###### this is profile picture with active storage ######
+  # this is profile picture with active storage ######
   has_one_attached :avatar
-#####################################
 
 
-private
 
-######### put a profile picture if there isn't #########
+  private
+
+  ######### put a profile picture if there isn't ##
   # def avatar_picture
   #     if avatar_url == nil
   #       avatar_url = aws_s3_no_profile_picture_url
   #     end
   # end
-#################################################
+  #################################################
 
   #=================== MAILER =================
   # Send an email after a user is created
@@ -60,5 +60,4 @@ private
     UserMailer.welcome_email(self).deliver_now
 
   end
-  #=============================================
 end

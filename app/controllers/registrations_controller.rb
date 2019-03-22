@@ -1,6 +1,6 @@
 class RegistrationsController < ApplicationController
 
-include RegistrationsHelper
+  include RegistrationsHelper
 
   before_action :authenticate_user!, only: [:new, :create]
   before_action :can_subs, only: [:new]
@@ -30,14 +30,14 @@ include RegistrationsHelper
 
     @categories = params[:categories].split
 
-    ################# il faudra enlever ca  une fois l'ajax fait
+    # Need to be delete after ajax is implemented
     if params[:dancer] == "true"
       @registration.category_ids = @categories
       @registration.role = "dancer"
     else
       @registration.role = "spectator"
     end
-    ###########################################
+    #===========================================
 
       
     if @registration.save!
@@ -48,8 +48,5 @@ include RegistrationsHelper
       flash[:danger] = "problème = recommence"
       render :new
     end
-
   end
-
-
 end
