@@ -11,7 +11,7 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   #============ Connect with facebook ==================
-  config.omniauth :facebook, ENV['FACEBOOK_KEY'], ENV['FACEBOOK_SECRET'], scope: 'email, name', display: 'popup', callback_url: "http://localhost:3000/users/auth/facebook/callback"
+  config.omniauth :facebook, ENV['FACEBOOK_KEY'], ENV['FACEBOOK_SECRET'], scope: 'email, name', display: 'popup', callback_url: "http://meet-hop-staging.com/users/auth/facebook/callback"
   #=======================================================
 
   # The secret key used by Devise. Devise uses this key to generate
