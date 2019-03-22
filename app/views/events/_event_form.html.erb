@@ -12,12 +12,20 @@
 
   <div class="field mt-3">
     <label>Adresse</label>
-    <%= f.text_field :address, class: 'form-control', placeholder: "13 rue de l'Isère" %>
+    <%= f.text_field :address, class: 'form-control', placeholder: "13 rue de l\'Isère" %>
   </div>
-    <div class="field mt-3">
+
+  <div class="field mt-3">
+    <label>Code postal</label>
+    <%= f.text_field :address, class: 'form-control', placeholder: "38100" %>
+  </div>
+
+
+  <div class="field mt-3">
     <label>Code postal</label>
     <%= f.text_field :zipcode, class: 'form-control', placeholder: "38100" %>
   </div>
+
   <div class="field mt-3">
     <label>Ville</label>
     <%= f.text_field :city_name, class: 'form-control', placeholder: "Grenoble" %>
