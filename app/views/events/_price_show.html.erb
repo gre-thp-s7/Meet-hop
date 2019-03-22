@@ -1,75 +1,53 @@
-<!-- pricing -->
-    <section class="bg-gray text-orange">
-      <div class="container mb-0 text-orange">
-        <div class="row align-items-center">
-          <div class="col-lg-4 text-orange">
-            <h2>Prix</h2>
-            <div class="nav nav-switch mt-2">
-              <a class="nav-item nav-link active" id="first-tab" data-toggle="tab" href="#pricing-first">Danseur</a>
-              <a class="nav-item nav-link " id="second-tab" data-toggle="tab" href="#pricing-second">Spectateur</a>
+
+<section class="bg-gray text-orange">
+  <div class="container mb-0 text-orange">
+    <div class="row align-items-center">
+      <div class="col-lg-4 text-orange">
+        <h2>Prix</h2>
+        <div class="nav nav-switch mt-2">
+          <a class="nav-item nav-link active" id="first-tab" data-toggle="tab" href="#pricing-first">Danseur</a>
+          <a class="nav-item nav-link " id="second-tab" data-toggle="tab" href="#pricing-second">Spectateur</a>
+        </div>
+      </div>
+      <div class="col-lg-8 text-orange">
+        <div class="tab-content" id="myTabContent-2">
+          <div class="tab-pane show active" id="pricing-first" role="tabpanel" aria-labelledby="first-tab">
+            <div class="row gutter-2">
+              <div class="col-md-6" data-aos="fade-up" data-aos-delay="150">
+                <div class="card card-price bordered rising">
+                  <div class="card-body">
+                  <h4 class="card-title">Danseur</h4>
+                  <ul class="list-group list-group-minimal text-muted">
+                    <li class="list-group-item">Viens kiffez</li>
+                    <li class="list-group-item">Prize money</li>
+                    <li class="list-group-item">250 euros</li>
+                  </ul>
+                </div>
+                <%= link_to new_event_registration_path(@event.id), class: "card-footer" do %>
+                <strong class="card-price"><%= @event.dancer_price %> €</strong>
+                <%end%>
+              </div>
             </div>
           </div>
-          <div class="col-lg-8 text-orange">
-            <div class="tab-content" id="myTabContent-2">
-              <div class="tab-pane show active" id="pricing-first" role="tabpanel" aria-labelledby="first-tab">
-                <div class="row gutter-2">
-                  <div class="col-md-6" data-aos="fade-up" data-aos-delay="150">
-                    <div class="card card-price bordered rising">
-                      <div class="card-body">
-                        <i class="svg-icon w-25 fs-60">
-                          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                             width="64px" height="64px" viewBox="0 0 64 64" enable-background="new 0 0 64 64" xml:space="preserve">
-                          <g>
-                            <circle fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" cx="32" cy="19.001" r="4"/>
-                            <path fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" d="M45,21.023C44.968,13.276,39.181,7,32,7
-                              s-13,6.276-13,14.023C19,31.046,31.979,47,31.979,47S45.043,31.046,45,21.023z"/>
-                          </g>
-                          <polyline fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" points="21,37 12,37 1,57 32,57 63,57 52,37 43,37
-                            "/>
-                          </svg>
-                        </i>
-                        <h4 class="card-title">Danseur</h4>
-                        <ul class="list-group list-group-minimal text-muted">
-                          <li class="list-group-item">Viens kiffez</li>
-                          <li class="list-group-item">Prize money</li>
-                          <li class="list-group-item">250 euros</li>
-                        </ul>
-                      </div>
-                      <%= link_to new_event_registration_path(@event.id), class: "card-footer" do %>
-                        <strong class="card-price"><%= @event.dancer_price %> €</strong>
-                      <%end%>
-                    </div>
-                  </div>
-                </div>
+        </div>
+        <div class="tab-pane" id="pricing-second" role="tabpanel" aria-labelledby="second-tab">
+          <div class="row gutter-2">
+            <div class="col-md-6 text-white">
+              <div class="card card-price bordered rising">
+                <div class="card-body">
+                <h5 class="card-title">Spectateurs</h5>
+                <ul class="list-group list-group-minimal text-muted">
+                  <li class="list-group-item">Venez apprécier l'ambiance !</li>
+                  <li class="list-group-item">Différent styles de danse</li>
+                </ul>
               </div>
-              <div class="tab-pane" id="pricing-second" role="tabpanel" aria-labelledby="second-tab">
-                <div class="row gutter-2">
-                  <div class="col-md-6 text-white">
-                    <div class="card card-price bordered rising">
-                      <div class="card-body">
-                        <i class="svg-icon w-25 fs-60">
-                          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                             width="64px" height="64px" viewBox="0 0 64 64" enable-background="new 0 0 64 64" xml:space="preserve">
-                          <g>
-                            <polyline fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" points="1,26 32,45.434 63,26   "/>
-                            <polyline fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" points="11.334,21.667 1,26 1,63 63,63 63,26
-                              63,26 52.666,21.667   "/>
-                            <polyline fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" points="11,32 11,1 53,1 53,32  "/>
-                          </g>
-                          </svg>
-                        </i>
-                        <h5 class="card-title">Spectateurs</h5>
-                        <ul class="list-group list-group-minimal text-muted">
-                          <li class="list-group-item">Venez apprécier l'ambiance !</li>
-                          <li class="list-group-item">Différent styles de danse</li>
-                        </ul>
-                      </div>
-                      <%= link_to new_event_registration_path(@event.id), class: "card-footer" do %>
-                        <strong class="card-price"><%= @event.spectator_price %> €</strong>
-                      <%end%>
-                    </div>
-                  </div>
+              <%= link_to new_event_registration_path(@event.id), class: "card-footer" do %>
+              <strong class="card-price"><%= @event.spectator_price %> €</strong>
+              <%end%>
+            </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>

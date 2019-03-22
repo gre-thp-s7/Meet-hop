@@ -30,7 +30,7 @@ class EventsController < ApplicationController
 
   	@event_participants = @event.registrations
   	@event_dancer = @event_participants.where(role: "dancer")
-  	@event_spectator = @event_participants.where(role: "spectator") 
+  	@event_spectator = @event_participants.where(role: "spectator")
 
     @users = User.all
   end
@@ -82,7 +82,7 @@ class EventsController < ApplicationController
       redirect_to(event_path(@event.id))
     else
       flash[:danger] = "problème a la création, essaye encore "
-      reender :new      
+      reender :new
     end
   end
 
@@ -105,6 +105,19 @@ class EventsController < ApplicationController
     post_params = params.require(:event).permit!
 
     @event = Event.find_by(id: params[:id])
+
+
+        @start_date = DateTime.civil(
+          params[:event][:"start_date(1i)"].to_i,
+          params[:event][:"start_date(2i)"].to_i,
+          params[:event][:"start_date(3i)"].to_i,
+          params[:event][:"start_date(4i)"].to_i,
+          params[:event][:"start_date(5i)"].to_i
+        )
+
+        @duration_hours = params[:event][:"duration(4i)"].to_i * 60
+        @duration_minutes = params[:event][:"duration(5i)"].to_i * 60
+        @duration = @duration_hours + @duration_minutes
 
     if @event.update(
       name: post_params[:name],
