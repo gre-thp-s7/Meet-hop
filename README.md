@@ -15,7 +15,7 @@ The `root` will take you to the NewBiz template (see below)
 ## Dashboard - Stistla
 - The index is located in the folder `app/views/dashboard/index.html`
 - Most of the components are in the folder `app/views/dashboard/components`, such as the searchbar.
-All your files are listed in the file explorer. You can switch from one to another by clicking a file in the list.
+All your files are listed in the file explorer. You can switch from one to another by aergcking a file in the list.
 - You can also find the rendered elements in the layout folder, located in  `app/views/layouts`
 - You can find the documentation on the [Stisla documentation folder](https://docs.getstisla.com/#/en/2.2.0/overview)
 ## One page template - NewBiz

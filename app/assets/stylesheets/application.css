@@ -21,6 +21,8 @@
   background-image: url('login.jpg')
 }
 
+#img-home{ background-image: url("test1.jpg"); }
+
 #login-img{
   background-image: url('login.jpg')
 }
@@ -40,8 +42,7 @@
  } */
 
 
-
-.font_dance_category{
+.font_dance_category {
   font-family: 'Permanent Marker', cursive;
 }
 
