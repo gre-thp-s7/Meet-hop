@@ -54,12 +54,15 @@
     <%= f.text_field :prize_money, class: 'form-control' %>
   </div>
 
-  <div class="field mt-3">
-    <% @all_categories.each do |cate| %>
-      <input type="checkbox" name="category[]" value=<%= cate.id %> >
-      <%= cate.name %> <br/>
+  <% if @new == true %>
+    <div class="field mt-3">
+    <label>Catégories présentes</label> 
+      <% @all_categories.each do |cate| %>
+        <input type="checkbox" name="category[]" value=<%= cate.id %> >
+        <%= cate.name %> <br/>
+    <% end %>
+    </div>
   <% end %>
-  </div>
 
   <div class="field mt-3">
     <label>Image</label><br/>
