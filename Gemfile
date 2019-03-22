@@ -10,8 +10,6 @@ gem 'dotenv-rails'
 gem 'devise'
 gem 'rspec'
 gem 'stripe'
-gem 'omniauth'
-gem 'omniauth-facebook'
 gem 'rails-i18n', '~> 5.1'
 ################ pour amazon ########################
 gem "aws-sdk-s3", require: false
