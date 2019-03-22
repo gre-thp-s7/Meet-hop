@@ -21,7 +21,7 @@
                         <ul class="list-group list-group-minimal text-muted">
                           <li class="list-group-item">Viens kiffez</li>
                           <li class="list-group-item">Prize money</li>
-                          <li class="list-group-item">250 euros</li>
+                          <li class="list-group-item"><%= @event.prize_money %></li>
                         </ul>
                       </div>
                       <%= link_to new_event_registration_path(@event.id), class: "card-footer" do %>
