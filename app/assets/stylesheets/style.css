@@ -8881,7 +8881,7 @@ a.text-rss:hover, a.text-rss:focus {
   content: "\ebf9"; }
 
 .icon-chevron-down2:before {
-  content: "\ebfa"; }
+  content: "\f00c"; }
 
 .icon-chevron-left2:before {
   content: "\ebfb"; }
@@ -16199,13 +16199,13 @@ footer {
   .accordion-control h5 {
     line-height: 1.5em; }
   .accordion-control::after {
-    content: "\ebfa";
+    content: "\f00c";
     position: absolute;
     width: 1em;
     line-height: 1em;
     right: 1rem;
     top: 50%;
-    font-family: 'icomoon' !important;
+    font-family: "Font Awesome 5 Free" !important;
     font-size: 1.5rem;
     margin-top: -0.5em;
     -webkit-transition: all 0.2s;
