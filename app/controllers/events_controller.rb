@@ -5,7 +5,7 @@ class EventsController < ApplicationController
   include EventsHelper
 
   #==== Protection against path in search browser bar =====
-  before_action :authenticate_user!, only: [:new, :create]
+  before_action :authenticate_user!, only: [:new, :create, :edit]
   before_action :can_edit_the_event, only: [:edit, :update, :destroy]#=======================================================
 
   def index
@@ -17,16 +17,21 @@ class EventsController < ApplicationController
   end
 
   def show
-    
-    @user = User.find_by(id: params[:user_id])
-  	@event_created = Event.where(promoter: @user)
-  	@event_participed = Registration.where(user: @user)
-  	@event_participed_dancer = @event_participed.where(role: "dancer")  	
-  	@event_participed_spectator = @event_participed.where(role: "spectator")
-    who_is_the_user
 
+    who_is_the_user
     params.permit(:id)
     @event = Event.find(params[:id])
+    @categories = []
+    @categories = @event.categories
+    @nb_cate = @categories.length
+   # binding.pry
+
+    @user = User.find_by(id: params[:user_id])
+
+  	@event_participants = @event.registrations
+  	@event_dancer = @event_participants.where(role: "dancer")
+  	@event_spectator = @event_participants.where(role: "spectator") 
+
     @users = User.all
   end
 
@@ -104,10 +109,10 @@ class EventsController < ApplicationController
     if @event.update(
       name: post_params[:name],
       description: post_params[:description],
-      start_date: post_params[:start_date],
-      duration: post_params[:duration],
-      spectator_price: post_params[:spectator_price],
+      start_date: @start_date,
+      duration: @duration,
       dancer_price: post_params[:dancer_price],
+      spectator_price: post_params[:spectator_price],
       rules: post_params[:rules],
       prize_money: post_params[:prize_money],
       zipcode: post_params[:zipcode],

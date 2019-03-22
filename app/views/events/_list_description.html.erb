@@ -1,42 +1,47 @@
-   <section class="bg-dark text-white">
-      <div class="container">
-        <div class="row mb-3">
-          <div class="col">
-            <div class="nav nav-text">
-              <a class="nav-item nav-link active" data-toggle="tab" href="#first">Infos</a>
-            </div>
-          </div>
+<!-- schedule -->
+<section class="bg-dark text-white">
+  <div class="container">
+    <div class="row mb-3">
+      <div class="col">
+        <div class="nav nav-text">
+          <a class="nav-item nav-link active" data-toggle="tab" href="#first">Infos</a>
         </div>
-        <div class="row">
-          <div class="col">
-            <div class="tab-content" id="myTabContent">
-              <div class="tab-pane show active" id="first" role="tabpanel" aria-labelledby="first-tab">
-                <div class="accordion-group" data-accordion-group>
-                  <div class="accordion" data-accordion>
-                    <div class="accordion-control" data-control>
-                      <span class="fw-25">Les règles</span>
-                      <h5>Déroulement</h5>
-                    </div>
-                    <div class="accordion-content" data-content>
-                      <div class="accordion-content-wrapper">
-                        <p class="ml-lg-25 mr-lg-25"><%= @event.rules %></p>
-                      </div>
-                    </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane show active" id="first" role="tabpanel" aria-labelledby="first-tab">
+            <div class="accordion-group" data-accordion-group>
+              <div class="accordion" data-accordion>
+                <div class="accordion-control" data-control>
+                  <span class="fw-25">Les règles</span>
+                  <h5>Déroulement</h5>
+                  <div class="speakers text-right">
+                    <ul class="user-list">
+                      <li><img src="../../assets/images/demo/user-1.jpg" alt="" data-toggle="tooltip" data-placement="top" title="Valerie Doe"></li>
+                    </ul>
                   </div>
-                  <div class="accordion" data-accordion>
-                    <div class="accordion-control" data-control>
-                      <span class="fw-25">Prize money</span>
-                      <h5>Récompense</h5>
-                    </div>
-                    <div class="accordion-content" data-content>
-                      <div class="accordion-content-wrapper">
-                        <p class="ml-lg-25 mr-lg-25"><%= @event.prize_money %>!</p>
-                      </div>
-                    </div>
+                </div>
+                <div class="accordion-content" data-content>
+                  <div class="accordion-content-wrapper">
+                    <p class="ml-lg-25 mr-lg-25"><%= @event.rules %></p>
                   </div>
                 </div>
               </div>
-
+              <div class="accordion" data-accordion>
+                <div class="accordion-control" data-control>
+                  <span class="fw-25">Prize money</span>
+                  <h5>Récompense</h5>
+                  <div class="speakers text-right">
+                    <ul class="user-list">
+                      <li><img src="../../assets/images/demo/user-2.jpg" alt="" data-toggle="tooltip" data-placement="top" title="Valerie Doe"></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="accordion-content" data-content>
+                  <div class="accordion-content-wrapper">
+                    <p class="ml-lg-25 mr-lg-25"><%= @event.prize_money %>!</p>
                   </div>
                 </div>
               </div>
@@ -44,5 +49,7 @@
           </div>
         </div>
       </div>
-    </section>
-    <!-- / schedule -->
+    </div>
+  </div>  
+</section>
+<!-- / schedule -->
