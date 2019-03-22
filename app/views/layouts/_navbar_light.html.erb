@@ -28,7 +28,8 @@
               <li class="nav-item dropdown">
               <% if user_signed_in? %>
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown-2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Nom et Prénom
+                <%= current_user.first_name %>
+                <%= current_user.last_name %>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <%= link_to "Créer un nouvel évènement", new_event_path, class: " dropdown-item" %>
@@ -44,7 +45,6 @@
                   <%= link_to "Créer un nouvel événement", new_event_path, class: " dropdown-item" %>
                   <div class="dropdown-divider"></div>
                   <%= link_to "Se connecter", new_user_session_path, class: "dropdown-item" %>
-                  <%= link_to "Se connecter avec Facebook", user_facebook_omniauth_authorize_path, class: "dropdown-item" %>
                   <%= link_to "S'inscrire", new_user_registration_path, class: "dropdown-item" %>
                 </div>
                 <% end %>

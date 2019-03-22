@@ -24,3 +24,130 @@
 
     </div>
   </div>
+
+
+        <section class="p-0 bg-light">
+          <div class="image image-overlay image-cover" style="background-image:url(https://s3.eu-west-3.amazonaws.com/meet-hop-public/home.jpg)"
+          data-top-top="transform: translateY(0px);"
+          data-top-bottom="transform: translateY(-250px);"></div>
+          <div class="container">
+            <div class="row justify-content-center align-items-end vh-50 mb-5">
+              <div class="col col-md-10 col-lg-8">
+                <div class="row align-items-center">
+                  <div class="col-4 col-lg-3">
+                    <img class="mr-3 avatar avatar-xl rounded" src="../../assets/images/demo/user-2.jpg" alt="Generic placeholder image">
+                  </div>
+                  <div class="col">
+                    <div class="row align-items-center">
+                      <div class="col-md-8">
+                        <h2 class="mb-0"><b><%= @user.first_name %></b> <%= @user.last_name %></h2>
+                        <span class="text-muted">Senior Visual Designer</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="bg-light pt-2">
+
+          <div class="container">
+            <div class="tab-content" id="demo-2">
+
+              <!-- tab settings -->
+              <div class="tab-pane show active" id="demo-2-4" role="tabpanel" aria-labelledby="demo-2-4">
+                <div class="row justify-content-center">
+                  <div class="col-md-10 col-lg-8">
+                    <div class="row">
+                      <div class="col">
+                        <h5 class="mb-2 fs-20 font-weight-normal">General Information</h5>
+                        <form>
+                          <div class="form-row">
+                            <div class="col">
+                              <div class="form-group">
+                                <label for="firstName">First Name</label>
+                                <input type="email" class="form-control" id="firstName" aria-describedby="firstName" placeholder="John">
+                              </div>
+                            </div>
+                            <div class="col">
+                              <div class="form-group">
+                                <label for="secondName">Second Name</label>
+                                <input type="email" class="form-control" id="secondName" aria-describedby="secondName" placeholder="Doe">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-row">
+                            <div class="col">
+                              <div class="form-group">
+                                <label for="userMail">Email address</label>
+                                <input type="email" class="form-control" id="userMail" aria-describedby="userMail" placeholder="johndoe@example.com">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-row mt-1 align-items-center">
+                            <div class="col-3">
+                              <button class="btn btn-secondary">Save Changes</button>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col">
+                        <h5 class="mb-2 fs-20 font-weight-normal">Profile Information</h5>
+                        <form>
+                          <div class="form-row">
+                            <div class="col">
+                              <div class="form-group">
+                                <label for="userCity">City</label>
+                                <input type="email" class="form-control" id="userCity" aria-describedby="userCity" placeholder="New York">
+                              </div>
+                            </div>
+                            <div class="col">
+                              <div class="form-group">
+                                <label for="userCountry">Country</label>
+                                <input type="email" class="form-control" id="userCountry" aria-describedby="userCountry" placeholder="United States">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-row">
+                            <div class="col">
+                              <div class="form-group">
+                                <label for="userTwitter">Twitter</label>
+                                <div class="input-group">
+                                  <div class="input-group-prepend">
+                                    <span class="input-group-text">@</span>
+                                  </div>
+                                  <input type="text" id="userTwitter" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="userTwitter">
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-row">
+                            <div class="col">
+                              <div class="form-group">
+                                <label for="exampleFormControlTextarea1">About</label>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-row">
+                            <div class="col-3">
+                              <button class="btn btn-secondary">Save Changes</button>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- / tab -->
+
+
+            </div>
+          </div>
+        </section>
