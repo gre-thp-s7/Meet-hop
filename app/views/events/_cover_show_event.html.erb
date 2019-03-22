@@ -1,4 +1,4 @@
-    <!-- cover -->
+    <!--cover-->
     <section class="p-0">
       <div class="image image-overlay image-cover" style="background-image:url(https://s3.eu-west-3.amazonaws.com/meet-hop-public/home.jpg)">
         <% if @event.picture.attached? == true %>
@@ -18,7 +18,11 @@
                   <div class="col-lg-8 align-self-center text-white text-shadow" data-swiper-parallax="-100%">
                     <span class="eyebrow text-white mb-1"><%= @event.promoter.first_name %> <%= @event.promoter.last_name %></span>
                     <h1 class="display-2"><%= @event.name %></h1>
+                    <% if @subscribtion_possible %>
                     <%= link_to 'S\'inscrire', new_event_registration_path(@event.id), class:"btn btn-white btn-rounded px-5"%>
+                    <% elsif @promotor %>
+                    <%= link_to 'Éditer', edit_event_path(@event.id), class:"btn btn-white btn-rounded px-5"%>
+                    <% end %>
                   </div>
                   <div class="col-lg-4 align-self-end">
                     <div class="row gutter-1">
