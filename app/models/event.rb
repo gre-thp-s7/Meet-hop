@@ -1,7 +1,5 @@
 class Event < ApplicationRecord
 
-############# link between tables ################@
-
   has_many :category_events
   has_many :categories, through: :category_events
 
@@ -10,7 +8,7 @@ class Event < ApplicationRecord
 
   belongs_to :promoter, class_name:'User'
 
-############### validations ##############
+	#============= Validations =================
 
 	validates :name,
 		presence: true,
@@ -52,20 +50,20 @@ class Event < ApplicationRecord
 	validates :address,
 		presence: true
 
-############ picture with active storage #################
+	#======== Picture with active storage ========
 	has_one_attached :picture
 
+	private
 
-private
-############  method verifiction for the start date to include
+	#== Method verifiction for the start date to include ==
 	validate :is_future
 	def is_future
 		if start_date.present? && start_date < Time.now
-			errors.add(:expiration_date, "dans le futur c'est mieux !")
+			errors.add(:expiration_date, "Dans le futur c'est mieux !")
 		end
 	end
-#######################################################
-  #================PROMOTER MAILER =============
+
+  #================ PROMOTER MAILER ======================
   # Send an email after a event is created
   after_create :send_event_creation_email
 
@@ -75,6 +73,4 @@ private
     PromoterMailer.event_creation_email(self).deliver_now
 
   end
-  #=============================================
-
 end
