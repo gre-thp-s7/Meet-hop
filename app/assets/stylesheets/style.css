@@ -8881,7 +8881,7 @@ a.text-rss:hover, a.text-rss:focus {
   content: "\ebf9"; }
 
 .icon-chevron-down2:before {
-  content: "\ebfa"; }
+  content: "\f00c"; }
 
 .icon-chevron-left2:before {
   content: "\ebfb"; }
@@ -14464,7 +14464,7 @@ header {
   position: absolute;
   width: 100%;
   z-index: 100;
-  border-bottom: 1px solid transparent; }
+  border-bottom: 0 solid transparent; }
   @media (min-width: 1200px) {
     header[class*="-dark"] {
       border-color: rgba(0, 0, 0, 0.1); }
@@ -15278,7 +15278,7 @@ footer {
   -webkit-transition-delay: 0s;
   -moz-transition-delay: 0s;
   transition-delay: 0s;
-  font-size: 0.875rem; }
+  font-size: 1rem; }
 
 .navbar-toggler {
   padding: 0 !important;
@@ -16199,13 +16199,13 @@ footer {
   .accordion-control h5 {
     line-height: 1.5em; }
   .accordion-control::after {
-    content: "\ebfa";
+    content: "\f00c";
     position: absolute;
     width: 1em;
     line-height: 1em;
     right: 1rem;
     top: 50%;
-    font-family: 'icomoon' !important;
+    font-family: "Font Awesome 5 Free" !important;
     font-size: 1.5rem;
     margin-top: -0.5em;
     -webkit-transition: all 0.2s;
