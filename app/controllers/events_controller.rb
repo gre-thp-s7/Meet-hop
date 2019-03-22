@@ -1,14 +1,12 @@
 class EventsController < ApplicationController
 
-  # needed for active storage see if we can have it in application helper or says that we don't need to require it somewhere
-
+  # Needed for active storage see if we can have it in application helper or says that we don't need to require it somewhere
   require 'open-uri'
   include EventsHelper
 
-###### protection against path in search browser bar ######
+  #==== Protection against path in search browser bar =====
   before_action :authenticate_user!, only: [:new, :create]
-  before_action :can_edit_the_event, only: [:edit, :update, :destroy]
-############################################################
+  before_action :can_edit_the_event, only: [:edit, :update, :destroy]#=======================================================
 
   def index
     @events = Event.all.order("start_date")
@@ -70,7 +68,7 @@ class EventsController < ApplicationController
     @event.picture.attach(post_params[:picture])
     @event.promoter_id = current_user.id
 
-# this ligne add events categories
+  # This line add events categories
     @event.category_ids = params[:category]
 
     if @event.save!
@@ -80,7 +78,6 @@ class EventsController < ApplicationController
       flash[:danger] = "problème a la création, essaye encore "
       reender :new      
     end
-
   end
 
   def edit
@@ -99,7 +96,6 @@ class EventsController < ApplicationController
 
   def update
 
-#    posted_paramse = params.permit(:event)
     post_params = params.require(:event).permit!
 
     @event = Event.find_by(id: params[:id])
@@ -118,7 +114,7 @@ class EventsController < ApplicationController
       address: post_params[:address]
       )
 
-      # these lines change the attached picture
+      # These lines change the attached picture
       if params[:event][:picture] != nil
         @event.picture.attach(params[:event][:picture])
         @event.save
@@ -132,8 +128,6 @@ class EventsController < ApplicationController
     end
   end
 
-
-  # DELETE events/:id
   def destroy
     @event.destroy
     respond_to do |format|
@@ -141,9 +135,8 @@ class EventsController < ApplicationController
     end
   end
 
-private
+  private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_event
     @event = Event.find(params[:id])
   end
