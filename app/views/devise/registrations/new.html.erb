@@ -40,7 +40,7 @@
 
                   <div class="field pb-3 pt-1">
                     <%= f.label :password %>
-                  
+
                     <%= f.password_field :password, autocomplete: "new-password", class: "form-control", placeholder: "6 caractères minimum" %>
                   </div>
 
@@ -53,7 +53,7 @@
                     <%= f.submit "S'inscrire", class: "btn-primary btn-lg devise-btn"%>
                   </div>
                 <% end %>
-
+          
                 <%= render "devise/shared/links" %>
               </div>
             </div>

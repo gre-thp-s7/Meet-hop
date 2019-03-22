@@ -21,6 +21,8 @@
   background-image: url('login.jpg')
 }
 
+#img-home{ background-image: url("test1.jpg"); }
+
 #login-img{
   background-image: url('login.jpg')
 }
@@ -85,3 +87,4 @@
      color: #468847;
      text-align: left;
   }
+

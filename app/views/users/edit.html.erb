@@ -1,153 +1,61 @@
+
+<section class="p-0 bg-light">
+  <div class="image image-overlay image-cover" style="background-image:url(https://s3.eu-west-3.amazonaws.com/meet-hop-public/home.jpg)"
+  data-top-top="transform: translateY(0px);"
+  data-top-bottom="transform: translateY(-250px);"></div>
+  <div class="container">
+
+    <div class="row justify-content-center align-items-end vh-50 mb-5">
+      <div class="col col-md-10 col-lg-8">
+        <div class="row align-items-center">
+
+          <div class="col-4 col-lg-3">
+            <% if @user.avatar.attached? == true %>
+
+            <%= image_tag @user.avatar, class:"mr-3 avatar avatar-xl rounded", alt: "avatar" %>
+
+            <% else %>
+
+            <%= image_tag("https://s3.eu-west-3.amazonaws.com/meet-hop-public/default-avatar.png", class: "mr-3 avatar avatar-xl rounded") %>
+            <% end %>
+          </div>
+          <div class="col">
+            <div class="row align-items-center">
+              <div class="col-md-8">
+                <h2 class="mb-0"><b><%= @user.first_name %></b> <%= @user.last_name %></h2>
+              </div>
+            </div>
+          </div>
+        </div>
+        <span class="author-card-position">
+          Inscrit(e) depuis le <%= current_user.created_at.day %> - <%= current_user.created_at.month %> - <%= current_user.created_at.year %>
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-light pt-2">
+
   <div class="row">
-    <div class="col-md-6 offset-md-3"  style="border-width: 2px; border-style: solid; border-color: #1C6EA4;">
-      <br>
-      <br>
-      <br>
+    <div class="col-md-6 offset-md-3">
 
       <%= form_for @user do |f| %>
-        <h1 class="h3 mb-3 font-weight-normal text-center">Mes Informations</h1>
-        <div class="form-group">
-          <%= f.text_field :first_name, class: 'form-control', placeholder: 'Prénom'%><br/>
-          <%= f.text_field :last_name, class: 'form-control', placeholder: 'Nom'%><br/>
-          <%= f.text_field :phone, class: 'form-control', placeholder: 'Numéro de téléphone'%><br/>
-        </div>
-              <label>image associée</label>
-
-      <p>=== attention, choisi bien, ce sera la seule et c'et inchangeable ! (pour le moment ) ===</p>
+      <h1 class="h3 mb-3 font-weight-normal text-center">Mes Informations</h1>
+      <div class="form-group">
+        <%= f.text_field :first_name, class: 'form-control', placeholder: 'Prénom'%><br/>
+        <%= f.text_field :last_name, class: 'form-control', placeholder: 'Nom'%><br/>
+        <%= f.text_field :phone, class: 'form-control', placeholder: 'Numéro de téléphone'%><br/>
+      </div>
+      <div>Avatar</div>
       <%= f.file_field :avatar %>
-        <div class="form-actions mt-3">
-          <button type="submit" class="btn-primary btn-lg"> Mettre à jour </button>
-        </div>
+      <div class="form-actions mt-3">
+        <button type="submit" class="btn-primary btn-lg"> Mettre à jour </button>
+      </div>
       <% end %>
 
       <%= link_to "Retour", :back %>
 
     </div>
   </div>
-
-
-        <section class="p-0 bg-light">
-          <div class="image image-overlay image-cover" style="background-image:url(https://s3.eu-west-3.amazonaws.com/meet-hop-public/home.jpg)"
-          data-top-top="transform: translateY(0px);"
-          data-top-bottom="transform: translateY(-250px);"></div>
-          <div class="container">
-            <div class="row justify-content-center align-items-end vh-50 mb-5">
-              <div class="col col-md-10 col-lg-8">
-                <div class="row align-items-center">
-                  <div class="col-4 col-lg-3">
-                    <img class="mr-3 avatar avatar-xl rounded" src="../../assets/images/demo/user-2.jpg" alt="Generic placeholder image">
-                  </div>
-                  <div class="col">
-                    <div class="row align-items-center">
-                      <div class="col-md-8">
-                        <h2 class="mb-0"><b><%= @user.first_name %></b> <%= @user.last_name %></h2>
-                        <span class="text-muted">Senior Visual Designer</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="bg-light pt-2">
-
-          <div class="container">
-            <div class="tab-content" id="demo-2">
-
-              <!-- tab settings -->
-              <div class="tab-pane show active" id="demo-2-4" role="tabpanel" aria-labelledby="demo-2-4">
-                <div class="row justify-content-center">
-                  <div class="col-md-10 col-lg-8">
-                    <div class="row">
-                      <div class="col">
-                        <h5 class="mb-2 fs-20 font-weight-normal">General Information</h5>
-                        <form>
-                          <div class="form-row">
-                            <div class="col">
-                              <div class="form-group">
-                                <label for="firstName">First Name</label>
-                                <input type="email" class="form-control" id="firstName" aria-describedby="firstName" placeholder="John">
-                              </div>
-                            </div>
-                            <div class="col">
-                              <div class="form-group">
-                                <label for="secondName">Second Name</label>
-                                <input type="email" class="form-control" id="secondName" aria-describedby="secondName" placeholder="Doe">
-                              </div>
-                            </div>
-                          </div>
-                          <div class="form-row">
-                            <div class="col">
-                              <div class="form-group">
-                                <label for="userMail">Email address</label>
-                                <input type="email" class="form-control" id="userMail" aria-describedby="userMail" placeholder="johndoe@example.com">
-                              </div>
-                            </div>
-                          </div>
-                          <div class="form-row mt-1 align-items-center">
-                            <div class="col-3">
-                              <button class="btn btn-secondary">Save Changes</button>
-                            </div>
-                          </div>
-                        </form>
-                      </div>
-                    </div>
-
-                    <div class="row">
-                      <div class="col">
-                        <h5 class="mb-2 fs-20 font-weight-normal">Profile Information</h5>
-                        <form>
-                          <div class="form-row">
-                            <div class="col">
-                              <div class="form-group">
-                                <label for="userCity">City</label>
-                                <input type="email" class="form-control" id="userCity" aria-describedby="userCity" placeholder="New York">
-                              </div>
-                            </div>
-                            <div class="col">
-                              <div class="form-group">
-                                <label for="userCountry">Country</label>
-                                <input type="email" class="form-control" id="userCountry" aria-describedby="userCountry" placeholder="United States">
-                              </div>
-                            </div>
-                          </div>
-                          <div class="form-row">
-                            <div class="col">
-                              <div class="form-group">
-                                <label for="userTwitter">Twitter</label>
-                                <div class="input-group">
-                                  <div class="input-group-prepend">
-                                    <span class="input-group-text">@</span>
-                                  </div>
-                                  <input type="text" id="userTwitter" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="userTwitter">
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="form-row">
-                            <div class="col">
-                              <div class="form-group">
-                                <label for="exampleFormControlTextarea1">About</label>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="form-row">
-                            <div class="col-3">
-                              <button class="btn btn-secondary">Save Changes</button>
-                            </div>
-                          </div>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- / tab -->
-
-
-            </div>
-          </div>
-        </section>
+</section>
