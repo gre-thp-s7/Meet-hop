@@ -1,6 +1,6 @@
 
 <section class="p-0">
-  <div class="image image-overlay image-cover" style="background-image:url(https://s3.eu-west-3.amazonaws.com/meet-hop-public/home.jpg)">
+  <div class="image image-overlay">
     <% if @event.picture.attached? == true %>
     <%= image_tag @event.picture, class:"card-img-top", alt: "image" %>
     <% else %>
@@ -26,7 +26,7 @@
             </div>
             <div class="col-lg-4 align-self-end">
               <div class="row gutter-1">
-                <div class="col-6">
+                <div class="col-6 shadow">
                   <div class="equal">
                     <div class="boxed">
                       <div class="equal-header">
@@ -35,34 +35,34 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-6">
+                <div class="col-6 shadow ">
                   <div class="equal">
-                    <div class="bordered">
-                      <div class="equal-header">
+                    <div class="bordered  bg-orange">
+                      <div class="equal-header text-white">
                         <h4><%= @event.city_name %></h4>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="col-6">
+                <div class="col-6 shadow">
                   <div class="equal">
-                    <div class="bordered">
-                      <div class="equal-header">
+                    <div class="bordered bg-orange">
+                      <div class="equal-header text-white">
                         <h4><%= @event.dancer_price %> €</h4>
                       </div>
-                      <div class="equal-footer">
+                      <div class="equal-footer text-white">
                         <span>Prix danseur</span>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="col-6">
+                <div class="col-6 shadow">
                   <div class="equal">
-                    <div class="bordered">
-                      <div class="equal-header">
+                    <div class="bordered bg-orange">
+                      <div class="equal-header text-white">
                         <h4><%= @event.spectator_price %> €</h4>
                       </div>
-                      <div class="equal-footer">
+                      <div class="equal-footer bg-orange text-white">
                         <span>Prix spectateur</span>
                       </div>
                     </div>
