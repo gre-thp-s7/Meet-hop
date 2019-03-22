@@ -13,18 +13,15 @@
       <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <header class="header-sticky header-dark">
-
       <%= render "layouts/navbar_light"  %>
 
-  </header>
   <body>
     <%= render 'layouts/flash'%>
     <%= yield %>
   </body>
-  <footer>
+
   <%= render "layouts/footer"  %>
-</footer>
+
 <%= javascript_include_tag('vendor.min.js') %>
-    <%= javascript_include_tag('app.js') %>
+<%= javascript_include_tag('app.js') %>
 </html>

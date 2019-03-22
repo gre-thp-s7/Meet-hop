@@ -19,15 +19,21 @@ class EventsController < ApplicationController
   end
 
   def show
-    @user = User.find_by(id: params[:user_id])
-  	@event_created = Event.where(promoter: @user)
-  	@event_participed = Registration.where(user: @user)
-  	@event_participed_dancer = @event_participed.where(role: "dancer")  	
-  	@event_participed_spectator = @event_participed.where(role: "spectator")
-    who_is_the_user
 
+    who_is_the_user
     params.permit(:id)
     @event = Event.find(params[:id])
+    @categories = []
+    @categories = @event.categories
+    @nb_cate = @categories.length
+   # binding.pry
+
+    @user = User.find_by(id: params[:user_id])
+
+  	@event_participants = @event.registrations
+  	@event_dancer = @event_participants.where(role: "dancer")
+  	@event_spectator = @event_participants.where(role: "spectator") 
+
     @users = User.all
   end
 
