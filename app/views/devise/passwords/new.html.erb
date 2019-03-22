@@ -1,42 +1,10 @@
-<!--
-<div class="alert-row">
-  <%= devise_error_messages! %>
-</div>
 
-<div>
-  <div class="row">
-    <div class="col-md-6 offset-md-3">
-
-      <h2>Mot de passe oublié ?</h2>
-
-
-      <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-
-      <div class="field pt-3 pb-3">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
-      </div>
-
-      <div class="actions pt-3 pb-3">
-        <%= f.submit "Envoyer email de réinitialisation de mot de passe", class: "btn-primary btn-lg" %>
-      </div>
-      <% end %>
-      <br/>
-
-      <%= render "devise/shared/links" %>
-
-
-    </div>
-  </div>
-</div>
--->
 
 <%= render 'home/navbar2'%>
 
 <div class="alert-row">
   <%= devise_error_messages! %>
 </div>
-
 
 <section class="viewport">
   <div id="login-img" class="image image-overlay" ></div>
