@@ -58,7 +58,7 @@ Le sites répertoriant les événements du monde du hip hop sont visuellement ag
 
 --------------
 
-Retrouvez nous sur [Meet-Hop](https://Meet-Hop.herokuapp.com/) !
+Retrouvez nous sur [Meet-Hop](https://Meet-Hop-staging.herokuapp.com/) !
 
 --------------
 
