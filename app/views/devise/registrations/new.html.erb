@@ -1,14 +1,14 @@
-
 <%= render 'home/navbar2'%>
 
 <div class="alert-row">
   <%= devise_error_messages! %>
 </div>
 
-<section class="viewport">
-  <div id="login-img" class="image image-overlay" ></div>
-  <div class="container" style="padding-top: 50px; padding-bottom: 50px">
-    <div class="row justify-content-center align-items-center vh-100">
+<section class="viewport" >
+
+  <div class="image" style="background-image:url(https://s3.eu-west-3.amazonaws.com/meet-hop-public/saut1.jpg)" ></div>
+  <div class="container" style = "padding-bottom: 30px;" >
+    <div class="row justify-content-center align-items-center vh-100" style = "padding-bottom: 30px;" >
       <div class="col-md-6 col-lg-5">
         <div class="accordion-group accordion-group-portal" data-accordion-group>
           <div class="accordion open" data-accordion>
@@ -23,33 +23,33 @@
 
 
 
-                  <div class="field pb-3 pt-1">
+                  <div class="field ">
                     <%= f.label :first_name %>
                     <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", class: "form-control", placeholder: "Garfield" %>
                   </div>
 
-                  <div class="field pb-3 pt-1">
+                  <div class="field ">
                     <%= f.label :last_name %>
                     <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", class: "form-control", placeholder: "Le Roux" %>
                   </div>
 
-                  <div class="field pb-3 pt-1">
+                  <div class="field ">
                     <%= f.label :email %><br />
                     <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "prenomnom@email.com"%>
                   </div>
 
-                  <div class="field pb-3 pt-1">
+                  <div class="field ">
                     <%= f.label :password %>
 
                     <%= f.password_field :password, autocomplete: "new-password", class: "form-control", placeholder: "6 caractères minimum" %>
                   </div>
 
-                  <div class="field pb-3 pt-1">
+                  <div class="field ">
                     <%= f.label :password_confirmation %><br />
                     <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
                   </div>
 
-                  <div class="actions pt-3 pb-3">
+                  <div class="actions ">
                     <%= f.submit "S'inscrire", class: "btn-primary btn-lg devise-btn"%>
                   </div>
                 <% end %>
@@ -62,4 +62,5 @@
       </div>
     </div>
   </div>
+  
 </section>
