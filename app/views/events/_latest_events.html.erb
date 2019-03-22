@@ -7,7 +7,7 @@
   <div class=" pl-3">
     <% if @events[-@x] != nil %>
     <h2><%= @events[-@x].name%></h2>
-    <p><%= l(@events[-@x].start_date, format: :long ) %> </p>
+    <p><%= l(@events[-@x].start_date, format: :short ) %> </p>
     <p>Durée : <% if @events[-@x].duration/60 > 0 %> <%= @events[-@x].duration/60 %>h<%end%> <%= @events[-@x].duration % 60 %>min</p>
 
     <p>Prix public : <%= @events[-@x].spectator_price %> €</p>
