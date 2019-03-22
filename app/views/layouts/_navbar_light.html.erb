@@ -15,7 +15,10 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav align-items-center mr-auto">
               <li class="nav-item">
-              <%= link_to "Home", root_path, class: "nav-link", role:'button' %>
+              <%= link_to "Accueil", root_path, class: "nav-link", role:'button' %>
+              </li>
+              <li class="nav-item">
+              <%= link_to "Les événements", events_path, class: "nav-link", role:'button' %>
               </li>
               <li class="nav-item">
                 <%= link_to "Créer un nouvel événement", new_event_path, class: "nav-link", role: "button" %>
@@ -38,7 +41,7 @@
                   S'incrire / Se connecter
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <%= link_to "Créer un nouvel évènement", new_event_path, class: " dropdown-item" %>
+                  <%= link_to "Créer un nouvel événement", new_event_path, class: " dropdown-item" %>
                   <div class="dropdown-divider"></div>
                   <%= link_to "Se connecter", new_user_session_path, class: "dropdown-item" %>
                   <%= link_to "Se connecter avec Facebook", user_facebook_omniauth_authorize_path, class: "dropdown-item" %>
