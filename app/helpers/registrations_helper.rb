@@ -15,7 +15,7 @@ module RegistrationsHelper
     @event = Event.find_by(id: params[:event_id])
     if @event.registrations.find_by(user_id: current_user.id) != nil
       flash.now[:info] = "Tu es inscrit a cet événement"
-#      flash.now[:info] = "tu es déja inscrit"
+    # flash.now[:info] = "tu es déja inscrit"
       return true
     else
       return false
@@ -25,10 +25,10 @@ module RegistrationsHelper
   def can_subs
     permitparams
     if is_promot || already_subs
-#      flash.now[:danger] = "tu ne peux pas t'inscrire"
+    # flash.now[:danger] = "tu ne peux pas t'inscrire"
       redirect_to event_path(params[:event_id]) and return false
     else
-#      flash.now[:success] = "tu peux t'inscrire"
+    # flash.now[:success] = "tu peux t'inscrire"
       return true
     end
   end

@@ -3,6 +3,7 @@
   </div>
 </section>
 
+
 <section class="bg-light p-0">
   <div class="container">
     <div class="row justify-content-center">
@@ -17,6 +18,8 @@
     </div>
   </div>
 </section>
+
+
 
 <section class="bg-light pt-2">
 
@@ -79,10 +82,11 @@
                     </div>
                   </div>
                 </div>
-
               </div>
             </div>
             <!-- / stats -->
+
+
             <!-- Informations event -->
             <div class="row">
               <div class="col">
@@ -106,31 +110,6 @@
 
                           <div class="dropdown-menu" aria-labelledby="dropdownMenuLink-2">
                             <a class="dropdown-item" href="#">Editer</a>
-                <!-- / stats -->
-                <!-- Informations event -->
-                <div class="row">
-                  <div class="col">
-                    <article class="card">
-                      <div class="card-body overflow-hidden">
-                        <blockquote class="blockquote">
-                          <p class="mb-0">Notes</p>
-                          <footer class="blockquote-footer">Compte a rebours ? </footer>
-                        </blockquote>
-                      </div>
-                      <div class="card-footer">
-                        <div class="row">
-                         
-                          <div class="col text-right">
-                            <div class="dropdown">
-                              <a class="btn btn-ico btn-outline-light text-dark rounded btn-sm" href="#" role="button" id="dropdownMenuLink-2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="icon-more-vertical fs-22"></i>
-                              </a>
-
-                              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink-2">
-                                <%= link_to 'Editer', edit_event_path(@event.id), class:"dropdown-item"%>
-                              </div>
-                            </div>
-
                           </div>
                         </div>
                       </div>
@@ -144,7 +123,8 @@
       </div>
       <!-- / information event -->
 
-      <!-- spectators  list-->
+
+      <!-- Liste des spectateurs -->
       <div class="tab-pane" id="demo-2-2" role="tabpanel" aria-labelledby="demo-2-2">
         <div class="row justify-content-center">
           <div class="col-md-10 col-lg-8">
@@ -159,45 +139,6 @@
                         <div class="media-body">
                           <h5 class="mb-0">Nicole Doe</h5>
                           <span class="text-muted">Senior UI Designer</span>
-
-          <!-- tab dancer -->
-          
-          <div class="tab-pane" id="demo-2-2" role="tabpanel" aria-labelledby="demo-2-2">
-            <div class="row justify-content-center">
-              <div class="col-md-10 col-lg-8">
-                <div class="row gutter-1">
-
-                  <% @event_participed_dancer.each do |event| %>
-                  <div class="col-12">
-                    <div class="boxed p-2">
-                      <div class="row align-items-center justify-content-between">
-                        <div class="col-10">
-                          <div class="media align-items-center">
-                            <img src="../../assets/images/demo/user-5.jpg" alt="Avatar" class="avatar avatar-lg rounded mr-3">
-                            <div class="media-body">
-                              <h5 class="mb-0"><% @event_participed_dancer.first_name %></h5>
-                              <span class="text-muted"><% @event_participed_dancer.categories %></span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                <% end %>
-
-
-                  <div class="col-12">
-                    <div class="boxed p-2">
-                      <div class="row align-items-center justify-content-between">
-                        <div class="col-10">
-                          <div class="media align-items-center">
-                            <img src="../../assets/images/demo/user-5.jpg" alt="Avatar" class="avatar avatar-lg rounded mr-3">
-                            <div class="media-body">
-                              <h5 class="mb-0">Nicole Doe</h5>
-                              <span class="text-muted">Senior UI Designer</span>
-                            </div>
-                          </div>
-
                         </div>
                       </div>
                     </div>
@@ -239,17 +180,18 @@
 
             </div>
           </div>
-
         </div>
       </div>
       
-      <!-- spectator list -->
+      <!-- lite des spectateurs -->
 
       <!-- tab invité -->
       <div class="tab-pane" id="demo-2-3" role="tabpanel" aria-labelledby="demo-2-3">
         <div class="row justify-content-center">
           <div class="col-md-10 col-lg-8">
             <div class="row gutter-1">
+            
+           
 
               <div class="col-12">
                 <div class="boxed p-2">
@@ -260,29 +202,6 @@
                         <div class="media-body">
                           <h5 class="mb-0">Nicole Doe</h5>
                           <span class="text-muted">Senior UI Designer</span>
-
-          <!-- tab danseurs -->
-
-          <!-- tab spectateur -->
-          <div class="tab-pane" id="demo-2-3" role="tabpanel" aria-labelledby="demo-2-3">
-            <div class="row justify-content-center">
-              <div class="col-md-10 col-lg-8">
-                <div class="row gutter-1">
-                
-               
-
-                  <div class="col-12">
-                    <div class="boxed p-2">
-                      <div class="row align-items-center justify-content-between">
-                        <div class="col-10">
-                          <div class="media align-items-center">
-                            <img src="../../assets/images/demo/user-5.jpg" alt="Avatar" class="avatar avatar-lg rounded mr-3">
-                            <div class="media-body">
-                              <h5 class="mb-0">INVITE</h5>
-                              <span class="text-muted">Senior UI Designer</span>
-                            </div>
-                          </div>
-
                         </div>
                       </div>
                     </div>
@@ -325,7 +244,6 @@
 
             </div>
           </div>
-
         </div>
       </div>
       <!-- / tab invité-->
@@ -335,14 +253,8 @@
         <div class="row justify-content-center">
           <div class="col-md-10 col-lg-8">
             <div class="row gutter-1">
-          <!-- / tab spectateur-->
 
-          <!-- tab invité -->
-          <div class="tab-pane" id="demo-2-4" role="tabpanel" aria-labelledby="demo-2-4">
-            <div class="row justify-content-center">
-              <div class="col-md-10 col-lg-8">
-                <div class="row gutter-1">
-
+          
               <div class="col-12">
                 <div class="boxed p-2">
                   <div class="row align-items-center justify-content-between">
@@ -393,7 +305,6 @@
               </div>
             </div>
           </div>
-          <!-- / tab invité -->
         </div>
       </div>
       <!-- / tab participant -->

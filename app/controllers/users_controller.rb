@@ -1,13 +1,5 @@
 class UsersController < ApplicationController
 
-####### we don't need these two one cause devise create users
-  def new
-  end
-
-  def create
-  end
-################################
-
   def index
     @users = User.all
   end
