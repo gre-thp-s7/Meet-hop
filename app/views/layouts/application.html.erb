@@ -21,4 +21,9 @@
   <%= render "layouts/footer"  %>
 <%= javascript_include_tag('vendor.min.js') %>
 <%= javascript_include_tag('app.js') %>
+<script>
+  window.setTimeout(function() {
+  $(".alert").fadeTo(1000, 0).slideUp(500, function(){
+    $(this).remove(); });}, 5000);
+</script>
 </html>
