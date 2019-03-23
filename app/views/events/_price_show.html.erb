@@ -29,22 +29,49 @@
               </div>
             </div>
           </div>
-        </div>
-        <div class="tab-pane" id="pricing-second" role="tabpanel" aria-labelledby="second-tab">
-          <div class="row gutter-2">
-            <div class="col-md-6 text-white">
-              <div class="card card-price bordered rising">
-                <div class="card-body">
-                <h5 class="card-title">Spectateurs</h5>
-                <ul class="list-group list-group-minimal text-muted">
-                  <li class="list-group-item">Venez apprécier l'ambiance !</li>
-                  <li class="list-group-item">Différent styles de danse</li>
-                </ul>
+
+          <div class="col-lg-8 text-orange">
+            <div class="tab-content" id="myTabContent-2">
+              <div class="tab-pane show active" id="pricing-first" role="tabpanel" aria-labelledby="first-tab">
+                <div class="row gutter-2">
+                  <div class="col-md-6" data-aos="fade-up" data-aos-delay="150">
+                    <div class="card card-price bordered rising">
+                      <div class="card-body">
+                      <i class="fas fa-music svg-icon w-25 fs-60"></i>
+                        <h4 class="card-title">Danseur</h4>
+                        <ul class="list-group list-group-minimal text-muted">
+                          <li class="list-group-item">Viens kiffez</li>
+                          <li class="list-group-item">Prize money</li>
+                          <li class="list-group-item"><%= @event.prize_money %></li>
+                        </ul>
+                      </div>
+                      <%= link_to new_event_registration_path(@event.id), class: "card-footer" do %>
+                        <strong class="card-price"><%= @event.dancer_price %> € <i class="fas fa-arrow-right justify-content-end"></i></strong>
+                      <%end%>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <%= link_to new_event_registration_path(@event.id), class: "card-footer" do %>
-              <strong class="card-price"><%= @event.spectator_price %> €</strong>
-              <%end%>
-            </div>
+              <div class="tab-pane" id="pricing-second" role="tabpanel" aria-labelledby="second-tab">
+                <div class="row gutter-2">
+                  <div class="col-md-6 text-white">
+                    <div class="card card-price bordered rising">
+                      <div class="card-body">
+                      <i class="fas fa-glasses fa-5x svg-icon w-25 fs-60 text-orange"></i>
+                        <i class="svg-icon w-25 fs-60">
+                        </i>
+                        <h5 class="card-title">Spectateurs</h5>
+                        <ul class="list-group list-group-minimal text-muted">
+                          <li class="list-group-item">Venez apprécier l'ambiance !</li>
+                          <li class="list-group-item">Différent styles de danse</li>
+                        </ul>
+                      </div>
+                      <%= link_to new_event_registration_path(@event.id), class: "card-footer" do %>
+                        <strong class="card-price"><%= @event.spectator_price %> €</strong>
+                      <%end%>
+                    </div>
+                  </div>
+
           </div>
         </div>
       </div>

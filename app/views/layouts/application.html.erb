@@ -16,11 +16,7 @@
   <body>
     <%= render 'layouts/flash'%>
     <%= yield %>
-    <script>
-      window.setTimeout(function() {
-      $(".alert").fadeTo(1000, 0).slideUp(500, function(){
-        $(this).remove(); });}, 5000);
-    </script>
+
   </body>
   <%= render "layouts/footer"  %>
 <%= javascript_include_tag('vendor.min.js') %>
