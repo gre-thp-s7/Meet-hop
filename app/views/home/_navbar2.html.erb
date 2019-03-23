@@ -11,40 +11,44 @@
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="burger"><span></span></span></button>
 
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav align-items-center mr-auto">
+                <ul class="navbar-nav align-items-center mr-auto font-weight-bold">
                   <li class="nav-item">
-                  <%= link_to "Accueil", root_path, class: "nav-link", role:'button' %>
+                  <%= link_to "Accueil", root_path, class: "nav-link fs-20", role:'button' %>
                   </li>
                   <li class="nav-item">
-                  <%= link_to "Les événements", events_path, class: "nav-link", role:'button' %>
+                  <%= link_to "Les événements", events_path, class: "nav-link fs-20", role:'button' %>
                   </li>
                   <li class="nav-item">
-                    <%= link_to "Créer un nouvel événement", new_event_path, class: "nav-link", role: "button" %>
+                    <%= link_to "Créer un nouvel événement ", new_event_path, class: "nav-link fs-20", role: "button" %>
                   </li>
                 </ul>
                             <ul class="navbar-nav align-items-center mr-0">
               <li class="nav-item dropdown">
               <% if user_signed_in? %>
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown-2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                <a class="nav-link dropdown-toggle fs-20 font-weight-bold" href="#" id="navbarDropdown-2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <%= current_user.first_name %>
                 <%= current_user.last_name %>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <%= link_to "Créer un nouvel évènement", new_event_path, class: " dropdown-item" %>
+                  <%= link_to "Créer un nouvel évènement", new_event_path, class: " dropdown-item font-weight-bold" %>
                   <div class="dropdown-divider"></div>
-                    <%= link_to('Se déconnecter', destroy_user_session_path, method: :delete, class: " dropdown-item btn btn-common") %>
-                    <%= link_to "Profil", user_path(current_user), class: "dropdown-item" %>
+                    <%= link_to('Se déconnecter', destroy_user_session_path, method: :delete, class: " dropdown-item btn btn-common font-weight-bold") %>
+                    <%= link_to "Profil", user_path(current_user), class: "dropdown-item font-weight-bold" %>
                 </div>
+
                 <%else%>
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown-2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                <a class="nav-link dropdown-toggle fs-20 font-weight-bold" href="#" id="navbarDropdown-2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   S'incrire / Se connecter
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <%= link_to "Créer un nouvel événement", new_event_path, class: " dropdown-item" %>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <%= link_to "Créer un nouvel événement", new_event_path, class: " dropdown-item font-weight-bold" %>
                   <div class="dropdown-divider"></div>
-                  <%= link_to "Se connecter", new_user_session_path, class: "dropdown-item" %>
-                  <%= link_to "S'inscrire", new_user_registration_path, class: "dropdown-item" %>
+                  <%= link_to "Se connecter", new_user_session_path, class: "dropdown-item font-weight-bold" %>
+                  <%= link_to "S'inscrire", new_user_registration_path, class: "dropdown-item font-weight-bold" %>
                 </div>
+
                 <% end %>
               </li>
             </ul>
