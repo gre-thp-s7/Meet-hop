@@ -16,7 +16,11 @@
 											    <p>Organisateurs</p>
 											    <p>Spectateurs</p>
                       </div>
-                      <%= link_to "S'inscrire", new_user_registration_path, class: "btn btn-orange btn-large text-white btn-rounded px-5 font-weight-bold" %>
+                      <% if @user != nil %>
+                        <%= link_to "C'est par ici", events_path, class: "btn btn-orange btn-large text-white btn-rounded px-5 font-weight-bold" %>
+                      <% else %>
+                        <%= link_to "S'inscrire", new_user_registration_path, class: "btn btn-orange btn-large text-white btn-rounded px-5 font-weight-bold" %>
+                      <% end %>
                   </div>
                 </div>
               </div>
