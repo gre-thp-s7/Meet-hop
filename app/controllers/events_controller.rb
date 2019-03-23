@@ -6,7 +6,8 @@ class EventsController < ApplicationController
 
   #==== Protection against path in search browser bar =====
   before_action :authenticate_user!, only: [:new, :create, :edit]
-  before_action :can_edit_the_event, only: [:edit, :update, :destroy]#=======================================================
+  before_action :can_edit_the_event, only: [:edit, :update, :destroy]
+  #=======================================================
 
   def index
     @events = Event.all.order("start_date")
