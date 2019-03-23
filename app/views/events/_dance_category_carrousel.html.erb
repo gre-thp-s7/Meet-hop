@@ -5,9 +5,9 @@
     <div class="row">
       <div class="col partners align-items-center">
         <div class="owl-carousel" data-items="[6,4,2]" data-loop="true" data-autoplay="true">
-          <% @event.categories.length.times do |i| %>
+          <% @event.categories.each do |i| %>
             <div class="logo">
-              <h2 class= "font_dance_category " id="dance_color<%= @event.categories[i].id %>"><%= @event.categories[i].name %> </h2>
+              <h2 class= "font_dance_category " id="dance_color<%= i.id %>"><%= i.name %> </h2>
             </div>
           <% end %>
       </div>
