@@ -25,16 +25,16 @@
                     <p><%= flash[:error] %></p>
                   </div>
                 <% end %>
-                <p class="amount">
 
                   <% if @dancer == "true" %>
                     <p>Tu vas t'inscrire en tant que danseur.</p>  
                   <% else %>    
                     <p>Tu vas t'inscrire en tant que spectateur.</p>
                   <% end %>
-
+                <p>ps : le code c'est 4242424242....</p>
+                <p>avec date d'exp future et code de conf a 3 chiffres</p>
+                <p class="amount">
                   <i class="text-danger">prix a payer: <%= @amount/100 %> €</i>
-
                 </p>
               </article>
             <%= hidden_field_tag :categories , @categories %>
