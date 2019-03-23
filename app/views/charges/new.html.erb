@@ -20,14 +20,16 @@
   </header>
   <body>
 	
-<%= render 'card_charge'%>
+    <%= render 'card_charge'%>
 
     <%= render 'layouts/flash'%>
     <%= yield %>
+
   </body>
-  <footer>
+
   <%= render "layouts/footer"  %>
-</footer>
-<%= javascript_include_tag('vendor.min.js') %>
-    <%= javascript_include_tag('app.js') %>
+
+  <%= javascript_include_tag('vendor.min.js') %>
+  <%= javascript_include_tag('app.js') %>
+  
 </html>

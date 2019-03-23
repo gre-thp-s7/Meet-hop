@@ -1,48 +1,54 @@
-<section>
-
-<div class="col-md-6" data-aos="fade-up">
-  <div class="card rising">
-    <a href="" class="card-img-container d-flex" style= 'max-height: 350px; align-items: center; justify-content: center'>
- 
-      <h5 class="card-footer card-title"><%= @event.name%></h5>
-    </a>
-    <div class="card-body">
-      <p>Le 
-      <%= l(@event.start_date, format: :short ) %> à <%= @event.city_name %></p>
-      <p>Organisé par <%= @event.promoter.first_name %> <%= @event.promoter.last_name %>.</p>
-      <p>Prix public : <%= @event.spectator_price %> €</p>
-      <p>Prix danseur : <%= @event.dancer_price %> €</p>
-
-<%= form_tag(:controller => "registrations", :action => "create") do %>
-  <article>
-    <% if flash[:error].present? %>
-      <div id="error_explanation">
-        <p><%= flash[:error] %></p>
+<section style="padding-bottom: 30px; padding-top: 130px">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
       </div>
-    <% end %>
-    <p class="amount">
+      <div class="col-md-6" data-aos="fade-up">
+        <div class="card rising">
 
-      <% if @dancer == "true" %>
-        <p>Tu t'es inscrit en tant que danseur.</p>  
-      <% else %>    
-        <p>Tu t'es inscrit en tant que spectateur.</p>
-      <% end %>
+          <div class="card-img-container d-flex" style= 'max-height: 350px; align-items: center; justify-content: center'>
+ 
+            <h5 class="card-title font-weight-bold text-dark"><%= @event.name%></h5>
+          </div>
 
-      <i>prix a payer: <%= @amount/100 %> €</i>
+          <div class="card-body text-center" >
+            <p>Le 
+            <%= l(@event.start_date, format: :short ) %> à <%= @event.city_name %></p>
+            <p>Organisé par <%= @event.promoter.first_name %> <%= @event.promoter.last_name %>.</p>
+            <p>Prix public : <%= @event.spectator_price %> €</p>
+            <p>Prix danseur : <%= @event.dancer_price %> €</p>
 
-    </p>
-  </article>
-<%= hidden_field_tag :categories , @categories %>
-<%= hidden_field_tag :dancer , @dancer %>
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-description="Inscription à l'évènement"
-          data-amount="<%= @amount %>"
-          data-currency="EUR"
-          data-locale="fr"></script>
-<% end %>
+            <%= form_tag(:controller => "registrations", :action => "create") do %>
+              <article>
+                <% if flash[:error].present? %>
+                  <div id="error_explanation">
+                    <p><%= flash[:error] %></p>
+                  </div>
+                <% end %>
+                <p class="amount">
 
+                  <% if @dancer == "true" %>
+                    <p>Tu vas t'inscrire en tant que danseur.</p>  
+                  <% else %>    
+                    <p>Tu vas t'inscrire en tant que spectateur.</p>
+                  <% end %>
+
+                  <i class="text-danger">prix a payer: <%= @amount/100 %> €</i>
+
+                </p>
+              </article>
+            <%= hidden_field_tag :categories , @categories %>
+            <%= hidden_field_tag :dancer , @dancer %>
+              <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                      data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                      data-description="Inscription à l'évènement"
+                      data-amount="<%= @amount %>"
+                      data-currency="EUR"
+                      data-locale="fr"></script>
+            <% end %>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
 </section>
